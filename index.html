@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allair International Travels &amp; Tours — Putalisadak, Kathmandu</title>
+  <meta name="description" content="Nepal's leading travel agency at Star Mall, Putalisadak. Student airfares with 45 kg baggage, worldwide air ticketing, Everest helicopter tours, and curated international holiday packages." />
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts: DM Serif + Space Grotesk + Space Mono (HUD labels) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Lenis Smooth Scroll & GSAP -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- DRIBBBLE-ACCURATE LINE-ART AVIATION LOADER          -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="preloader" class="preloader" aria-label="Loading Allair International">
+  <div class="preloader-inner">
+
+    <!-- Plane + Speed Lines (matches Dribbble GIF layout) -->
+    <div class="flight-scene" aria-hidden="true">
+
+      <!-- Speed dashes to the LEFT of plane (like in the GIF) -->
+      <div class="speed-dashes">
+        <span class="sd sd-1"></span>
+        <span class="sd sd-2"></span>
+        <span class="sd sd-3"></span>
+        <span class="sd sd-4"></span>
+        <span class="sd sd-5"></span>
+      </div>
+
+      <!-- Line-Art Commercial Jetliner (stroke-only, no fill = matches GIF) -->
+      <div class="line-jet" id="preloader-plane">
+        <svg class="line-jet-svg" viewBox="0 0 260 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tail Horizontal Stabilizer -->
+          <path d="M 32 50 L 8 42 C 6 41 6 37 10 37 L 38 43" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Vertical Tail Fin -->
+          <path d="M 40 44 L 22 12 C 20 8 34 7 44 11 L 58 44" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Tail Fin Accent (brand orange stripe) -->
+          <path d="M 28 28 L 38 12 C 40 11 45 12 47 14 L 38 28 Z" fill="#F05A1A" stroke="none"/>
+          <!-- Main Fuselage -->
+          <path d="M 40 44 C 38 36 52 33 70 33 L 190 33 C 220 33 242 40 246 50 C 242 60 216 65 188 65 L 64 65 C 48 65 38 56 40 44 Z" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Main Under-Wing Engine Pod -->
+          <rect x="128" y="62" width="32" height="10" rx="5" stroke="currentColor" stroke-width="2.8"/>
+          <!-- Main Wing (lower) -->
+          <path d="M 115 56 L 86 90 C 82 96 96 98 104 94 L 142 58" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Main Wing (upper) -->
+          <path d="M 126 38 L 140 12 C 142 8 160 9 164 14 L 172 38" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Cockpit window -->
+          <path d="M 215 38 C 228 41 238 46 240 50 L 214 50 Z" stroke="currentColor" stroke-width="2.4" fill="none"/>
+          <!-- Passenger window row (oval portholes, exactly like GIF) -->
+          <g stroke="none">
+            <ellipse cx="86"  cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+            <ellipse cx="99"  cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+            <ellipse cx="112" cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+            <ellipse cx="125" cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+            <ellipse cx="138" cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+            <ellipse cx="151" cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+            <ellipse cx="164" cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+            <ellipse cx="177" cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+            <ellipse cx="190" cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+            <ellipse cx="203" cy="49" rx="3.5" ry="5" fill="currentColor" opacity="0.85"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Logo & Brand (below the plane) -->
+    <div class="pl-brand">
+      <div class="pl-logo-wrap">
+        <img src="logo.png" alt="Allair International Travels & Tours logo" />
+      </div>
+      <div class="pl-brand-info">
+        <p class="pl-brand-name">Allair International</p>
+        <p class="pl-brand-sub">TRAVELS &amp; TOURS · PUTALISADAK, KATHMANDU</p>
+      </div>
+    </div>
+
+    <!-- Progress Bar & Percent Counter -->
+    <div class="pl-progress-wrap">
+      <div class="pl-bar-track">
+        <div id="preloader-progress-fill" class="pl-bar-fill"></div>
+      </div>
+      <div class="pl-progress-meta">
+        <span id="preloader-status" class="pl-status">Preparing flight schedules...</span>
+        <span class="pl-pct"><span id="preloader-percent">0</span>%</span>
+      </div>
+    </div>
+
+    <!-- Skip button -->
+    <button id="preloader-skip" class="pl-skip" type="button" onclick="dismissPreloader()">
+      Skip <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+
+  </div>
+</div>
+
+<!-- Scroll Progress Bar (spragadheeshraj style) -->
+<div id="scroll-progress-line" aria-hidden="true"></div>
+
+<!-- Custom Interactive Cursor Follower -->
+<div id="custom-cursor" aria-hidden="true"></div>
+<div id="custom-cursor-dot" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- NAV                                                 -->
+<!-- ═══════════════════════════════════════════════════ -->
+<nav id="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Brand -->
+      <a href="#" class="nav-logo" aria-label="Allair International — Home">
+        <div class="nav-logo-badge">
+          <img src="logo.png" alt="Allair International Travels & Tours logo" />
+        </div>
+        <div class="nav-logo-text" aria-hidden="true">
+          <span class="brand-name">Allair International</span>
+          <span class="brand-sub">Travels &amp; Tours Pvt. Ltd.</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#routes">Routes</a></li>
+        <li><a href="#student">Student Desk <span class="nav-badge-pill">46kg</span></a></li>
+        <li><a href="#tours">Packages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Right actions -->
+      <div class="nav-cta">
+        <!-- Live Desk Indicator -->
+        <div class="nav-status-pill" title="Putalisadak Office Open">
+          <span class="status-dot"></span>
+          <span>Desk Open</span>
+        </div>
+
+        <!-- Theme Toggler -->
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" title="Switch theme (Light / Dark)" onclick="toggleTheme()">
+          <span class="theme-toggle-track">
+            <span class="theme-icon theme-sun" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+            </span>
+            <span class="theme-icon theme-moon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </span>
+            <span class="theme-thumb" aria-hidden="true"></span>
+          </span>
+        </button>
+
+        <!-- Currency switcher -->
+        <div class="currency-strip" role="group" aria-label="Currency selector">
+          <button class="curr-btn active" data-currency="NPR" onclick="setCurrency('NPR')">NPR</button>
+          <button class="curr-btn" data-currency="USD" onclick="setCurrency('USD')">USD</button>
+          <button class="curr-btn" data-currency="AUD" onclick="setCurrency('AUD')">AUD</button>
+          <button class="curr-btn" data-currency="GBP" onclick="setCurrency('GBP')">GBP</button>
+        </div>
+
+        <!-- WhatsApp CTA -->
+        <a href="https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20am%20inquiring%20about%20travel%20ticketing." target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-wa-btn" data-magnetic>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobile-nav-toggle" class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileNav()">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-nav-drawer" class="mobile-drawer" aria-hidden="true">
+  <div class="mobile-drawer-inner">
+    <div class="mobile-drawer-header">
+      <div class="nav-logo">
+        <div class="nav-logo-badge">
+          <img src="logo.png" alt="Allair International logo" />
+        </div>
+        <div class="nav-logo-text">
+          <span class="brand-name">Allair International</span>
+          <span class="brand-sub">Putalisadak, Kathmandu</span>
+        </div>
+      </div>
+      <button class="mobile-drawer-close" aria-label="Close menu" onclick="toggleMobileNav()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="#routes" onclick="toggleMobileNav()">International Routes</a></li>
+      <li><a href="#student" onclick="toggleMobileNav()">Student Aviation Desk <span class="nav-badge-pill">46 kg</span></a></li>
+      <li><a href="#tours" onclick="toggleMobileNav()">Holiday Tour Packages</a></li>
+      <li><a href="#contact" onclick="toggleMobileNav()">Contact &amp; Location</a></li>
+    </ul>
+
+    <div class="mobile-drawer-footer">
+      <div class="mobile-controls-row">
+        <!-- Theme Toggler Mobile -->
+        <button id="mobile-theme-toggle" class="theme-toggle mobile-theme-toggle" type="button" aria-label="Toggle color theme" onclick="toggleTheme()">
+          <span class="theme-toggle-track">
+            <span class="theme-icon theme-sun" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            </span>
+            <span class="theme-icon theme-moon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </span>
+            <span class="theme-thumb" aria-hidden="true"></span>
+          </span>
+          <span class="mobile-theme-text">Mode</span>
+        </button>
+
+        <!-- Currency strip -->
+        <div class="currency-strip mobile-curr-strip" role="group" aria-label="Currency selector">
+          <button class="curr-btn active" data-currency="NPR" onclick="setCurrency('NPR')">NPR</button>
+          <button class="curr-btn" data-currency="USD" onclick="setCurrency('USD')">USD</button>
+          <button class="curr-btn" data-currency="AUD" onclick="setCurrency('AUD')">AUD</button>
+          <button class="curr-btn" data-currency="GBP" onclick="setCurrency('GBP')">GBP</button>
+        </div>
+      </div>
+      <a href="https://wa.me/9779762117199" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center; margin-top: 1rem;">
+        Chat on WhatsApp (+977 9762117199)
+      </a>
+      <div class="mobile-drawer-meta">
+        <span>Star Mall, 3rd Floor, Putalisadak, Kathmandu</span>
+        <span>Govt. Regd: 284910/078/079</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- HERO — split grid                                   -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-grid">
+
+    <!-- Left: typography + CTA -->
+    <div class="hero-left container" style="padding-right: clamp(1.25rem, 4vw, 3rem)">
+      <div class="hero-content">
+
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-line" aria-hidden="true"></span>
+          <span class="t-label" style="color: var(--c-accent)">Putalisadak · Kathmandu · Nepal</span>
+        </div>
+
+        <h1 class="hero-headline reveal-text">
+          Where will you<br/>
+          fly <em>next?</em>
+        </h1>
+
+        <p class="hero-sub reveal reveal-delay-1">
+          Specialized student airfares with 40–46 kg baggage, worldwide air ticketing, Everest helicopter expeditions, and curated international holiday packages — all from our Star Mall office.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-primary btn-lg" data-magnetic>
+            Check fares
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#routes" class="btn btn-outline btn-lg" data-magnetic>View routes</a>
+        </div>
+
+
+
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <span class="dot" aria-hidden="true"></span>
+            Desk open · Putalisadak
+          </div>
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Govt. Regd. #284910
+          </div>
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><path d="M8 7V5a2 2 0 0 0-4 0v2"/></svg>
+            45 kg student baggage
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right: video panel -->
+    <div class="hero-right" aria-hidden="true">
+      <video autoplay muted loop playsinline role="none">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_091828_e240eb17-6edc-4129-ad9d-98678e3fd238.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-right-overlay"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- BOOKING BAR                                         -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="booking" aria-label="Flight search">
+  <div class="booking-bar-wrap">
+    <!-- Service tabs -->
+    <div class="booking-tabs" role="tablist" aria-label="Booking service type">
+      <button role="tab" aria-selected="true"  class="booking-tab active" data-tab="flights"  onclick="switchTab('flights')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        Flights
+      </button>
+      <button role="tab" aria-selected="false" class="booking-tab" data-tab="student"  onclick="switchTab('student')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Student Desk
+        <span class="tab-badge">45 kg</span>
+      </button>
+      <button role="tab" aria-selected="false" class="booking-tab" data-tab="heli"     onclick="switchTab('heli')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l4 6-12 6V3zm0 0l-4 6 12 6"/><path d="M12 15v6"/></svg>
+        Everest Heli
+      </button>
+      <button role="tab" aria-selected="false" class="booking-tab" data-tab="tours"    onclick="switchTab('tours')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Holiday Packages
+      </button>
+      <button role="tab" aria-selected="false" class="booking-tab" data-tab="visa"     onclick="switchTab('visa')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Visa Itinerary
+      </button>
+    </div>
+
+    <!-- Search form card -->
+    <div class="booking-form-wrap">
+      <form id="search-form" class="booking-form" aria-label="Flight search form">
+
+        <!-- FROM -->
+        <div class="booking-field">
+          <label for="s-origin">From</label>
+          <input id="s-origin" type="text" value="Kathmandu (KTM)" list="airport-opts" autocomplete="off" oninput="updateLocationHint('s-origin', 's-origin-hint')" />
+          <span id="s-origin-hint" class="booking-field-hint">Tribhuvan Int'l · Nepal</span>
+        </div>
+
+        <!-- SWAP BUTTON -->
+        <button type="button" class="booking-swap" aria-label="Swap origin and destination" title="Swap cities" onclick="swapLocations()">
+          <svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24' aria-hidden='true'><path d='M7 16V4m0 0L3 8m4-4 4 4'/><path d='M17 8v12m0 0 4-4m-4 4-4-4'/></svg>
+        </button>
+
+        <!-- TO -->
+        <div class="booking-field">
+          <label for="s-destination">To</label>
+          <input id="s-destination" type="text" value="Sydney (SYD)" list="airport-opts" autocomplete="off" oninput="updateLocationHint('s-destination', 's-destination-hint')" />
+          <span id="s-destination-hint" class="booking-field-hint">Kingsford Smith · Australia</span>
+        </div>
+
+        <!-- Universal Airport & City Datalist -->
+        <datalist id="airport-opts">
+          <option value="Kathmandu (KTM) — Nepal">
+          <option value="Sydney (SYD) — Australia">
+          <option value="Melbourne (MEL) — Australia">
+          <option value="Dallas / Texas (DFW) — USA">
+          <option value="Tokyo Narita (NRT) — Japan (Direct)">
+          <option value="London Heathrow (LHR) — UK">
+          <option value="Toronto Pearson (YYZ) — Canada">
+          <option value="Dubai (DXB) — UAE">
+          <option value="Bangkok Suvarnabhumi (BKK) — Thailand">
+          <option value="New York (JFK) — USA">
+          <option value="Seoul Incheon (ICN) — South Korea">
+          <option value="Everest Base Camp (EBC) — Heli Tour">
+          <option value="Pokhara (PKR) — Nepal">
+        </datalist>
+
+        <!-- DEPART -->
+        <div class="booking-field">
+          <label for="s-date">Depart</label>
+          <input id="s-date" type="date" value="2026-10-01" />
+          <span class="booking-field-hint">Flexible ± 3 days</span>
+        </div>
+
+        <!-- CLASS -->
+        <div class="booking-field" style="border-right: none">
+          <label for="s-cabin">Class &amp; baggage</label>
+          <select id="s-cabin">
+            <option value="Economy Class">1 Adult — Economy</option>
+            <option value="Student Fare (+45 kg Baggage)">1 Student — 45 kg Special</option>
+            <option value="Business Class">1 Adult — Business</option>
+            <option value="Helicopter Window Seat">Everest Heli Sharing</option>
+            <option value="Embassy Flight Itinerary">Visa Itinerary</option>
+          </select>
+          <span class="booking-field-hint">Best guaranteed rate</span>
+        </div>
+
+        <!-- SEARCH BUTTON -->
+        <button type="submit" class="booking-submit">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Search
+        </button>
+
+      </form>
+
+      <!-- Live Flight Fares & Results Board -->
+      <div id="live-results-tray" class="live-results-tray" aria-live="polite" style="display: none;"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- STATS ROW                                           -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section-sm" aria-label="Agency statistics">
+  <div class="container">
+    <div class="stats-row reveal" data-stagger>
+      <div class="stat-cell">
+        <span class="stat-number reveal-count" data-target="12" data-suffix="+" style="color: var(--c-accent)">12+</span>
+        <span class="stat-label">Years of operation</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number reveal-count" data-target="40" data-suffix="+">40+</span>
+        <span class="stat-label">International routes</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number reveal-count" data-target="8000" data-suffix="+">8,000+</span>
+        <span class="stat-label">Travelers served</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number reveal-count" data-target="45" data-suffix=" kg">45 kg</span>
+        <span class="stat-label">Student baggage allowance</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number" style="color: var(--c-green)">24 / 7</span>
+        <span class="stat-label">WhatsApp helpline</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- STUDENT DESK — compact                              -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="student" class="section-sm" style="background: var(--c-bg-alt); border-top: 1px solid var(--c-rule); border-bottom: 1px solid var(--c-rule);" aria-label="Student travel desk">
+  <div class="container">
+
+    <div class="student-wrap reveal">
+
+      <!-- Left: header + features -->
+      <div class="student-left" data-reveal="left">
+
+        <span class="section-label" style="margin-bottom:.875rem">Student Aviation Desk</span>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.625rem,3vw,2.25rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:.875rem">
+          Fly with all your<br/>luggage. No surprises.
+        </h2>
+        <p style="font-size:.875rem;color:var(--c-ink-2);line-height:1.7;font-weight:300;max-width:44ch;margin-bottom:1.75rem">
+          Direct airline allocations of 40–46 kg for students heading to Australia, Japan, UK, USA &amp; Canada — at standard economy fares.
+        </p>
+
+        <!-- Compact feature pills -->
+        <ul class="student-features" aria-label="Benefits">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            2 × 23 kg checked bags (46 kg total)
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Embassy-verified PNR flight itineraries
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            1 free date change if visa is delayed
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Transit hotel on layovers over 8 hours
+          </li>
+        </ul>
+
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem">
+          <button onclick="openModal('sydney', true)" class="btn btn-accent" data-magnetic>
+            View student fares
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <a href="https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20am%20a%20student%20inquiring%20about%20discounted%20student%20fares%20with%2045kg%20baggage." target="_blank" rel="noopener" class="btn btn-outline" data-magnetic>WhatsApp</a>
+        </div>
+
+      </div>
+
+      <!-- Right: compact fare table -->
+      <div class="student-right" data-reveal="right">
+
+        <div class="student-fare-table">
+          <div class="sft-head">
+            <span>Route</span>
+            <span>Est. fare</span>
+          </div>
+          <div class="sft-row" onclick="openModal('sydney',true)" role="button" tabindex="0">
+            <div>
+              <span class="sft-dest">KTM → Sydney / Melbourne</span>
+              <span class="sft-sub">Singapore Airlines · 46 kg</span>
+            </div>
+            <span class="sft-price" data-usd="860">रू 116,100</span>
+          </div>
+          <div class="sft-row" onclick="openModal('tokyo',true)" role="button" tabindex="0">
+            <div>
+              <span class="sft-dest">KTM → Tokyo Narita</span>
+              <span class="sft-sub" style="color:var(--c-green)">Nepal Airlines · Nonstop · 40 kg</span>
+            </div>
+            <span class="sft-price" data-usd="680">रू 91,800</span>
+          </div>
+          <div class="sft-row" onclick="openModal('london',true)" role="button" tabindex="0">
+            <div>
+              <span class="sft-dest">KTM → London Heathrow</span>
+              <span class="sft-sub">Qatar / Turkish · 2 × 23 kg</span>
+            </div>
+            <span class="sft-price" data-usd="820">रू 110,700</span>
+          </div>
+          <div class="sft-row" onclick="openModal('dallas',true)" role="button" tabindex="0">
+            <div>
+              <span class="sft-dest">KTM → Dallas Fort Worth</span>
+              <span class="sft-sub">Qatar Airways · 2 × 23 kg</span>
+            </div>
+            <span class="sft-price" data-usd="1180">रू 159,300</span>
+          </div>
+          <div class="sft-row sft-row--last" onclick="openModal('toronto',true)" role="button" tabindex="0">
+            <div>
+              <span class="sft-dest">KTM → Toronto / Vancouver</span>
+              <span class="sft-sub">Qatar / Air India · 46 kg</span>
+            </div>
+            <span class="sft-price" data-usd="1220">रू 164,700</span>
+          </div>
+          <div class="sft-foot">
+            <span>Tap any route to open fare details &amp; book via WhatsApp</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ROUTES CATALOG                                      -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="routes" class="section" aria-label="International flight routes">
+  <div class="container">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.5rem;margin-bottom:clamp(2rem,4vw,3.5rem)">
+      <div class="section-header reveal" style="margin-bottom:0">
+        <span class="section-label">Worldwide Air Ticketing</span>
+        <h2 class="section-h2">International routes</h2>
+        <p class="section-desc" style="max-width:42ch">Confirmed allocations on Singapore Airlines, Qatar Airways, Nepal Airlines, Emirates, and Korean Air.</p>
+      </div>
+
+      <!-- Filter buttons -->
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem" role="group" aria-label="Filter routes by region" class="reveal reveal-delay-1">
+        <button class="btn btn-sm filter-btn" data-cat="all"       onclick="filterRoutes('all')"       style="background:var(--c-ink);color:#fff;border:1.5px solid var(--c-ink)">All</button>
+        <button class="btn btn-sm btn-outline filter-btn" data-cat="australia" onclick="filterRoutes('australia')">Australia</button>
+        <button class="btn btn-sm btn-outline filter-btn" data-cat="asia"      onclick="filterRoutes('asia')">Asia</button>
+        <button class="btn btn-sm btn-outline filter-btn" data-cat="uk"        onclick="filterRoutes('uk')">UK & EU</button>
+        <button class="btn btn-sm btn-outline filter-btn" data-cat="usa"       onclick="filterRoutes('usa')">USA & CA</button>
+        <button class="btn btn-sm btn-outline filter-btn" data-cat="gulf"      onclick="filterRoutes('gulf')">Gulf</button>
+      </div>
+    </div>
+
+    <div class="card-grid-3 reveal" data-stagger>
+
+      <article class="route-card" data-region="australia" onclick="openModal('sydney')" tabindex="0" role="button" aria-label="Sydney, Australia flight details">
+        <div>
+          <span class="route-tag accent">Student favourite</span>
+          <span class="route-tag" style="margin-top:.5rem">KTM → SYD</span>
+        </div>
+        <span class="card-route-line">Singapore / Malaysia · 46 kg</span>
+        <h3 class="card-city">Sydney, Australia</h3>
+        <p class="card-body">Daily 1-stop departures via Singapore Changi or Kuala Lumpur. Student 46 kg baggage standard. All prices include airport taxes.</p>
+        <div class="card-footer">
+          <div>
+            <div class="card-price-label">From</div>
+            <div class="card-price" data-usd="890">रू 120,150</div>
+          </div>
+          <div class="card-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </div>
+      </article>
+
+      <article class="route-card" data-region="asia" onclick="openModal('tokyo')" tabindex="0" role="button" aria-label="Tokyo, Japan flight details">
+        <div>
+          <span class="route-tag green">Nonstop direct</span>
+          <span class="route-tag" style="margin-top:.5rem">KTM → NRT</span>
+        </div>
+        <span class="card-route-line">Nepal Airlines RA-413 · 8 h 15 m</span>
+        <h3 class="card-city">Tokyo Narita, Japan</h3>
+        <p class="card-body">Fly direct — no layovers — on Nepal Airlines A330-200. 40 kg baggage included. Korean Air alternate via Seoul.</p>
+        <div class="card-footer">
+          <div>
+            <div class="card-price-label">From</div>
+            <div class="card-price" data-usd="680">रू 91,800</div>
+          </div>
+          <div class="card-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </div>
+      </article>
+
+      <article class="route-card" data-region="uk" onclick="openModal('london')" tabindex="0" role="button" aria-label="London, UK flight details">
+        <div>
+          <span class="route-tag blue">2 pieces · 46 kg</span>
+          <span class="route-tag" style="margin-top:.5rem">KTM → LHR</span>
+        </div>
+        <span class="card-route-line">Qatar / Turkish · Fast transit</span>
+        <h3 class="card-city">London Heathrow, UK</h3>
+        <p class="card-body">Quick 1 h 50 m transit via Doha or Istanbul. Student 2-piece checked luggage standard on Qatar Airways.</p>
+        <div class="card-footer">
+          <div>
+            <div class="card-price-label">From</div>
+            <div class="card-price" data-usd="820">रू 110,700</div>
+          </div>
+          <div class="card-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </div>
+      </article>
+
+      <article class="route-card" data-region="usa" onclick="openModal('dallas')" tabindex="0" role="button" aria-label="Dallas, USA flight details">
+        <div>
+          <span class="route-tag">KTM → DFW</span>
+        </div>
+        <span class="card-route-line">Qatar Airways · 2 × 23 kg</span>
+        <h3 class="card-city">Dallas Fort Worth, USA</h3>
+        <p class="card-body">2 × 23 kg checked bags standard. A350-1000 widebody via Doha Hamad. Also covering Houston, Chicago &amp; NYC connect.</p>
+        <div class="card-footer">
+          <div>
+            <div class="card-price-label">From</div>
+            <div class="card-price" data-usd="1180">रू 159,300</div>
+          </div>
+          <div class="card-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </div>
+      </article>
+
+      <article class="route-card" data-region="gulf" onclick="openModal('dubai')" tabindex="0" role="button" aria-label="Dubai, UAE flight details">
+        <div>
+          <span class="route-tag">KTM → DXB</span>
+        </div>
+        <span class="card-route-line">FlyDubai / Emirates · 4 daily</span>
+        <h3 class="card-city">Dubai, UAE</h3>
+        <p class="card-body">4 daily departures. 4 h 45 m nonstop. Perfect transit hub for Europe, North America, and short holiday stopovers.</p>
+        <div class="card-footer">
+          <div>
+            <div class="card-price-label">From</div>
+            <div class="card-price" data-usd="380">रू 51,300</div>
+          </div>
+          <div class="card-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </div>
+      </article>
+
+      <article class="route-card" data-region="asia" onclick="openModal('bangkok')" tabindex="0" role="button" aria-label="Bangkok, Thailand flight details">
+        <div>
+          <span class="route-tag green">3 h 30 m nonstop</span>
+          <span class="route-tag" style="margin-top:.5rem">KTM → BKK</span>
+        </div>
+        <span class="card-route-line">Thai Lion / Nepal Air</span>
+        <h3 class="card-city">Bangkok, Thailand</h3>
+        <p class="card-body">Closest international hub. Popular for holiday packages, medical tourism, and onward Australian connections.</p>
+        <div class="card-footer">
+          <div>
+            <div class="card-price-label">From</div>
+            <div class="card-price" data-usd="290">रू 39,150</div>
+          </div>
+          <div class="card-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- INSPIRATION / PHILOSOPHY (Middle of site — Scrub Anim)-->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="punchline-section" id="inspiration" aria-label="Aviation Philosophy">
+  <div class="container">
+    <div class="punchline-label">// INSPIRATION &amp; HORIZONS</div>
+    <div class="punchline-text" id="punchline-text">
+      <!-- Animated by ScrollTrigger character scrub -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- HOLIDAY PACKAGES                                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="tours" class="section" aria-label="Holiday tour packages">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="section-label">Curated Holidays</span>
+      <h2 class="section-h2">All-inclusive packages</h2>
+      <p class="section-desc">Flights, 4-star hotels, daily breakfast, guided tours, and visa processing — one price, no hidden costs.</p>
+    </div>
+
+    <div class="card-grid-4 reveal" data-stagger>
+
+      <article class="tour-card" onclick="window.open('https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Dubai%205D/4N%20holiday%20package.','_blank')" tabindex="0" role="button">
+        <span class="tour-nights t-mono">5 days · 4 nights</span>
+        <h3 class="tour-dest">Dubai Grand<br/>Experience</h3>
+        <ul class="tour-includes" aria-label="Package inclusions">
+          <li>Desert Safari + BBQ Dinner</li>
+          <li>Burj Khalifa 124th Floor</li>
+          <li>Dubai Mall &amp; Marina Dhow</li>
+          <li>UAE Tourist Visa included</li>
+        </ul>
+        <div class="tour-price">
+          <span>Package price per person</span>
+          <span data-usd="590">रू 79,650</span>
+        </div>
+      </article>
+
+      <article class="tour-card" onclick="window.open('https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Thailand%205D/4N%20holiday%20package.','_blank')" tabindex="0" role="button">
+        <span class="tour-nights t-mono">5 days · 4 nights</span>
+        <h3 class="tour-dest">Amazing Thailand<br/>Bangkok + Pattaya</h3>
+        <ul class="tour-includes">
+          <li>Coral Island speedboat tour</li>
+          <li>Alcazar Cabaret Show</li>
+          <li>2N Pattaya + 2N Bangkok</li>
+          <li>Daily buffet breakfast</li>
+        </ul>
+        <div class="tour-price">
+          <span>Package price per person</span>
+          <span data-usd="460">रू 62,100</span>
+        </div>
+      </article>
+
+      <article class="tour-card" onclick="window.open('https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Bali%206D/5N%20holiday%20package.','_blank')" tabindex="0" role="button">
+        <span class="tour-nights t-mono">6 days · 5 nights</span>
+        <h3 class="tour-dest">Bali Tropical<br/>Paradise</h3>
+        <ul class="tour-includes">
+          <li>Ubud Rice Terraces + Tanah Lot</li>
+          <li>Nusa Penida West Tour</li>
+          <li>Luxury resort with pool</li>
+          <li>Private English-speaking driver</li>
+        </ul>
+        <div class="tour-price">
+          <span>Package price per person</span>
+          <span data-usd="680">रू 91,800</span>
+        </div>
+      </article>
+
+      <article class="tour-card" onclick="window.open('https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Japan%207D/6N%20holiday%20package.','_blank')" tabindex="0" role="button">
+        <span class="tour-nights t-mono">7 days · 6 nights</span>
+        <h3 class="tour-dest">Japan Highlights<br/>&amp; Fuji</h3>
+        <ul class="tour-includes">
+          <li>Tokyo Skytree + Mount Fuji</li>
+          <li>Kyoto Kinkaku-ji Temple</li>
+          <li>Shinkansen Bullet Train</li>
+          <li>Embassy visa assistance</li>
+        </ul>
+        <div class="tour-price">
+          <span>Package price per person</span>
+          <span data-usd="1480">रू 199,800</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TESTIMONIALS                                        -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section" style="background: var(--c-bg-alt)" aria-label="Customer testimonials">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <span class="section-label centered">Traveller reviews</span>
+      <h2 class="section-h2">Trusted by thousands</h2>
+    </div>
+
+    <div class="testimonial-grid reveal" data-stagger>
+
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"I was flying to Sydney for my February intake and worried about baggage limits. The Allair team at Star Mall Putalisadak arranged Singapore Airlines with 46 kg luggage at the exact same rate as a standard 30 kg ticket. A genuine lifesaver."</p>
+        <div class="testimonial-author">
+          <strong>Suman Shrestha</strong>
+          <span>Student, University of Sydney · Sydney route</span>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"Took the Everest helicopter tour with my parents. Landing at Kalapatthar right in front of Mount Everest was something I'll carry with me forever. Everything ran on time, the oxygen kits were there, and breakfast was wonderful."</p>
+        <div class="testimonial-author">
+          <strong>Prerana Adhikari</strong>
+          <span>Kathmandu · Everest Heli Tour</span>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"Booked Nepal Airlines direct to Tokyo Narita through Allair Travels. Instant WhatsApp responses even late at night, seamless ticketing, and they guided me on the 40 kg baggage process step by step. Will book again."</p>
+        <div class="testimonial-author">
+          <strong>Rohan KC</strong>
+          <span>Tokyo, Japan · KTM → NRT Direct</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FAQ                                                 -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section class="section" aria-label="Frequently asked questions">
+  <div class="container" style="max-width: 860px">
+    <div class="section-header centered reveal">
+      <span class="section-label centered">FAQ</span>
+      <h2 class="section-h2">Common questions</h2>
+    </div>
+
+    <div class="faq-list reveal reveal-delay-1">
+
+      <details name="faq" class="faq-item" open>
+        <summary>
+          How does the 40–46 kg student baggage allowance work?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <p class="faq-body">
+          As an authorised student ticketing agency, we issue student-category tickets with partnering airlines. When you provide a valid Student Visa, CoE, or University Offer Letter, the airline grants 2 pieces of 23 kg checked bags (46 kg total) — rather than the standard 30 kg single allowance — at the same fare.
+        </p>
+      </details>
+
+      <details name="faq" class="faq-item">
+        <summary>
+          Can I get a verified flight reservation for my visa application?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <p class="faq-body">
+          Yes. We generate genuine, airline-verifiable flight reservations with live PNR numbers. This satisfies VFS Global, Japan Embassy, US Consulates, and Australian Department of Home Affairs requirements — without purchasing a non-refundable ticket before your visa is approved. Issued within 30 minutes.
+        </p>
+      </details>
+
+      <details name="faq" class="faq-item">
+        <summary>
+          What happens if weather disrupts the Everest helicopter flight?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <p class="faq-body">
+          Safety comes first in the Himalayas. If poor visibility or severe mountain weather prevents flying, we reschedule to the next clear morning at no extra charge, or issue a full immediate refund — your choice.
+        </p>
+      </details>
+
+      <details name="faq" class="faq-item">
+        <summary>
+          What payment methods do you accept?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <p class="faq-body">
+          eSewa, Khalti, ConnectIPS, Fonepay QR, direct bank transfer, international SWIFT wire, Visa &amp; Mastercard, and cash at our Putalisadak head office.
+        </p>
+      </details>
+
+      <details name="faq" class="faq-item">
+        <summary>
+          Where exactly is your office?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <p class="faq-body">
+          Star Mall, 3rd Floor, Putalisadak, Kathmandu, Nepal — in the heart of Kathmandu's educational consultancy corridor. Open Sunday–Friday, 9:30 AM to 6:30 PM. WhatsApp available every day.
+        </p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- CONTACT                                             -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="contact" class="section" style="background: var(--c-bg-alt)" aria-label="Contact and inquiry">
+  <div class="container">
+    <div class="contact-split">
+
+      <!-- Info column -->
+      <div class="contact-info">
+        <div class="section-header reveal" style="margin-bottom: 0">
+          <span class="section-label">Get in touch</span>
+          <h2 class="section-h2">Visit us or send a message</h2>
+          <p class="section-desc">Our ticketing officers are ready with flight quotes, student concessions, and tour itineraries.</p>
+        </div>
+
+        <div class="contact-info-item reveal reveal-delay-1">
+          <div class="contact-info-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <strong>Head Office</strong>
+            <p>Star Mall, 3rd Floor, Putalisadak<br/>Kathmandu, Nepal</p>
+          </div>
+        </div>
+
+        <div class="contact-info-item reveal reveal-delay-2">
+          <div class="contact-info-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 10a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 7a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 14z" transform="scale(.85) translate(2,2)"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <strong>Phone &amp; WhatsApp</strong>
+            <p>+977 9762117199<br/>01-4516908 &nbsp;·&nbsp; 24 / 7 WhatsApp</p>
+          </div>
+        </div>
+
+        <div class="contact-info-item reveal reveal-delay-3">
+          <div class="contact-info-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <strong>Office Hours</strong>
+            <p>Sunday–Friday: 9:30 AM – 6:30 PM<br/><span style="color:var(--c-green)">WhatsApp available every day</span></p>
+          </div>
+        </div>
+
+        <a href="https://www.facebook.com/AllairTravel" target="_blank" rel="noopener" class="btn btn-outline reveal reveal-delay-3" style="width: fit-content; margin-block-start: 0.5rem">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook Page
+        </a>
+      </div>
+
+      <!-- Inquiry form -->
+      <div class="reveal reveal-delay-1">
+        <div class="form-panel">
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;letter-spacing:-.02em;margin-bottom:.5rem">Send an inquiry</h3>
+          <p class="t-body-sm" style="color:var(--c-ink-3);margin-bottom:1.75rem">Receive a personalised fare quote within 15 minutes.</p>
+
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="c-name">Full name</label>
+                <input id="c-name" type="text" required placeholder="Ramesh Thapa" autocomplete="name" />
+              </div>
+              <div class="form-field">
+                <label for="c-phone">Phone / WhatsApp</label>
+                <input id="c-phone" type="tel" required placeholder="+977 98XXXXXXXX" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="c-service">Service needed</label>
+                <select id="c-service">
+                  <option>Student Flight Ticket (45 kg Baggage)</option>
+                  <option>Worldwide Air Ticketing</option>
+                  <option>Everest Helicopter Tour</option>
+                  <option>Holiday Package (Dubai / Thailand / Bali / Japan)</option>
+                  <option>Embassy Visa Flight Itinerary</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="c-dest">Destination</label>
+                <input id="c-dest" type="text" placeholder="Sydney, Tokyo, Dallas…" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="c-note">Travel dates &amp; notes</label>
+              <textarea id="c-note" rows="3" placeholder="Preferred airlines, number of passengers, intake date, visa requirements…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center">
+              Send inquiry via WhatsApp
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FOOTER                                              -->
+<!-- ═══════════════════════════════════════════════════ -->
+<footer id="footer" class="main-footer" role="contentinfo">
+  <div class="container">
+
+    <!-- Quick Action / Drum Buttons Bar -->
+    <div class="footer-links-row">
+      <div class="footer-links-left">
+        <span class="f-badge"><span class="f-badge-dot"></span> Putalisadak Aviation Hub</span>
+        <div class="footer-links-eyebrow">Ready for departure?</div>
+        <p class="footer-links-sub">Star Mall, 3rd Floor, Putalisadak · Direct Ticketing &amp; Student Baggage Desk</p>
+      </div>
+
+      <div class="footer-links-buttons">
+        <a href="https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20am%20inquiring%20about%20travel%20ticketing." target="_blank" rel="noopener" class="footer-barrel-link" aria-label="WhatsApp Helpline">
+          <span class="fbl-drum-wrap" data-label="WhatsApp (+977 9762117199)"></span>
+          <span class="fbl-arrow">↗</span>
+        </a>
+        <a href="tel:+9779762117199" class="footer-barrel-link" aria-label="Call Direct Desk">
+          <span class="fbl-drum-wrap" data-label="Call 01-4516908"></span>
+          <span class="fbl-arrow">↗</span>
+        </a>
+        <a href="https://www.facebook.com/AllairTravel" target="_blank" rel="noopener" class="footer-barrel-link" aria-label="Facebook Page">
+          <span class="fbl-drum-wrap" data-label="Facebook"></span>
+          <span class="fbl-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main 4-Column Directory Grid -->
+    <div class="footer-grid">
+
+      <!-- Col 1: Brand & Accreditations -->
+      <div class="footer-brand">
+        <div class="footer-logo-badge">
+          <img src="logo.png" alt="Allair International Travels & Tours" />
+        </div>
+        <p class="footer-desc">
+          Authorized international agency in Star Mall, Putalisadak. Specializing in discounted student fares with 40–46 kg luggage, direct ticketing on premier airlines, and curated holiday expeditions.
+        </p>
+        <div class="footer-badges">
+          <div class="f-badge">
+            <span class="f-badge-dot"></span>
+            Govt. Regd: #284910/078/079
+          </div>
+          <div class="f-badge">
+            <span>Ministry of Tourism Approved</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Services -->
+      <div class="footer-col">
+        <h4>Aviation &amp; Student Desk</h4>
+        <ul>
+          <li><a href="#student">Student 46 kg Luggage Desk</a></li>
+          <li><a href="#routes">Australia Corridor (SYD / MEL)</a></li>
+          <li><a href="#routes">Tokyo Narita Nonstop (RA-413)</a></li>
+          <li><a href="#routes">London &amp; Europe Fast Transit</a></li>
+          <li><a href="#routes">USA &amp; Canada Student Fares</a></li>
+          <li><a href="#contact">Embassy Visa Flight Itineraries</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Packages -->
+      <div class="footer-col">
+        <h4>Holidays &amp; Tours</h4>
+        <ul>
+          <li><a href="#tours">Dubai Grand Tour (5D/4N)</a></li>
+          <li><a href="#tours">Amazing Thailand (Bangkok + Pattaya)</a></li>
+          <li><a href="#tours">Bali Tropical Island Escape</a></li>
+          <li><a href="#tours">Japan Sakura &amp; Mt. Fuji Tour</a></li>
+          <li><a href="#contact">Custom International Packages</a></li>
+          <li><a href="#contact">Group &amp; Corporate Travel</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Putalisadak Desk -->
+      <div class="footer-col">
+        <h4>Putalisadak Office</h4>
+        <div class="footer-office-box">
+          <div class="f-office-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <strong>Star Mall, 3rd Floor</strong>
+              <span>Putalisadak, Kathmandu, Nepal</span>
+            </div>
+          </div>
+          <div class="f-office-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <strong>Sun – Fri: 9:30 AM – 6:30 PM</strong>
+              <span>Saturday: WhatsApp Helpline</span>
+            </div>
+          </div>
+          <div class="f-office-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <a href="mailto:info@allairtravel.com" style="color:var(--c-blue)">info@allairtravel.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom Meta Bar -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p>&copy; 2026 Allair International Travels &amp; Tours Pvt. Ltd. All rights reserved.</p>
+        <span class="footer-ktm-clock" id="ktm-clock">Kathmandu, Nepal (NPT)</span>
+      </div>
+
+      <div class="footer-bottom-links">
+        <a href="#contact">Ticketing Terms</a>
+        <a href="#student">Student Baggage Policy</a>
+        <a href="#" onclick="if(window.__lenis){window.__lenis.scrollTo(0,{duration:1.4});}else{window.scrollTo({top:0,behavior:'smooth'});}return false;" style="color:var(--c-orange);font-weight:600">Back to Top ↑</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- BOOKING DIALOG (native <dialog>)                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<dialog id="booking-dialog" aria-labelledby="m-title">
+  <div class="dialog-panel">
+
+    <div class="dialog-header">
+      <div>
+        <p class="dialog-eyebrow" id="m-label">Flight Itinerary &amp; Fare Estimate</p>
+        <h2 class="dialog-title" id="m-title">Kathmandu → Sydney</h2>
+      </div>
+      <button class="dialog-close" onclick="closeModal()" aria-label="Close dialog">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="dialog-body">
+      <div class="dialog-info-row">
+        <span class="dialog-info-label">Airline</span>
+        <span class="dialog-info-value" id="m-airline">Singapore Airlines</span>
+      </div>
+      <div class="dialog-info-row">
+        <span class="dialog-info-label">Flight code &amp; aircraft</span>
+        <span class="dialog-info-value" id="m-code">SQ-441 · Boeing 787-9</span>
+      </div>
+      <div class="dialog-info-row">
+        <span class="dialog-info-label">Route</span>
+        <span class="dialog-info-value" id="m-route">KTM → SIN → SYD</span>
+      </div>
+      <div class="dialog-info-row">
+        <span class="dialog-info-label">Duration</span>
+        <span class="dialog-info-value" id="m-duration">13h 45m · 1 stop</span>
+      </div>
+      <div class="dialog-info-row">
+        <span class="dialog-info-label">Baggage allowance</span>
+        <span class="dialog-info-value" id="m-baggage">35 kg + 7 kg cabin</span>
+      </div>
+      <div class="dialog-info-row" style="border-bottom: none">
+        <span class="dialog-info-label">Fare type</span>
+        <span class="dialog-info-value" id="m-fare-type">Economy Standard</span>
+      </div>
+
+      <div class="dialog-price-row">
+        <div>
+          <div class="dialog-price-label">Estimated total fare</div>
+          <div style="font-size: .75rem; color: var(--c-ink-3); margin-top: .2rem">Includes all taxes &amp; airport surcharges</div>
+        </div>
+        <div class="dialog-price-value" id="m-price">रू 120,150</div>
+      </div>
+    </div>
+
+    <div class="dialog-actions">
+      <a id="m-wa-link" href="#" target="_blank" rel="noopener" class="btn btn-accent btn-lg" style="justify-content: center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Book on WhatsApp
+      </a>
+      <button onclick="alert('Our Putalisadak desk will call you within 15 minutes.'); closeModal();" class="btn btn-blue btn-lg" style="justify-content: center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 10a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 7a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 14z"/></svg>
+        Request callback
+      </button>
+    </div>
+
+  </div>
+</dialog>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FLOATING WHATSAPP                                   -->
+<!-- ═══════════════════════════════════════════════════ -->
+<a class="wa-float" href="https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20am%20visiting%20from%20your%20website." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+
+<!-- App script — ES module -->
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
+
