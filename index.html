@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Allair International Travels &amp; Tours — Putalisadak, Kathmandu</title>
+  <title>All Air International Travels &amp; Tours — Putalisadak, Kathmandu</title>
   <meta name="description" content="Nepal's leading travel agency at Star Mall, Putalisadak. Student airfares with 45 kg baggage, worldwide air ticketing, Everest helicopter tours, and curated international holiday packages." />
 
   <!-- Preconnect for fonts -->
@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Fonts: DM Serif + Space Grotesk + Space Mono (HUD labels) -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260903-premium-custom" />
 
   <!-- Lenis Smooth Scroll & GSAP -->
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
@@ -24,7 +24,27 @@
 <!-- ═══════════════════════════════════════════════════ -->
 <!-- DRIBBBLE-ACCURATE LINE-ART AVIATION LOADER          -->
 <!-- ═══════════════════════════════════════════════════ -->
-<div id="preloader" class="preloader" aria-label="Loading Allair International">
+<div id="preloader" class="preloader" aria-label="Loading All Air International">
+  <div class="immersive-loader" aria-hidden="true">
+    <img
+      src="https://cdn.dribbble.com/userupload/26187051/file/original-d89e089fb9d6cae8cb9fc79e27e0c7c7.gif"
+      alt=""
+      class="immersive-loader-gif"
+    />
+    <div class="immersive-loader-shade"></div>
+    <div class="immersive-loader-route">
+      <span>KTM</span><i></i><span class="immersive-loader-dot"></span><span>WORLDWIDE</span>
+    </div>
+    <div class="immersive-loader-brand">
+      <img src="logo.png" alt="" />
+    </div>
+    <p class="immersive-loader-caption">Thoughtful journeys,<br />handled from<br />Kathmandu.</p>
+    <div class="immersive-loader-progress">
+      <span id="immersive-loader-status">Preparing your journey</span>
+      <span><b id="immersive-loader-percent">0</b>%</span>
+      <div class="immersive-loader-track"><i id="immersive-loader-fill"></i></div>
+    </div>
+  </div>
   <div class="preloader-inner">
 
     <!-- Plane + Speed Lines (matches Dribbble GIF layout) -->
@@ -78,10 +98,10 @@
     <!-- Logo & Brand (below the plane) -->
     <div class="pl-brand">
       <div class="pl-logo-wrap">
-        <img src="logo.png" alt="Allair International Travels & Tours logo" />
+        <img src="logo.png" alt="All Air International Travels & Tours logo" />
       </div>
       <div class="pl-brand-info">
-        <p class="pl-brand-name">Allair International</p>
+        <p class="pl-brand-name">All Air International</p>
         <p class="pl-brand-sub">TRAVELS &amp; TOURS · PUTALISADAK, KATHMANDU</p>
       </div>
     </div>
@@ -105,6 +125,60 @@
   </div>
 </div>
 
+<!-- Immersive welcome gateway. Authentication remains client-side until a backend is connected. -->
+<section id="entry-gateway" class="entry-gateway" aria-labelledby="entry-title" hidden>
+  <div class="entry-media" aria-hidden="true">
+    <img
+      src="https://cdn.dribbble.com/userupload/26187051/file/original-d89e089fb9d6cae8cb9fc79e27e0c7c7.gif"
+      alt=""
+      class="entry-media-gif"
+    />
+    <div class="entry-media-shade"></div>
+    <div class="entry-route-markers">
+      <span>KTM</span><i></i><span>WORLDWIDE</span>
+    </div>
+    <p class="entry-media-caption">Thoughtful journeys, handled from Kathmandu.</p>
+  </div>
+
+  <div class="entry-panel">
+    <div class="entry-panel-inner">
+      <header class="entry-brand">
+        <div class="entry-logo-wrap">
+          <img src="logo.png" alt="All Air International Travels &amp; Tours" />
+        </div>
+        <span>Putalisadak · Kathmandu</span>
+      </header>
+
+      <div class="entry-copy">
+        <p class="entry-kicker">Welcome aboard</p>
+        <h1 id="entry-title">Your next journey<br />starts here.</h1>
+        <p>Sign in to continue to fares, student travel support, and curated international itineraries.</p>
+      </div>
+
+      <form id="entry-form" class="entry-form" novalidate>
+        <label for="entry-email">Email address</label>
+        <div class="entry-input-wrap">
+          <input id="entry-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+          <span aria-hidden="true">↗</span>
+        </div>
+        <p id="entry-error" class="entry-error" role="alert" aria-live="polite"></p>
+        <button type="submit" class="entry-submit">
+          <span>Continue to All Air</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <div class="entry-divider"><span>or</span></div>
+      <button id="entry-guest" class="entry-guest" type="button">Explore as a guest</button>
+
+      <footer class="entry-footer">
+        <span>All Air International Travels &amp; Tours</span>
+        <span>Est. Kathmandu</span>
+      </footer>
+    </div>
+  </div>
+</section>
+
 <!-- Scroll Progress Bar (spragadheeshraj style) -->
 <div id="scroll-progress-line" aria-hidden="true"></div>
 
@@ -121,12 +195,12 @@
     <div class="nav-inner">
 
       <!-- Brand -->
-      <a href="#" class="nav-logo" aria-label="Allair International — Home">
+      <a href="#" class="nav-logo" aria-label="All Air International — Home">
         <div class="nav-logo-badge">
-          <img src="logo.png" alt="Allair International Travels & Tours logo" />
+          <img src="logo.png" alt="All Air International Travels & Tours logo" />
         </div>
         <div class="nav-logo-text" aria-hidden="true">
-          <span class="brand-name">Allair International</span>
+          <span class="brand-name">All Air International</span>
           <span class="brand-sub">Travels &amp; Tours Pvt. Ltd.</span>
         </div>
       </a>
@@ -136,6 +210,7 @@
         <li><a href="#routes">Routes</a></li>
         <li><a href="#student">Student Desk <span class="nav-badge-pill">46kg</span></a></li>
         <li><a href="#tours">Packages</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
@@ -174,7 +249,7 @@
         </div>
 
         <!-- WhatsApp CTA -->
-        <a href="https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20am%20inquiring%20about%20travel%20ticketing." target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-wa-btn" data-magnetic>
+        <a href="https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20am%20inquiring%20about%20travel%20ticketing." target="_blank" rel="noopener" class="btn btn-primary btn-sm nav-wa-btn" data-magnetic>
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           <span>WhatsApp</span>
         </a>
@@ -197,10 +272,10 @@
     <div class="mobile-drawer-header">
       <div class="nav-logo">
         <div class="nav-logo-badge">
-          <img src="logo.png" alt="Allair International logo" />
+          <img src="logo.png" alt="All Air International logo" />
         </div>
         <div class="nav-logo-text">
-          <span class="brand-name">Allair International</span>
+          <span class="brand-name">All Air International</span>
           <span class="brand-sub">Putalisadak, Kathmandu</span>
         </div>
       </div>
@@ -213,6 +288,7 @@
       <li><a href="#routes" onclick="toggleMobileNav()">International Routes</a></li>
       <li><a href="#student" onclick="toggleMobileNav()">Student Aviation Desk <span class="nav-badge-pill">46 kg</span></a></li>
       <li><a href="#tours" onclick="toggleMobileNav()">Holiday Tour Packages</a></li>
+      <li><a href="#blog" onclick="toggleMobileNav()">Travel Journal</a></li>
       <li><a href="#contact" onclick="toggleMobileNav()">Contact &amp; Location</a></li>
     </ul>
 
@@ -240,8 +316,8 @@
           <button class="curr-btn" data-currency="GBP" onclick="setCurrency('GBP')">GBP</button>
         </div>
       </div>
-      <a href="https://wa.me/9779762117199" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center; margin-top: 1rem;">
-        Chat on WhatsApp (+977 9762117199)
+      <a href="https://wa.me/9779851425123" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center; margin-top: 1rem;">
+        Chat on WhatsApp (+977 9851425123)
       </a>
       <div class="mobile-drawer-meta">
         <span>Star Mall, 3rd Floor, Putalisadak, Kathmandu</span>
@@ -279,13 +355,11 @@
 
         <div class="hero-actions">
           <a href="#booking" class="btn btn-primary btn-lg" data-magnetic>
-            Check fares
+            Search every journey
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <a href="#routes" class="btn btn-outline btn-lg" data-magnetic>View routes</a>
         </div>
-
-
 
         <div class="hero-badges">
           <div class="hero-badge">
@@ -322,6 +396,14 @@
 <!-- ═══════════════════════════════════════════════════ -->
 <section id="booking" aria-label="Flight search">
   <div class="booking-bar-wrap">
+    <div class="travel-hub-tabs" role="tablist" aria-label="Search travel services">
+      <button class="travel-hub-tab is-active" type="button" role="tab" aria-selected="true" data-hub="flights" onclick="switchTravelHub('flights')"><span aria-hidden="true">✈</span><b>Flights</b><small>Domestic &amp; international</small></button>
+      <button class="travel-hub-tab" type="button" role="tab" aria-selected="false" data-hub="hotels" onclick="switchTravelHub('hotels')"><span aria-hidden="true">▥</span><b>Hotels</b><small>Handpicked stays</small></button>
+      <button class="travel-hub-tab" type="button" role="tab" aria-selected="false" data-hub="transport" onclick="switchTravelHub('transport')"><span aria-hidden="true">◆</span><b>Transport</b><small>Cars, coaches &amp; transfers</small></button>
+      <button class="travel-hub-tab" type="button" role="tab" aria-selected="false" data-hub="other" onclick="switchTravelHub('other')"><span aria-hidden="true">＋</span><b>Other</b><small>Merch, events &amp; custom</small></button>
+    </div>
+
+    <div class="travel-hub-panel is-active" data-hub-panel="flights" role="tabpanel">
     <!-- Service tabs -->
     <div class="booking-tabs" role="tablist" aria-label="Booking service type">
       <button role="tab" aria-selected="true"  class="booking-tab active" data-tab="flights"  onclick="switchTab('flights')">
@@ -349,12 +431,19 @@
 
     <!-- Search form card -->
     <div class="booking-form-wrap">
-      <form id="search-form" class="booking-form" aria-label="Flight search form">
+      <div class="flight-enquiry-intro"><div><span class="flight-enquiry-kicker">Personal fare desk</span><h2>Tell us where you want to fly.</h2></div><p>Share your complete trip requirements. An Allair ticketing officer will check current airline availability and reply on WhatsApp with a verified fare—no estimated prices.</p></div>
+      <form id="search-form" class="booking-form booking-enquiry-form" aria-label="Request a verified flight fare on WhatsApp">
+
+        <div class="booking-field">
+          <label for="s-trip-type">Trip type</label>
+          <select id="s-trip-type" onchange="toggleReturnDate()"><option value="One way">One way</option><option value="Round trip" selected>Round trip</option></select>
+          <span class="booking-field-hint">Choose your journey</span>
+        </div>
 
         <!-- FROM -->
         <div class="booking-field">
           <label for="s-origin">From</label>
-          <input id="s-origin" type="text" value="Kathmandu (KTM)" list="airport-opts" autocomplete="off" oninput="updateLocationHint('s-origin', 's-origin-hint')" />
+          <input id="s-origin" type="text" value="Kathmandu (KTM)" list="airport-opts" autocomplete="off" required oninput="updateLocationHint('s-origin', 's-origin-hint')" />
           <span id="s-origin-hint" class="booking-field-hint">Tribhuvan Int'l · Nepal</span>
         </div>
 
@@ -366,7 +455,7 @@
         <!-- TO -->
         <div class="booking-field">
           <label for="s-destination">To</label>
-          <input id="s-destination" type="text" value="Sydney (SYD)" list="airport-opts" autocomplete="off" oninput="updateLocationHint('s-destination', 's-destination-hint')" />
+          <input id="s-destination" type="text" value="Sydney (SYD)" list="airport-opts" autocomplete="off" required oninput="updateLocationHint('s-destination', 's-destination-hint')" />
           <span id="s-destination-hint" class="booking-field-hint">Kingsford Smith · Australia</span>
         </div>
 
@@ -390,33 +479,86 @@
         <!-- DEPART -->
         <div class="booking-field">
           <label for="s-date">Depart</label>
-          <input id="s-date" type="date" value="2026-10-01" />
-          <span class="booking-field-hint">Flexible ± 3 days</span>
+          <input id="s-date" type="date" required />
+          <span class="booking-field-hint">Preferred departure</span>
         </div>
+
+        <div class="booking-field" id="s-return-field"><label for="s-return-date">Return</label><input id="s-return-date" type="date" required /><span class="booking-field-hint">For round trips</span></div>
 
         <!-- CLASS -->
         <div class="booking-field" style="border-right: none">
-          <label for="s-cabin">Class &amp; baggage</label>
+          <label for="s-cabin">Travel class</label>
           <select id="s-cabin">
-            <option value="Economy Class">1 Adult — Economy</option>
-            <option value="Student Fare (+45 kg Baggage)">1 Student — 45 kg Special</option>
-            <option value="Business Class">1 Adult — Business</option>
+            <option value="Economy Class">Economy</option>
+            <option value="Student Fare (+45 kg Baggage)">Student fare / extra baggage</option>
+            <option value="Business Class">Business</option>
             <option value="Helicopter Window Seat">Everest Heli Sharing</option>
             <option value="Embassy Flight Itinerary">Visa Itinerary</option>
           </select>
-          <span class="booking-field-hint">Best guaranteed rate</span>
+          <span class="booking-field-hint">Fare category</span>
         </div>
+
+        <div class="booking-field booking-passenger-field"><label for="s-adults">Adults</label><select id="s-adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select><span class="booking-field-hint">12+ years</span></div>
+        <div class="booking-field booking-passenger-field"><label for="s-children">Children</label><select id="s-children"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select><span class="booking-field-hint">2–11 years</span></div>
+        <div class="booking-field booking-passenger-field"><label for="s-infants">Infants</label><select id="s-infants"><option>0</option><option>1</option><option>2</option><option>3</option></select><span class="booking-field-hint">Under 2 years</span></div>
+        <div class="booking-field booking-notes-field"><label for="s-notes">Preferences</label><input id="s-notes" type="text" placeholder="Airline, baggage, flexible dates…" /><span class="booking-field-hint">Optional details</span></div>
 
         <!-- SEARCH BUTTON -->
         <button type="submit" class="booking-submit">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          Search
+          Request fare on WhatsApp
         </button>
 
       </form>
 
-      <!-- Live Flight Fares & Results Board -->
-      <div id="live-results-tray" class="live-results-tray" aria-live="polite" style="display: none;"></div>
+      <p class="flight-enquiry-note"><span aria-hidden="true">✓</span> No payment is taken here. We verify current availability and the final fare before you decide.</p>
+    </div>
+    </div>
+
+    <div class="travel-hub-panel" data-hub-panel="hotels" role="tabpanel" hidden>
+      <div class="hub-panel-intro"><div><span>Stay well</span><h2>Rooms selected for real journeys.</h2></div><p>Search by destination, compare useful details, and request the room that fits your trip.</p></div>
+      <form id="hotel-search-form" class="hub-search-form">
+        <label class="hub-field-wide"><span>Destination or property</span><input id="hub-hotel-destination" type="text" value="Kathmandu" placeholder="Where would you like to stay?" /></label>
+        <label><span>Check in</span><input id="hub-hotel-checkin" type="date" /></label>
+        <label><span>Check out</span><input id="hub-hotel-checkout" type="date" /></label>
+        <label><span>Rooms &amp; guests</span><select id="hub-hotel-guests"><option value="1 room · 1 guest">1 room · 1 guest</option><option value="1 room · 2 guests" selected>1 room · 2 guests</option><option value="2 rooms · 4 guests">2 rooms · 4 guests</option><option value="3 rooms · 6 guests">3 rooms · 6 guests</option></select></label>
+        <button type="submit" class="hub-search-submit">Search hotels <span>→</span></button>
+      </form>
+      <div id="hotel-hub-results" class="hub-results" aria-live="polite"></div>
+    </div>
+
+    <div class="travel-hub-panel" data-hub-panel="transport" role="tabpanel" hidden>
+      <div class="hub-panel-intro"><div><span>Move freely</span><h2>Every road after landing.</h2></div><p>Airport transfers, private cars, tourist coaches, and group transport in one dependable search.</p></div>
+      <form id="transport-search-form" class="hub-search-form">
+        <label><span>Pickup</span><input id="transport-from" type="text" value="Tribhuvan Airport (KTM)" /></label>
+        <label><span>Drop-off</span><input id="transport-to" type="text" value="Thamel, Kathmandu" /></label>
+        <label><span>Date</span><input id="transport-date" type="date" /></label>
+        <label><span>Passengers</span><select id="transport-guests"><option value="1">1 passenger</option><option value="2" selected>2 passengers</option><option value="5">3–5 passengers</option><option value="7">6–7 passengers</option><option value="12">8–12 passengers</option><option value="22">13–22 passengers</option></select></label>
+        <button type="submit" class="hub-search-submit">Find transport <span>→</span></button>
+      </form>
+      <div id="transport-results" class="hub-results" aria-live="polite"></div>
+    </div>
+
+    <div class="travel-hub-panel" data-hub-panel="other" role="tabpanel" hidden>
+      <div class="hub-panel-intro custom-hub-intro"><div><span>Made around your idea</span><h2>Need something different?</h2></div><p>Order branded merchandise, plan an event, or ask our team to develop something custom for your journey, group, or organization.</p></div>
+      <div class="custom-service-grid" aria-label="Custom service options">
+        <button type="button" class="custom-service-card is-selected" data-custom-type="Custom keychains" onclick="selectCustomService(this)"><img src="assets/custom/keychains.webp" alt="Premium personalized travel keychain" loading="lazy" /><span class="custom-service-copy"><em>01 · Personalized</em><strong>Keychains</strong><small>Names, logos &amp; destination editions</small></span><span class="custom-service-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" class="custom-service-card" data-custom-type="Custom bottles" onclick="selectCustomService(this)"><img src="assets/custom/bottles.webp" alt="Premium custom travel bottle" loading="lazy" /><span class="custom-service-copy"><em>02 · Hydration</em><strong>Bottles</strong><small>Travel bottles with custom artwork</small></span><span class="custom-service-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" class="custom-service-card" data-custom-type="Travel merchandise" onclick="selectCustomService(this)"><img src="assets/custom/merchandise.webp" alt="Curated branded travel merchandise" loading="lazy" /><span class="custom-service-copy"><em>03 · Collection</em><strong>Merchandise</strong><small>Bags, tags, apparel &amp; travel kits</small></span><span class="custom-service-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" class="custom-service-card" data-custom-type="Event management" onclick="selectCustomService(this)"><img src="assets/custom/events.webp" alt="Premium destination event setup" loading="lazy" /><span class="custom-service-copy"><em>04 · Experiences</em><strong>Events</strong><small>Corporate, destination &amp; private events</small></span><span class="custom-service-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" class="custom-service-card custom-service-card--accent" data-custom-type="Custom product or design" onclick="selectCustomService(this)"><img src="assets/custom/bespoke.webp" alt="Bespoke travel product design desk" loading="lazy" /><span class="custom-service-copy"><em>05 · Bespoke</em><strong>Your idea</strong><small>Tell us what you want us to create</small></span><span class="custom-service-arrow" aria-hidden="true">↗</span></button>
+      </div>
+      <form id="custom-request-form" class="custom-request-form">
+        <input id="custom-service-type" type="hidden" value="Custom keychains" />
+        <label><span>What should we make or manage?</span><input id="custom-request-title" type="text" value="Custom keychains" placeholder="Describe your request" required /></label>
+        <label><span>Quantity / guest count</span><input id="custom-request-quantity" type="text" placeholder="e.g. 50 pieces or 120 guests" required /></label>
+        <label class="custom-request-wide"><span>Custom details or design brief</span><textarea id="custom-request-details" rows="4" placeholder="Colors, logo, wording, event location, preferred date, budget, or any reference you have…" required></textarea></label>
+        <div class="custom-request-actions custom-request-wide">
+          <button type="submit" class="hub-search-submit">Request a custom quote <span>→</span></button>
+          <a href="tel:+9779851425123" class="btn btn-outline">Call custom desk</a>
+          <a href="https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20have%20a%20custom%20merchandise,%20design,%20or%20event%20request." target="_blank" rel="noopener" class="btn btn-blue">WhatsApp your idea</a>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -425,7 +567,7 @@
 <!-- ═══════════════════════════════════════════════════ -->
 <!-- STATS ROW                                           -->
 <!-- ═══════════════════════════════════════════════════ -->
-<section class="section-sm" aria-label="Agency statistics">
+<section id="stats" class="section-sm" aria-label="Agency statistics">
   <div class="container">
     <div class="stats-row reveal" data-stagger>
       <div class="stat-cell">
@@ -498,7 +640,7 @@
             View student fares
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
-          <a href="https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20am%20a%20student%20inquiring%20about%20discounted%20student%20fares%20with%2045kg%20baggage." target="_blank" rel="noopener" class="btn btn-outline" data-magnetic>WhatsApp</a>
+          <a href="https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20am%20a%20student%20inquiring%20about%20discounted%20student%20fares%20with%2045kg%20baggage." target="_blank" rel="noopener" class="btn btn-outline" data-magnetic>WhatsApp</a>
         </div>
 
       </div>
@@ -729,7 +871,7 @@
 
     <div class="card-grid-4 reveal" data-stagger>
 
-      <article class="tour-card" onclick="window.open('https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Dubai%205D/4N%20holiday%20package.','_blank')" tabindex="0" role="button">
+      <article class="tour-card" onclick="window.open('https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Dubai%205D/4N%20holiday%20package.','_blank')" tabindex="0" role="button">
         <span class="tour-nights t-mono">5 days · 4 nights</span>
         <h3 class="tour-dest">Dubai Grand<br/>Experience</h3>
         <ul class="tour-includes" aria-label="Package inclusions">
@@ -744,7 +886,7 @@
         </div>
       </article>
 
-      <article class="tour-card" onclick="window.open('https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Thailand%205D/4N%20holiday%20package.','_blank')" tabindex="0" role="button">
+      <article class="tour-card" onclick="window.open('https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Thailand%205D/4N%20holiday%20package.','_blank')" tabindex="0" role="button">
         <span class="tour-nights t-mono">5 days · 4 nights</span>
         <h3 class="tour-dest">Amazing Thailand<br/>Bangkok + Pattaya</h3>
         <ul class="tour-includes">
@@ -759,7 +901,7 @@
         </div>
       </article>
 
-      <article class="tour-card" onclick="window.open('https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Bali%206D/5N%20holiday%20package.','_blank')" tabindex="0" role="button">
+      <article class="tour-card" onclick="window.open('https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Bali%206D/5N%20holiday%20package.','_blank')" tabindex="0" role="button">
         <span class="tour-nights t-mono">6 days · 5 nights</span>
         <h3 class="tour-dest">Bali Tropical<br/>Paradise</h3>
         <ul class="tour-includes">
@@ -774,7 +916,7 @@
         </div>
       </article>
 
-      <article class="tour-card" onclick="window.open('https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Japan%207D/6N%20holiday%20package.','_blank')" tabindex="0" role="button">
+      <article class="tour-card" onclick="window.open('https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20want%20to%20book%20the%20Japan%207D/6N%20holiday%20package.','_blank')" tabindex="0" role="button">
         <span class="tour-nights t-mono">7 days · 6 nights</span>
         <h3 class="tour-dest">Japan Highlights<br/>&amp; Fuji</h3>
         <ul class="tour-includes">
@@ -795,9 +937,46 @@
 
 
 <!-- ═══════════════════════════════════════════════════ -->
+<!-- ALLAIR TRAVEL JOURNAL                               -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="blog" class="section blog-section" aria-label="All Air travel journal">
+  <div class="container">
+    <div class="blog-heading reveal">
+      <div><span class="section-label">The All Air Journal</span><h2 class="section-h2">Travel better, before takeoff.</h2></div>
+      <p class="section-desc">Clear advice from our Kathmandu ticketing desk—written for students, families, groups, and travellers who prefer fewer surprises.</p>
+    </div>
+
+    <div class="blog-grid reveal" data-stagger>
+      <details class="blog-card">
+        <summary><span class="blog-number">01</span><span class="blog-meta">Student travel · 6 min read</span><h3>How to use your student baggage allowance properly</h3><p>A 40–46 kg allowance is valuable only when your documents, fare category, and individual bag weights meet the airline’s rules.</p><span class="blog-read">Read article <i>＋</i></span></summary>
+        <div class="blog-article"><p>Student fares are not simply ordinary economy tickets with an extra-baggage label. Airlines normally require proof such as a valid student visa, Confirmation of Enrolment, university offer letter, or student identification. The required document depends on the carrier and destination, so send clear copies to the ticketing desk before your reservation is issued.</p><p>Pay attention to how the allowance is divided. “46 kg” often means two checked pieces of up to 23 kg each—not one bag weighing 46 kg. Cabin baggage has a separate limit, and excess size can still create charges even when the weight is acceptable. Keep medicine, documents, electronics, and one change of clothing in your cabin bag.</p><p>Before payment, ask for the baggage allowance to be shown on the confirmed itinerary. Recheck it for every segment, especially when two airlines operate the same journey. Allair can verify the fare category and baggage conditions before you commit.</p></div>
+      </details>
+
+      <details class="blog-card">
+        <summary><span class="blog-number">02</span><span class="blog-meta">Flight planning · 5 min read</span><h3>When should you request an international flight quote?</h3><p>The cheapest-looking day is not always the best journey. A useful quote compares the total trip—not just the first number.</p><span class="blog-read">Read article <i>＋</i></span></summary>
+        <div class="blog-article"><p>Start comparing international flights as soon as your travel window becomes reasonably clear. Students should work backward from orientation and enrolment dates, while families should allow time for visas, transit requirements, and airport transfers. If your dates are flexible, share a range of two or three days rather than one fixed departure.</p><p>A proper comparison includes checked baggage, transit time, airport changes, meals, change penalties, refund rules, and the arrival time at your destination. A slightly higher fare can be better value when it avoids an overnight layover or includes an additional checked bag.</p><p>Airline inventory changes continuously, which is why screenshots and old quotations should never be treated as guaranteed prices. Ask the ticketing officer to revalidate the selected itinerary immediately before payment, then check that every passenger name matches the passport exactly.</p></div>
+      </details>
+
+      <details class="blog-card">
+        <summary><span class="blog-number">03</span><span class="blog-meta">Kathmandu stays · 4 min read</span><h3>Choosing the right Kathmandu hotel for your trip</h3><p>Neighbourhood, airport access, meeting plans, and check-in times matter as much as the room photographs.</p><span class="blog-read">Read article <i>＋</i></span></summary>
+        <div class="blog-article"><p>Thamel works well for first-time visitors who want restaurants, shops, and heritage areas nearby. Lazimpat offers a calmer base with convenient access to central Kathmandu, while New Baneshwor is practical for business, government offices, and travellers continuing toward the eastern side of the valley.</p><p>Before reserving, confirm whether breakfast, taxes, airport pickup, extra beds, and early check-in are included. Families may value connecting rooms and lifts; business travellers may prioritise reliable Wi-Fi and meeting space; groups should check coach access and luggage storage.</p><p>Flight arrival times deserve special attention. International services can land late at night, so share your flight number with the hotel or transfer team. Allair checks current availability for your actual dates and can coordinate the room and airport vehicle as one request.</p></div>
+      </details>
+
+      <details class="blog-card">
+        <summary><span class="blog-number">04</span><span class="blog-meta">Ground transport · 5 min read</span><h3>Sedan, SUV, HiAce or Coaster: which vehicle fits?</h3><p>Choose around passengers, luggage, road conditions, and comfort—not passenger count alone.</p><span class="blog-read">Read article <i>＋</i></span></summary>
+        <div class="blog-article"><p>A sedan is efficient for one to three travellers with ordinary luggage. Compact SUVs suit families and highway trips, while a Prado or Scorpio provides additional space and confidence for rougher roads. A HiAce is usually the comfortable middle ground for airport groups, family tours, and teams travelling with several bags.</p><p>For larger groups, a Toyota Coaster keeps everyone together and leaves more room for luggage than several small cars. A Hilux can be useful when equipment or difficult terrain is involved. Electric choices such as the BYD Atto 3 are quiet and comfortable for suitable city and highway routes.</p><p>Always provide the pickup point, destination, date, flight time, passenger total, and approximate luggage count. The Allair transport desk will then confirm the appropriate vehicle, availability, and route-specific rate before the journey.</p></div>
+      </details>
+    </div>
+
+    <div class="blog-cta reveal"><span>Have a travel question we should cover?</span><a class="btn btn-accent" href="https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20have%20a%20travel%20question%20for%20your%20journal." target="_blank" rel="noopener">Ask the Allair desk →</a></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
 <!-- TESTIMONIALS                                        -->
 <!-- ═══════════════════════════════════════════════════ -->
-<section class="section" style="background: var(--c-bg-alt)" aria-label="Customer testimonials">
+<section id="testimonials" class="section" style="background: var(--c-bg-alt)" aria-label="Customer testimonials">
   <div class="container">
     <div class="section-header centered reveal">
       <span class="section-label centered">Traveller reviews</span>
@@ -859,7 +1038,7 @@
 <!-- ═══════════════════════════════════════════════════ -->
 <!-- FAQ                                                 -->
 <!-- ═══════════════════════════════════════════════════ -->
-<section class="section" aria-label="Frequently asked questions">
+<section id="faq" class="section" aria-label="Frequently asked questions">
   <div class="container" style="max-width: 860px">
     <div class="section-header centered reveal">
       <span class="section-label centered">FAQ</span>
@@ -868,7 +1047,7 @@
 
     <div class="faq-list reveal reveal-delay-1">
 
-      <details name="faq" class="faq-item" open>
+      <details name="faq" class="faq-item">
         <summary>
           How does the 40–46 kg student baggage allowance work?
           <span class="faq-icon" aria-hidden="true"></span>
@@ -954,7 +1133,7 @@
           </div>
           <div class="contact-info-text">
             <strong>Phone &amp; WhatsApp</strong>
-            <p>+977 9762117199<br/>01-4516908 &nbsp;·&nbsp; 24 / 7 WhatsApp</p>
+            <p>+977 9851425123<br/>01-4516908 &nbsp;·&nbsp; 24 / 7 WhatsApp</p>
           </div>
         </div>
 
@@ -1042,11 +1221,11 @@
       </div>
 
       <div class="footer-links-buttons">
-        <a href="https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20am%20inquiring%20about%20travel%20ticketing." target="_blank" rel="noopener" class="footer-barrel-link" aria-label="WhatsApp Helpline">
-          <span class="fbl-drum-wrap" data-label="WhatsApp (+977 9762117199)"></span>
+        <a href="https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20am%20inquiring%20about%20travel%20ticketing." target="_blank" rel="noopener" class="footer-barrel-link" aria-label="WhatsApp Helpline">
+          <span class="fbl-drum-wrap" data-label="WhatsApp (+977 9851425123)"></span>
           <span class="fbl-arrow">↗</span>
         </a>
-        <a href="tel:+9779762117199" class="footer-barrel-link" aria-label="Call Direct Desk">
+        <a href="tel:+9779851425123" class="footer-barrel-link" aria-label="Call Direct Desk">
           <span class="fbl-drum-wrap" data-label="Call 01-4516908"></span>
           <span class="fbl-arrow">↗</span>
         </a>
@@ -1063,7 +1242,7 @@
       <!-- Col 1: Brand & Accreditations -->
       <div class="footer-brand">
         <div class="footer-logo-badge">
-          <img src="logo.png" alt="Allair International Travels & Tours" />
+          <img src="logo.png" alt="All Air International Travels & Tours" />
         </div>
         <p class="footer-desc">
           Authorized international agency in Star Mall, Putalisadak. Specializing in discounted student fares with 40–46 kg luggage, direct ticketing on premier airlines, and curated holiday expeditions.
@@ -1137,13 +1316,14 @@
     <!-- Footer Bottom Meta Bar -->
     <div class="footer-bottom">
       <div class="footer-bottom-left">
-        <p>&copy; 2026 Allair International Travels &amp; Tours Pvt. Ltd. All rights reserved.</p>
+        <p>&copy; 2026 All Air International Travels &amp; Tours Pvt. Ltd. All rights reserved.</p>
         <span class="footer-ktm-clock" id="ktm-clock">Kathmandu, Nepal (NPT)</span>
       </div>
 
       <div class="footer-bottom-links">
         <a href="#contact">Ticketing Terms</a>
         <a href="#student">Student Baggage Policy</a>
+        <a href="admin.html" rel="nofollow">Staff Admin</a>
         <a href="#" onclick="if(window.__lenis){window.__lenis.scrollTo(0,{duration:1.4});}else{window.scrollTo({top:0,behavior:'smooth'});}return false;" style="color:var(--c-orange);font-weight:600">Back to Top ↑</a>
       </div>
     </div>
@@ -1155,6 +1335,23 @@
 <!-- ═══════════════════════════════════════════════════ -->
 <!-- BOOKING DIALOG (native <dialog>)                    -->
 <!-- ═══════════════════════════════════════════════════ -->
+<dialog id="experience-dialog" class="experience-dialog" aria-labelledby="experience-title">
+  <div class="experience-dialog-panel">
+    <header class="experience-dialog-head">
+      <div><p id="experience-eyebrow">Review your selection</p><h2 id="experience-title">Journey detail</h2></div>
+      <button type="button" class="dialog-close" onclick="closeExperience()" aria-label="Close experience dialog">×</button>
+    </header>
+    <div id="experience-progress" class="experience-progress" aria-label="Booking progress">
+      <span class="is-active">1 · Selection</span><i></i><span>2 · Details</span><i></i><span>3 · Confirmed</span>
+    </div>
+    <div id="experience-dialog-content" class="experience-dialog-content"></div>
+    <div id="experience-dialog-actions" class="experience-dialog-actions">
+      <button type="button" class="btn btn-outline" onclick="closeExperience()">Keep exploring</button>
+      <button id="experience-confirm" type="button" class="btn btn-accent" onclick="confirmExperience()">Continue request →</button>
+    </div>
+  </div>
+</dialog>
+
 <dialog id="booking-dialog" aria-labelledby="m-title">
   <div class="dialog-panel">
 
@@ -1221,13 +1418,14 @@
 <!-- ═══════════════════════════════════════════════════ -->
 <!-- FLOATING WHATSAPP                                   -->
 <!-- ═══════════════════════════════════════════════════ -->
-<a class="wa-float" href="https://wa.me/9779762117199?text=Hello%20Allair%20Travels,%20I%20am%20visiting%20from%20your%20website." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="wa-float" href="https://wa.me/9779851425123?text=Hello%20Allair%20Travels,%20I%20am%20visiting%20from%20your%20website." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
 </a>
 
 
 <!-- App script — ES module -->
-<script type="module" src="app.js"></script>
+<script type="module" src="cms-runtime.js?v=20260903-live"></script>
+<script type="module" src="app.js?v=20260903-live"></script>
 
 </body>
 </html>
