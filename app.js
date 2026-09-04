@@ -8,6 +8,7 @@ const RATES   = { NPR: 135, USD: 1, AUD: 1.54, GBP: 0.79, EUR: 0.92 };
 const SYMBOLS = { NPR: 'रू ', USD: '$', AUD: 'A$', GBP: '£', EUR: '€' };
 let activeCurrency = 'NPR';
 let currentLiveSearchData = null;
+const businessWhatsapp = () => window.AllairCMS?.read()?.settings?.whatsapp || '9779851425123';
 
 export function setCurrency(code) {
   activeCurrency = code;
@@ -529,7 +530,7 @@ export function renderLiveResults(data, shouldScroll = true) {
           </div>
 
           <div class="lrt-actions">
-            <a href="https://wa.me/9779762117199?text=${waMsg}" target="_blank" rel="noopener" class="lrt-btn-wa" title="Book instantly on WhatsApp">
+            <a href="https://wa.me/${businessWhatsapp()}?text=${waMsg}" target="_blank" rel="noopener" class="lrt-btn-wa" title="Book instantly on WhatsApp">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Book on WhatsApp</span>
             </a>
@@ -592,6 +593,8 @@ export function closeLiveResults() {
 
 /* ── Booking Modal ── */
 const dialog = document.getElementById('booking-dialog');
+const experienceDialog = document.getElementById('experience-dialog');
+let activeExperience = null;
 
 export function openModal(key, isStudent = false) {
   const r = ROUTES[key] || ROUTES.sydney;
@@ -621,7 +624,7 @@ export function openModal(key, isStudent = false) {
     `Estimated fare: ${SYMBOLS[activeCurrency]}${price.toLocaleString()}\n\n` +
     `Please advise on seat availability and payment options.`
   );
-  document.getElementById('m-wa-link').href = `https://wa.me/9779762117199?text=${msg}`;
+  document.getElementById('m-wa-link').href = `https://wa.me/${businessWhatsapp()}?text=${msg}`;
 
   dialog.showModal();
 }
@@ -630,40 +633,245 @@ export function closeModal() {
   dialog.close();
 }
 
+/* ── Journey Ecosystem Review & Confirmation ── */
+const EXPERIENCE_META = {
+  hotel: { eyebrow: 'Handpicked stays · Review', title: 'Your hotel stay', unit: 'Estimated stay total' },
+  transport: { eyebrow: 'Allair Transport · Review', title: 'Your transport', unit: 'Estimated trip total' },
+  custom: { eyebrow: 'Allair Custom Desk · Review', title: 'Your custom request', unit: 'Pricing' },
+};
+
+function escapeHtml(value) {
+  return value.replace(/[&<>'"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+}
+
+function resetExperienceProgress() {
+  document.querySelectorAll('#experience-progress span').forEach((step, index) => step.classList.toggle('is-active', index === 1));
+}
+
+export function confirmExperience() {
+  if (!activeExperience) return;
+  const reference = `AIR-${activeExperience.service.toUpperCase()}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
+  window.AllairCMS?.recordEnquiry({ type: activeExperience.service, item: activeExperience.item, details: Object.fromEntries(activeExperience.rows || []), reference });
+  const content = document.getElementById('experience-dialog-content');
+  content.innerHTML = `<div class="experience-success"><div class="experience-success-orbit" aria-hidden="true"><div class="experience-success-mark">✓</div></div><span class="experience-success-kicker">Allair concierge desk</span><h3>Request prepared</h3><p>Your ${escapeHtml(activeExperience.item)} selection has been captured. Our team will verify live availability and the final price before you commit.</p><div class="experience-success-reference"><small>Your reference</small><span class="experience-reference">${reference}</span></div><p class="experience-success-assurance"><span>✓</span> No payment has been taken</p></div>`;
+  document.querySelectorAll('#experience-progress span').forEach((step, index) => step.classList.toggle('is-active', index === 2));
+  const actions = document.getElementById('experience-dialog-actions');
+  actions.innerHTML = `<button type="button" class="btn btn-outline" onclick="closeExperience()">Done</button><a class="btn btn-accent" target="_blank" rel="noopener" href="https://wa.me/${businessWhatsapp()}?text=${encodeURIComponent(`Hello Allair Travels, I would like to confirm ${activeExperience.item}. Reference: ${reference}`)}">Confirm with Allair →</a>`;
+}
+
+function showTaskComplete(title, message, actionLabel = 'Continue on WhatsApp') {
+  if (!experienceDialog) return;
+  const reference = `AIR-REQ-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
+  document.getElementById('experience-eyebrow').textContent = 'Request received · Next step';
+  document.getElementById('experience-title').textContent = title;
+  document.querySelectorAll('#experience-progress span').forEach((step, index) => step.classList.toggle('is-active', index === 2));
+  document.getElementById('experience-dialog-content').innerHTML = `<div class="experience-success"><div class="experience-success-orbit" aria-hidden="true"><div class="experience-success-mark">✓</div></div><span class="experience-success-kicker">Allair concierge desk</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(message)}</p><div class="experience-success-reference"><small>Your reference</small><span class="experience-reference">${reference}</span></div><p class="experience-success-assurance"><span>✓</span> No payment has been taken</p></div>`;
+  document.getElementById('experience-dialog-actions').innerHTML = `<button type="button" class="btn btn-accent" onclick="closeExperience()">${escapeHtml(actionLabel)} →</button>`;
+  experienceDialog.showModal();
+}
+
+export function closeExperience() {
+  experienceDialog?.close();
+  activeExperience = null;
+}
+
+/* ── Multi-service travel search hub ── */
+const HUB_INVENTORY = {
+  hotels: [
+    { name: 'Kathmandu Marriott Hotel', place: 'Kamal Pokhari · Kathmandu', detail: 'Luxury city stay · Pool · Spa · Multiple dining options', badge: 'Luxury', price: 0, image: 'assets/hotels/marriott.jpg' },
+    { name: 'Hotel Nirvana Garden', place: 'Thamel · Kathmandu', detail: 'Quiet garden setting · Central location · Comfortable rooms', badge: 'Garden stay', price: 0, image: 'assets/hotels/nirvana.jpg' },
+    { name: 'Radisson Hotel Kathmandu', place: 'Lazimpat · Kathmandu', detail: 'Premium rooms · Rooftop pool · Business facilities', badge: 'Premium', price: 0, image: 'assets/hotels/radisson.jpg' },
+    { name: 'The Everest Hotel', place: 'New Baneshwor · Kathmandu', detail: 'Established five-star property · Pool · Dining and wellness', badge: 'Five-star', price: 0, image: 'assets/hotels/everest.jpg' },
+    { name: 'Hotel Crown Plaza - Naxal', place: 'Naxal · Kathmandu', detail: 'Convenient city base · Restaurant · Group-friendly stay', badge: 'Central', price: 0, image: 'assets/hotels/crown-plaza.jpg' },
+    { name: 'Lemon Tree Hotel', place: 'Kathmandu', detail: 'Warm boutique atmosphere · Practical comfort · Local access', badge: 'Boutique', price: 0, image: 'assets/hotels/lemon-tree.jpg' },
+    { name: 'Beautiful Kathmandu Hotel', place: 'Kathmandu', detail: 'Relaxed city stay · Rooftop setting · Traveller-friendly service', badge: 'City escape', price: 0, image: 'assets/hotels/beautiful-kathmandu.jpg' },
+  ],
+  transport: [
+    { name: 'Toyota HiAce', capacity: 12, place: 'Group van · Up to 12 guests', detail: 'Comfortable group movement · Air conditioning · Luggage space', badge: 'Group favourite', price: 0, image: 'assets/vehicles/photos/toyota-hiace.jpg' },
+    { name: 'Mahindra Scorpio', capacity: 7, place: 'Full-size SUV · Up to 7 guests', detail: 'Strong road presence · Spacious cabin · Outstation-ready', badge: 'Rugged SUV', price: 0, image: 'assets/vehicles/photos/mahindra-scorpio.jpg' },
+    { name: 'Suzuki Dzire', capacity: 4, place: 'Compact sedan · Up to 4 guests', detail: 'Efficient city transfers · Air conditioning · Practical luggage space', badge: 'City transfer', price: 0, image: 'assets/vehicles/photos/suzuki-dzire.jpg' },
+    { name: 'Toyota Land Cruiser Prado', capacity: 7, place: 'Premium 4×4 · Up to 7 guests', detail: 'Luxury SUV comfort · Mountain-road capable · Private chauffeur', badge: 'Premium 4×4', price: 0, image: 'assets/vehicles/photos/toyota-prado.jpg' },
+    { name: 'Toyota Coaster', capacity: 22, place: 'Tourist coach · Up to 22 guests', detail: 'Ideal for tours and events · Professional driver · Large luggage hold', badge: 'Large groups', price: 0, image: 'assets/vehicles/photos/toyota-coaster.jpg' },
+    { name: 'Hyundai Creta', capacity: 5, place: 'Compact SUV · Up to 5 guests', detail: 'Modern cabin · Comfortable city and highway travel · Air conditioning', badge: 'Comfort SUV', price: 0, image: 'assets/vehicles/photos/hyundai-creta.jpg' },
+    { name: 'Toyota Hilux', capacity: 4, place: '4×4 pickup · Up to 4 guests', detail: 'Adventure and equipment transport · Tough terrain capability', badge: 'Adventure', price: 0, image: 'assets/vehicles/photos/toyota-hilux.jpg' },
+    { name: 'Skoda Slavia', capacity: 4, place: 'Premium sedan · Up to 4 guests', detail: 'Refined city travel · Generous boot · Smooth highway comfort', badge: 'Executive', price: 0, image: 'assets/vehicles/photos/skoda-slavia.png' },
+    { name: 'Suzuki Swift', capacity: 4, place: 'City hatchback · Up to 4 guests', detail: 'Smart local travel · Compact and efficient · Air conditioning', badge: 'Urban', price: 0, image: 'assets/vehicles/photos/suzuki-swift.jpg' },
+    { name: 'BYD Atto 3', capacity: 5, place: 'Electric SUV · Up to 5 guests', detail: 'Quiet electric journey · Modern interior · Zero tailpipe emissions', badge: 'Electric', price: 0, image: 'assets/vehicles/photos/byd-atto-3.jpg' },
+  ],
+};
+
+function getHubInventory(type) {
+  const cmsKey = type === 'transport' ? 'fleet' : type;
+  const managed = window.AllairCMS?.read()?.catalog?.[cmsKey];
+  return Array.isArray(managed) ? managed.filter(item => item.enabled !== false) : HUB_INVENTORY[type];
+}
+
+export function switchTravelHub(service) {
+  document.querySelectorAll('.travel-hub-tab').forEach(button => {
+    const active = button.dataset.hub === service;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-selected', active);
+  });
+  document.querySelectorAll('.travel-hub-panel').forEach(panel => {
+    const active = panel.dataset.hubPanel === service;
+    panel.hidden = !active;
+    panel.classList.toggle('is-active', active);
+  });
+}
+
+export function selectCustomService(button) {
+  document.querySelectorAll('.custom-service-card').forEach(card => card.classList.toggle('is-selected', card === button));
+  const type = button.dataset.customType || 'Custom product or design';
+  const hidden = document.getElementById('custom-service-type');
+  const title = document.getElementById('custom-request-title');
+  if (hidden) hidden.value = type;
+  if (title) title.value = type;
+}
+
+function hubLoading(target) {
+  target.innerHTML = '<div class="hub-loading"><div><i></i>Finding the best available options</div></div>';
+}
+
+function hubEmpty(target, title, text) {
+  target.innerHTML = `<div class="hub-empty"><div><span class="hub-empty-mark">⌕</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></div></div>`;
+}
+
+function hubCard(item, type, index, priceLabel = 'From') {
+  const visual = item.image
+    ? `<div class="hub-result-visual hub-result-photo"><img src="${item.image}" alt="${escapeHtml(item.name)}" loading="lazy" /><span class="hub-result-badge">${item.badge}</span></div>`
+    : `<div class="hub-result-visual"><span>${item.icon}</span><span class="hub-result-badge">${item.badge}</span></div>`;
+  const price = type === 'hotels' || type === 'transport'
+    ? `<div class="hub-result-price"><span>${type === 'hotels' ? 'Dates checked personally' : 'Route priced personally'}</span><strong>Request live rate</strong></div>`
+    : `<div class="hub-result-price"><span>${priceLabel}</span><strong>रू ${item.price.toLocaleString()}</strong></div>`;
+  return `<article class="hub-result-card">
+    ${visual}
+    <div class="hub-result-body"><span class="hub-result-meta">${item.place || 'Allair verified'}</span><h4>${item.name}</h4><p>${item.detail}</p>
+      <div class="hub-result-bottom">${price}<button class="hub-result-select" type="button" onclick="openHubResult('${type}', ${index})">${type === 'hotels' ? 'Request stay' : type === 'transport' ? 'Request vehicle' : 'View &amp; select'}</button></div>
+    </div></article>`;
+}
+
+export function openHubResult(type, index) {
+  const item = getHubInventory(type)?.[index];
+  if (!item || !experienceDialog) return;
+  const service = type === 'hotels' ? 'hotel' : 'transport';
+  const context = type === 'hotels'
+      ? [['Destination', document.getElementById('hub-hotel-destination')?.value], ['Check in', document.getElementById('hub-hotel-checkin')?.value], ['Check out', document.getElementById('hub-hotel-checkout')?.value], ['Guests', document.getElementById('hub-hotel-guests')?.value]]
+      : [['Pickup', document.getElementById('transport-from')?.value], ['Drop-off', document.getElementById('transport-to')?.value], ['Travel date', document.getElementById('transport-date')?.value], ['Passengers', document.getElementById('transport-guests')?.value]];
+
+  activeExperience = { service, item: item.name, rows: context, total: item.price };
+  const meta = EXPERIENCE_META[service];
+  document.getElementById('experience-eyebrow').textContent = meta.eyebrow;
+  document.getElementById('experience-title').textContent = meta.title;
+  document.getElementById('experience-dialog-content').innerHTML = `<div class="experience-summary"><div class="experience-summary-row"><span>Selected</span><strong>${escapeHtml(item.name)}</strong></div>${context.map(([label, value]) => `<div class="experience-summary-row"><span>${escapeHtml(String(label))}</span><strong>${escapeHtml(String(value || 'Flexible'))}</strong></div>`).join('')}</div><div class="experience-total"><span>${meta.unit}</span><strong>${type === 'hotels' || type === 'transport' ? 'Live quote on request' : `रू ${item.price.toLocaleString()}`}</strong></div><p class="experience-note">Availability and final pricing are verified by the Allair desk before payment.</p>`;
+  resetExperienceProgress();
+  document.getElementById('experience-dialog-actions').innerHTML = '<button type="button" class="btn btn-outline" onclick="closeExperience()">Keep exploring</button><button id="experience-confirm" type="button" class="btn btn-accent" onclick="confirmExperience()">Continue request →</button>';
+  experienceDialog.showModal();
+}
+
+function renderManagedHubCatalogs() {
+  const hotelTarget = document.getElementById('hotel-hub-results');
+  const transportTarget = document.getElementById('transport-results');
+  if (hotelTarget) {
+    const managedHotels = getHubInventory('hotels');
+    hotelTarget.innerHTML = `<div class="hub-results-head"><div><span>${managedHotels.length} selected properties</span><h3>Featured stays in Kathmandu</h3></div><small>Choose dates for a verified rate</small></div><div class="hub-result-grid hub-hotel-grid">${managedHotels.map((item, index) => hubCard(item, 'hotels', index)).join('')}</div>`;
+  }
+  if (transportTarget) {
+    const managedFleet = getHubInventory('transport');
+    transportTarget.innerHTML = `<div class="hub-results-head"><div><span>${managedFleet.length} vehicle choices</span><h3>Choose your way to move</h3></div><small>High-quality vehicles · live confirmation</small></div><div class="hub-result-grid hub-vehicle-grid">${managedFleet.map((item, index) => hubCard(item, 'transport', index)).join('')}</div>`;
+  }
+}
+
+function initTravelHub() {
+  const today = new Date();
+  const dateValue = offset => { const date = new Date(today); date.setDate(date.getDate() + offset); return date.toISOString().slice(0, 10); };
+  [['hub-hotel-checkin', 2], ['hub-hotel-checkout', 5], ['transport-date', 1]].forEach(([id, offset]) => {
+    const field = document.getElementById(id); if (field) { field.value = dateValue(offset); field.min = dateValue(0); }
+  });
+
+  experienceDialog?.addEventListener('click', event => {
+    if (event.target === experienceDialog) closeExperience();
+  });
+
+  renderManagedHubCatalogs();
+  const hotelTarget = document.getElementById('hotel-hub-results');
+  const transportTarget = document.getElementById('transport-results');
+
+  document.getElementById('hotel-search-form')?.addEventListener('submit', event => {
+    event.preventDefault(); const target = document.getElementById('hotel-hub-results'); hubLoading(target);
+    setTimeout(() => { const destination = document.getElementById('hub-hotel-destination').value.trim(); const hotels = getHubInventory('hotels'); target.innerHTML = `<div class="hub-results-head"><div><span>${hotels.length} selected properties</span><h3>Hotels in ${escapeHtml(destination || 'Kathmandu')}</h3></div><small>Live availability confirmed by All Air</small></div><div class="hub-result-grid hub-hotel-grid">${hotels.map((item, index) => hubCard({...item, place: destination || item.place}, 'hotels', index)).join('')}</div>`; }, 450);
+  });
+
+  document.getElementById('transport-search-form')?.addEventListener('submit', event => {
+    event.preventDefault(); const target = document.getElementById('transport-results'); hubLoading(target); const passengers = Number(document.getElementById('transport-guests').value);
+    setTimeout(() => { const inventory = getHubInventory('transport'); const matches = inventory.filter(item => item.capacity >= passengers); target.innerHTML = `<div class="hub-results-head"><div><span>${matches.length} suitable vehicles</span><h3>${escapeHtml(document.getElementById('transport-from').value)} → ${escapeHtml(document.getElementById('transport-to').value)}</h3></div><small>Live availability confirmed by All Air</small></div><div class="hub-result-grid hub-vehicle-grid">${matches.map(item => hubCard(item, 'transport', inventory.indexOf(item))).join('')}</div>`; }, 450);
+  });
+
+  document.getElementById('custom-request-form')?.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!event.currentTarget.checkValidity()) { event.currentTarget.reportValidity(); return; }
+    const type = document.getElementById('custom-service-type').value;
+    const title = document.getElementById('custom-request-title').value.trim();
+    const quantity = document.getElementById('custom-request-quantity').value.trim();
+    const details = document.getElementById('custom-request-details').value.trim();
+    activeExperience = { service: 'custom', item: title, rows: [['Category', type], ['Quantity / guests', quantity], ['Brief', details]], total: 0 };
+    const meta = EXPERIENCE_META.custom;
+    document.getElementById('experience-eyebrow').textContent = meta.eyebrow;
+    document.getElementById('experience-title').textContent = meta.title;
+    document.getElementById('experience-dialog-content').innerHTML = `<div class="experience-summary"><div class="experience-summary-row"><span>Request</span><strong>${escapeHtml(title)}</strong></div><div class="experience-summary-row"><span>Category</span><strong>${escapeHtml(type)}</strong></div><div class="experience-summary-row"><span>Quantity / guests</span><strong>${escapeHtml(quantity)}</strong></div><div class="experience-summary-row"><span>Custom brief</span><strong>${escapeHtml(details)}</strong></div></div><div class="experience-total"><span>Pricing</span><strong>Custom quote</strong></div><p class="experience-note">Our custom desk will confirm feasibility, production or event timing, artwork requirements, and a detailed quotation before you commit.</p>`;
+    resetExperienceProgress();
+    document.getElementById('experience-dialog-actions').innerHTML = '<button type="button" class="btn btn-outline" onclick="closeExperience()">Keep editing</button><button id="experience-confirm" type="button" class="btn btn-accent" onclick="confirmExperience()">Prepare request →</button>';
+    experienceDialog.showModal();
+  });
+}
+
 /* ── Search Form Handler ── */
 function handleSearch(e) {
   e.preventDefault();
-  const origin = document.getElementById('s-origin')?.value || 'Kathmandu (KTM)';
-  const dest   = document.getElementById('s-destination')?.value || 'Sydney (SYD)';
-  const date   = document.getElementById('s-date')?.value || '2026-10-01';
-  const cabin  = document.getElementById('s-cabin')?.value || '1 Adult — Economy';
+  if (!e.currentTarget.checkValidity()) { e.currentTarget.reportValidity(); return; }
+  const value = id => document.getElementById(id)?.value.trim() || '';
+  const tripType = value('s-trip-type');
+  const message = [
+    'Hello Allair International Travels!', '',
+    'I would like a verified flight fare quote.',
+    `Trip type: ${tripType}`,
+    `From: ${value('s-origin')}`,
+    `To: ${value('s-destination')}`,
+    `Departure: ${value('s-date')}`,
+    `Return: ${tripType === 'Round trip' ? value('s-return-date') : 'Not required'}`,
+    `Travel class / service: ${value('s-cabin')}`,
+    `Passengers: ${value('s-adults')} adult(s), ${value('s-children')} child(ren), ${value('s-infants')} infant(s)`,
+    `Preferences: ${value('s-notes') || 'None specified'}`, '',
+    'Please check live airline availability and send me the current final fare, baggage allowance, and fare conditions.'
+  ].join('\n');
+  window.AllairCMS?.recordEnquiry({ type: 'flight', item: `${value('s-origin')} → ${value('s-destination')}`, details: { tripType, departure: value('s-date'), returnDate: value('s-return-date'), cabin: value('s-cabin'), adults: value('s-adults'), children: value('s-children'), infants: value('s-infants'), preferences: value('s-notes') } });
+  window.open(`https://wa.me/${businessWhatsapp()}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+  showTaskComplete('Flight request prepared', 'Your travel details are ready and WhatsApp has been opened. Send the message there and an Allair ticketing officer will verify the live fare.', 'Got it');
+}
 
-  const lowerDest   = dest.toLowerCase();
-  const lowerOrigin = origin.toLowerCase();
+export function toggleReturnDate() {
+  const isRoundTrip = document.getElementById('s-trip-type')?.value === 'Round trip';
+  const field = document.getElementById('s-return-field');
+  const input = document.getElementById('s-return-date');
+  if (field) field.hidden = !isRoundTrip;
+  if (input) input.required = isRoundTrip;
+}
 
-  let key = 'sydney';
-  if (lowerDest.includes('dallas') || lowerDest.includes('texas') || lowerDest.includes('dfw') || lowerOrigin.includes('dallas') || lowerOrigin.includes('texas') || lowerOrigin.includes('dfw')) {
-    key = 'dallas';
-  } else if (lowerDest.includes('tokyo') || lowerDest.includes('japan') || lowerDest.includes('nrt') || lowerOrigin.includes('tokyo')) {
-    key = 'tokyo';
-  } else if (lowerDest.includes('melbourne') || lowerDest.includes('mel') || lowerOrigin.includes('melbourne')) {
-    key = 'melbourne';
-  } else if (lowerDest.includes('london') || lowerDest.includes('uk') || lowerDest.includes('lhr') || lowerOrigin.includes('london')) {
-    key = 'london';
-  } else if (lowerDest.includes('dubai') || lowerDest.includes('dxb') || lowerOrigin.includes('dubai')) {
-    key = 'dubai';
-  } else if (lowerDest.includes('bangkok') || lowerDest.includes('thailand') || lowerDest.includes('bkk') || lowerOrigin.includes('bangkok')) {
-    key = 'bangkok';
-  } else if (lowerDest.includes('toronto') || lowerDest.includes('canada') || lowerDest.includes('yyz') || lowerOrigin.includes('toronto')) {
-    key = 'toronto';
-  } else if (lowerDest.includes('everest') || lowerDest.includes('heli') || lowerDest.includes('ebc')) {
-    key = 'everest';
-  } else {
-    key = Object.keys(LIVE_SCHEDULES).find(k => lowerDest.includes(k)) || 'sydney';
-  }
-
-  currentLiveSearchData = { origin, dest, date, cabin, key };
-  renderLiveResults(currentLiveSearchData, true);
+function initFlightEnquiryDates() {
+  const depart = document.getElementById('s-date');
+  const returning = document.getElementById('s-return-date');
+  if (!depart || !returning) return;
+  const toISO = date => date.toISOString().slice(0, 10);
+  const today = new Date();
+  const departureDefault = new Date(today); departureDefault.setDate(today.getDate() + 7);
+  const returnDefault = new Date(today); returnDefault.setDate(today.getDate() + 14);
+  depart.min = toISO(today);
+  depart.value ||= toISO(departureDefault);
+  returning.min = depart.value;
+  returning.value ||= toISO(returnDefault);
+  depart.addEventListener('change', () => {
+    returning.min = depart.value;
+    if (returning.value && returning.value < depart.value) returning.value = depart.value;
+  });
 }
 
 /* ── Filter Routes ── */
@@ -694,11 +902,7 @@ export function switchTab(tab) {
     if (field) field.value = map[tab].dest;
     if (cabin) cabin.value = map[tab].cabin;
 
-    // Trigger live preview for selected service
-    const origin = document.getElementById('s-origin')?.value || 'Kathmandu (KTM)';
-    const date   = document.getElementById('s-date')?.value || '2026-10-01';
-    currentLiveSearchData = { origin, dest: map[tab].dest, date, cabin: map[tab].cabin, key: map[tab].key };
-    renderLiveResults(currentLiveSearchData, false);
+    closeLiveResults();
   }
 }
 
@@ -714,8 +918,10 @@ function handleContact(e) {
   const msg = encodeURIComponent(
     `New inquiry from website:\n\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDestination: ${dest}\nNotes: ${note}`
   );
-  window.open(`https://wa.me/9779762117199?text=${msg}`, '_blank');
+  window.AllairCMS?.recordEnquiry({ type: service || 'contact', name, phone, item: dest, details: note });
+  window.open(`https://wa.me/${businessWhatsapp()}?text=${msg}`, '_blank');
   e.target.reset();
+  showTaskComplete('Inquiry prepared', 'WhatsApp has been opened with your enquiry. Send the message to connect directly with the Allair concierge desk.', 'Got it');
 }
 
 /* ─────────────────────────────────────────
@@ -942,9 +1148,28 @@ export function toggleMobileNav() {
 
   if (isOpen) {
     document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => drawer.querySelector('.mobile-drawer-close')?.focus());
   } else {
     document.body.style.overflow = '';
+    toggle?.focus({ preventScroll: true });
   }
+}
+
+function initMobileNavBehavior() {
+  const drawer = document.getElementById('mobile-nav-drawer');
+  if (!drawer) return;
+
+  drawer.addEventListener('click', event => {
+    if (event.target === drawer && drawer.classList.contains('open')) toggleMobileNav();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && drawer.classList.contains('open')) toggleMobileNav();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024 && drawer.classList.contains('open')) toggleMobileNav();
+  });
 }
 
 /* ── Live Kathmandu Time Clock (NPT / UTC+5:45) ── */
@@ -1274,27 +1499,71 @@ export function toggleTheme() {
   applyTheme(next);
 }
 
+/* ── Immersive Entry Gateway ── */
+export function initEntryGateway() {
+  const gateway = document.getElementById('entry-gateway');
+  const form = document.getElementById('entry-form');
+  const guestButton = document.getElementById('entry-guest');
+  const emailInput = document.getElementById('entry-email');
+  const error = document.getElementById('entry-error');
+
+  if (!gateway) return;
+  document.body.classList.add('entry-active');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!emailInput?.checkValidity()) {
+      if (error) error.textContent = 'Enter a valid email address to continue.';
+      emailInput?.setAttribute('aria-invalid', 'true');
+      emailInput?.focus();
+      return;
+    }
+
+    if (error) error.textContent = '';
+    emailInput.setAttribute('aria-invalid', 'false');
+    dismissEntryGateway();
+  });
+
+  emailInput?.addEventListener('input', () => {
+    if (error) error.textContent = '';
+    emailInput.removeAttribute('aria-invalid');
+  });
+
+  guestButton?.addEventListener('click', dismissEntryGateway);
+}
+
+export function dismissEntryGateway() {
+  const gateway = document.getElementById('entry-gateway');
+  if (!gateway || gateway.classList.contains('is-leaving')) return;
+
+  gateway.classList.add('is-leaving');
+  document.body.classList.remove('entry-active');
+  setTimeout(() => {
+    gateway.remove();
+    document.querySelector('#site-nav a, #site-nav button')?.focus({ preventScroll: true });
+  }, 720);
+}
+
 /* ── Minimalist Aviation Preloader Engine (Dribbble Inspired) ── */
 let preloaderDismissed = false;
 
 export function initPreloader() {
   const preloader = document.getElementById('preloader');
-  const percentEl = document.getElementById('preloader-percent');
-  const fillEl    = document.getElementById('preloader-progress-fill');
-  const statusEl  = document.getElementById('preloader-status');
+  const percentEl = document.getElementById('immersive-loader-percent');
+  const fillEl    = document.getElementById('immersive-loader-fill');
+  const statusEl  = document.getElementById('immersive-loader-status');
 
   if (!preloader) return;
 
   const statuses = [
-    { p: 0,  text: "Preparing flight schedules & student desk..." },
-    { p: 30, text: "Calibrating international carrier routes (SQ · RA · QR)..." },
-    { p: 60, text: "Verifying 46kg student baggage allowances..." },
-    { p: 85, text: "Connecting Putalisadak central desk..." },
-    { p: 98, text: "Ready for departure." }
+    { p: 0,  text: "Preparing your journey" },
+    { p: 38, text: "Mapping worldwide routes" },
+    { p: 72, text: "Connecting Kathmandu desk" },
+    { p: 96, text: "Ready for departure" }
   ];
 
   const startTime = performance.now();
-  const duration = 1350; // 1.35 seconds smooth transition
+  const duration = 2400;
 
   function step(now) {
     if (preloaderDismissed) return;
@@ -1325,7 +1594,7 @@ export function initPreloader() {
     } else {
       setTimeout(() => {
         dismissPreloader();
-      }, 200);
+      }, 300);
     }
   }
 
@@ -1360,19 +1629,40 @@ window.renderLiveResults  = renderLiveResults;
 window.updateLocationHint = updateLocationHint;
 window.swapLocations      = swapLocations;
 window.dismissPreloader   = dismissPreloader;
+window.dismissEntryGateway = dismissEntryGateway;
+window.confirmExperience   = confirmExperience;
+window.closeExperience     = closeExperience;
+window.switchTravelHub     = switchTravelHub;
+window.openHubResult       = openHubResult;
+window.selectCustomService = selectCustomService;
+window.toggleReturnDate    = toggleReturnDate;
+window.addEventListener('storage', event => {
+  if (event.key === 'allair_cms_v1') setTimeout(renderManagedHubCatalogs, 0);
+});
 
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded', () => {
-  initPreloader();
+  const cmsPreview = new URLSearchParams(location.search).has('cmsPreview');
+  if (cmsPreview) {
+    document.getElementById('preloader')?.remove();
+    document.getElementById('entry-gateway')?.remove();
+    document.body.classList.remove('entry-active');
+  } else {
+    initPreloader();
+  }
   initTheme();
   initSmoothScroll();
   initCustomCursor();
   initScrollProgress();
   initScrollAnimations();
+  initMobileNavBehavior();
   initKathmanduClock();
   initPunchlineReveal();
   initBarrelRollButtons();
   initFooterCanvas();
+  initTravelHub();
+  initFlightEnquiryDates();
+  toggleReturnDate();
 
   const searchForm = document.getElementById('search-form');
   const contactForm = document.getElementById('contact-form');
