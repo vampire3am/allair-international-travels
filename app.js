@@ -3,8 +3,9 @@
 
 // Application Logic: Currency, Routing, Booking Dialog
 
-/* ── Currency Engine ── */
-const RATES   = { NPR: 135, USD: 1, AUD: 1.54, GBP: 0.79, EUR: 0.92 };
+/* ── Currency Engine (Synced with Admin Panel) ── */
+const customRates = JSON.parse(localStorage.getItem('allair-custom-rates')) || {};
+const RATES   = { NPR: customRates.NPR || 135, USD: 1, AUD: customRates.AUD || 1.54, GBP: customRates.GBP || 0.79, EUR: customRates.EUR || 0.92 };
 const SYMBOLS = { NPR: 'रू ', USD: '$', AUD: 'A$', GBP: '£', EUR: '€' };
 let activeCurrency = 'NPR';
 let currentLiveSearchData = null;

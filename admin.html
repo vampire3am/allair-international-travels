@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Control Center — Allair International Travels & Tours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Admin Shell -->
+  <div class="admin-shell">
+
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        <div class="admin-logo-badge">
+          <img src="logo.png" alt="Allair International" />
+        </div>
+        <div class="admin-brand-meta">
+          <h2>Allair Command</h2>
+          <span class="badge-ops">PUTALISADAK DESK</span>
+        </div>
+      </div>
+
+      <nav class="admin-nav" aria-label="Admin Sections">
+        <button type="button" class="nav-tab active" data-tab="overview" onclick="switchAdminTab('overview')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Operations Overview</span>
+        </button>
+
+        <button type="button" class="nav-tab" data-tab="bookings" onclick="switchAdminTab('bookings')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Flight Inquiries &amp; CRM</span>
+          <span class="nav-badge" id="pending-count-badge">4 New</span>
+        </button>
+
+        <button type="button" class="nav-tab" data-tab="inventory" onclick="switchAdminTab('inventory')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+          <span>Route &amp; Fare Manager</span>
+        </button>
+
+        <button type="button" class="nav-tab" data-tab="currency" onclick="switchAdminTab('currency')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+          <span>Currency Exchange Rates</span>
+        </button>
+
+        <button type="button" class="nav-tab" data-tab="heli" onclick="switchAdminTab('heli')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22 12 2"/></svg>
+          <span>Everest Heli Operations</span>
+        </button>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        <a href="index.html" class="btn-public-site" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Live Public Website</span>
+        </a>
+        <div class="admin-system-info">
+          <span>Govt. Regd #284910</span>
+          <span>v2.4.0 · Star Mall Floor 3</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+
+      <!-- Admin Header Bar -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <h1 class="topbar-title" id="admin-section-title">Operations Dashboard</h1>
+          <span class="live-pulse-badge">
+            <span class="live-dot"></span>
+            <span>GDS Live Feed Connected</span>
+          </span>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Time Clock -->
+          <div class="topbar-clock" id="admin-ktm-clock">
+            <span class="clock-label">KTM TIME</span>
+            <span class="clock-val" id="admin-clock-val">12:30:00 PM</span>
+          </div>
+
+          <!-- Theme Toggle Button -->
+          <button type="button" class="admin-theme-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+
+          <!-- Staff Profile -->
+          <div class="admin-user-pill">
+            <div class="user-avatar">AG</div>
+            <div class="user-details">
+              <span class="user-name">Arun (Ticketing Lead)</span>
+              <span class="user-role">Putalisadak Desk Admin</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- TAB 1: OPERATIONS OVERVIEW -->
+      <section id="tab-overview" class="tab-panel active">
+        
+        <!-- Metrics Row -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Active Booking Inquiries</span>
+              <span class="stat-icon orange">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+              </span>
+            </div>
+            <div class="stat-value" id="stat-active-inquiries">18</div>
+            <div class="stat-foot green">+5 today from WhatsApp</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">46kg Student Baggage Requests</span>
+              <span class="stat-icon blue">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              </span>
+            </div>
+            <div class="stat-value">12</div>
+            <div class="stat-foot blue">Australia &amp; USA Intakes</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Total Estimated Volume (NPR)</span>
+              <span class="stat-icon green">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </span>
+            </div>
+            <div class="stat-value">रू 2,450,800</div>
+            <div class="stat-foot green">92% conversion rate</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Everest Heli Slots</span>
+              <span class="stat-icon purple">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22 12 2"/></svg>
+              </span>
+            </div>
+            <div class="stat-value">4 / 5 Booked</div>
+            <div class="stat-foot orange">Tomorrow 6:30 AM Kalapatthar</div>
+          </div>
+        </div>
+
+        <!-- Two Column Layout: Recent Inquiries & Live Currency Ticker -->
+        <div class="admin-dashboard-grid">
+          
+          <!-- Recent Inquiries Table Preview -->
+          <div class="admin-card">
+            <div class="card-header-flex">
+              <div>
+                <h3>Recent Passenger Inquiries (CRM)</h3>
+                <p class="card-subtitle">Real-time leads from website live search &amp; WhatsApp</p>
+              </div>
+              <button type="button" class="btn-sm-action" onclick="switchAdminTab('bookings')">View All Inquiries →</button>
+            </div>
+
+            <div class="table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Passenger</th>
+                    <th>Route</th>
+                    <th>Depart Date</th>
+                    <th>Cabin / Baggage</th>
+                    <th>Live Fare</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="overview-inquiries-body">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Quick Action & Carrier Network Status -->
+          <div class="admin-side-stack">
+            
+            <div class="admin-card">
+              <h3>Live Exchange Rates Preview</h3>
+              <p class="card-subtitle">Active rates mapped to public fare calculator</p>
+              <div class="rate-preview-list" id="quick-rates-list">
+                <!-- Rendered dynamically -->
+              </div>
+              <button type="button" class="btn-outline-block" onclick="switchAdminTab('currency')">Update Exchange Rates ⚙️</button>
+            </div>
+
+            <div class="admin-card">
+              <h3>Airline Desk Clearance Status</h3>
+              <div class="carrier-status-list">
+                <div class="carrier-status-item">
+                  <span class="carrier-name">Singapore Airlines (SQ)</span>
+                  <span class="status-pill-ok">Direct API Sync</span>
+                </div>
+                <div class="carrier-status-item">
+                  <span class="carrier-name">Qatar Airways (QR)</span>
+                  <span class="status-pill-ok">Student Baggage Verified</span>
+                </div>
+                <div class="carrier-status-item">
+                  <span class="carrier-name">Malaysia Airlines (MH)</span>
+                  <span class="status-pill-ok">2×23kg Active</span>
+                </div>
+                <div class="carrier-status-item">
+                  <span class="carrier-name">Nepal Airlines (RA)</span>
+                  <span class="status-pill-ok">KTM Desk Direct</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- TAB 2: INQUIRIES & CRM -->
+      <section id="tab-bookings" class="tab-panel">
+        <div class="admin-card">
+          <div class="card-header-flex">
+            <div>
+              <h2>Flight Bookings &amp; Passenger Leads</h2>
+              <p class="card-subtitle">Manage customer ticket status, issue confirmations, and trigger direct WhatsApp messages</p>
+            </div>
+            <div class="search-filter-row">
+              <input type="text" id="crm-search-input" class="admin-input-search" placeholder="Search passenger, route, phone..." oninput="filterCRMTable()" />
+              <select id="crm-status-filter" class="admin-select" onchange="filterCRMTable()">
+                <option value="ALL">All Statuses</option>
+                <option value="Pending">Pending Review</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Ticket Issued">Ticket Issued</option>
+              </select>
+              <button type="button" class="btn-primary-action" onclick="openNewInquiryModal()">+ Add Manual Booking</button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Passenger &amp; Contact</th>
+                  <th>Route &amp; Carrier</th>
+                  <th>Date &amp; Baggage</th>
+                  <th>Quoted Fare</th>
+                  <th>Status</th>
+                  <th>Quick Actions</th>
+                </tr>
+              </thead>
+              <tbody id="crm-full-table-body">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: ROUTE & FARE MANAGER -->
+      <section id="tab-inventory" class="tab-panel">
+        <div class="admin-card">
+          <div class="card-header-flex">
+            <div>
+              <h2>Global Flight Routes &amp; Fare Schedules</h2>
+              <p class="card-subtitle">Control active airline carriers, aircraft, base USD prices, and baggage rules</p>
+            </div>
+            <button type="button" class="btn-primary-action" onclick="openNewRouteModal()">+ Add New Destination Route</button>
+          </div>
+
+          <div class="routes-admin-grid" id="routes-admin-container">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: CURRENCY EXCHANGE CONTROLLER -->
+      <section id="tab-currency" class="tab-panel">
+        <div class="admin-card">
+          <div class="card-header-flex">
+            <div>
+              <h2>Exchange Rates Controller</h2>
+              <p class="card-subtitle">Modify conversion multipliers for NPR, USD, AUD, GBP, EUR. Changes immediately update public flight search fares.</p>
+            </div>
+            <button type="button" class="btn-primary-action" onclick="saveCustomRates()">💾 Save &amp; Broadcast Rates</button>
+          </div>
+
+          <div class="rates-editor-grid">
+            <div class="rate-edit-card">
+              <div class="rate-edit-header">
+                <span class="currency-flag">🇳🇵 NPR / USD</span>
+                <span class="currency-code">Base NPR Multiplier</span>
+              </div>
+              <div class="rate-input-wrap">
+                <label>1 USD = </label>
+                <input type="number" id="rate-npr" class="admin-input-number" step="0.5" value="135" />
+                <span class="unit">NPR</span>
+              </div>
+              <p class="rate-hint">Used for primary rupee ticket calculation</p>
+            </div>
+
+            <div class="rate-edit-card">
+              <div class="rate-edit-header">
+                <span class="currency-flag">🇦🇺 AUD / USD</span>
+                <span class="currency-code">Australian Dollar</span>
+              </div>
+              <div class="rate-input-wrap">
+                <label>1 USD = </label>
+                <input type="number" id="rate-aud" class="admin-input-number" step="0.01" value="1.54" />
+                <span class="unit">AUD</span>
+              </div>
+              <p class="rate-hint">Used for Sydney / Melbourne student fares</p>
+            </div>
+
+            <div class="rate-edit-card">
+              <div class="rate-edit-header">
+                <span class="currency-flag">🇬🇧 GBP / USD</span>
+                <span class="currency-code">British Pound</span>
+              </div>
+              <div class="rate-input-wrap">
+                <label>1 USD = </label>
+                <input type="number" id="rate-gbp" class="admin-input-number" step="0.01" value="0.79" />
+                <span class="unit">GBP</span>
+              </div>
+              <p class="rate-hint">Used for London Heathrow flights</p>
+            </div>
+
+            <div class="rate-edit-card">
+              <div class="rate-edit-header">
+                <span class="currency-flag">🇪🇺 EUR / USD</span>
+                <span class="currency-code">Euro</span>
+              </div>
+              <div class="rate-input-wrap">
+                <label>1 USD = </label>
+                <input type="number" id="rate-eur" class="admin-input-number" step="0.01" value="0.92" />
+                <span class="unit">EUR</span>
+              </div>
+              <p class="rate-hint">Used for European destinations</p>
+            </div>
+          </div>
+
+          <div class="rate-calc-preview-box">
+            <h3>Live Calculation Simulator</h3>
+            <p>Example USD  (KTM ✈ SYD 46kg Student Ticket) will render as:</p>
+            <div class="sim-result-row">
+              <div class="sim-pill"><strong>NPR:</strong> <span id="sim-npr">रू 120,150</span></div>
+              <div class="sim-pill"><strong>AUD:</strong> <span id="sim-aud">A$ 1,371</span></div>
+              <div class="sim-pill"><strong>GBP:</strong> <span id="sim-gbp">£ 703</span></div>
+              <div class="sim-pill"><strong>EUR:</strong> <span id="sim-eur">€ 819</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: EVEREST HELI OPERATIONS -->
+      <section id="tab-heli" class="tab-panel">
+        <div class="admin-card">
+          <div class="card-header-flex">
+            <div>
+              <h2>Everest Heli-Tour Command &amp; Slot Manifest</h2>
+              <p class="card-subtitle">Airbus H125 / AS350 B3e High-Altitude Kalapatthar (5,400m) Flights</p>
+            </div>
+            <button type="button" class="btn-primary-action" onclick="alert('Weather Station Lukla: CLEAR · Visibility 10km+ · Ready for Departure')">📡 Refresh Lukla Weather Radar</button>
+          </div>
+
+          <div class="heli-manifest-grid">
+            <div class="heli-card">
+              <div class="heli-header">
+                <span class="heli-badge">SLOT 01 · 06:30 AM DEPARTURE</span>
+                <span class="status-pill-ok">WEATHER CLEARED</span>
+              </div>
+              <h4>Flight: ALLAIR-HELI-01 (Kalapatthar Direct)</h4>
+              <p class="heli-aircraft">Aircraft: Airbus H125 High-Altitude (9N-ALA)</p>
+              <div class="passenger-seats-grid">
+                <div class="seat-badge booked">Seat 1: Rajesh Shrestha (Kathmandu)</div>
+                <div class="seat-badge booked">Seat 2: Sunita Shrestha (Kathmandu)</div>
+                <div class="seat-badge booked">Seat 3: Michael Turner (Australia)</div>
+                <div class="seat-badge booked">Seat 4: Sarah Turner (Australia)</div>
+                <div class="seat-badge open">Seat 5: [ OPEN SEAT ·  ]</div>
+              </div>
+              <div class="heli-actions">
+                <button type="button" class="btn-sm-action" onclick="alert('Passenger Manifest dispatched to Lukla & Syangboche Heli-Pad')">📄 Print Flight Manifest</button>
+                <button type="button" class="btn-sm-action orange" onclick="alert('Seat 5 reservation alert sent to WhatsApp Leads')">💬 Fill Last Seat on WhatsApp</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Manual Booking Modal -->
+  <dialog id="admin-booking-modal" class="admin-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Create New Manual Booking</h3>
+        <button type="button" class="modal-close" onclick="closeAdminModal()">✕</button>
+      </div>
+      <form id="new-booking-form" onsubmit="handleCreateBooking(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Passenger Full Name</label>
+            <input type="text" id="nb-name" required placeholder="e.g. Aashish Sharma" />
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Phone Number</label>
+            <input type="text" id="nb-phone" required placeholder="e.g. +977 9801234567" />
+          </div>
+          <div class="form-group">
+            <label>Route Destination</label>
+            <select id="nb-route">
+              <option value="Kathmandu (KTM) → Sydney (SYD)">Kathmandu (KTM) → Sydney (SYD)</option>
+              <option value="Kathmandu (KTM) → Dallas/Texas (DFW)">Kathmandu (KTM) → Dallas/Texas (DFW)</option>
+              <option value="Kathmandu (KTM) → Tokyo (NRT)">Kathmandu (KTM) → Tokyo (NRT)</option>
+              <option value="Kathmandu (KTM) → London (LHR)">Kathmandu (KTM) → London (LHR)</option>
+              <option value="Kathmandu (KTM) → Toronto (YYZ)">Kathmandu (KTM) → Toronto (YYZ)</option>
+              <option value="Kathmandu (KTM) → Everest Base Camp Heli">Kathmandu (KTM) → Everest Heli</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Departure Date</label>
+            <input type="date" id="nb-date" required value="2026-10-15" />
+          </div>
+          <div class="form-group">
+            <label>Cabin &amp; Baggage Option</label>
+            <select id="nb-baggage">
+              <option value="Student 46kg (2×23kg)">Student Special — 46kg Baggage</option>
+              <option value="Standard Economy (30kg)">Standard Economy — 30kg Baggage</option>
+              <option value="Business Class (40kg)">Business Class — 40kg Baggage</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Base Fare (USD)</label>
+            <input type="number" id="nb-usd" required value="890" />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="closeAdminModal()">Cancel</button>
+          <button type="submit" class="btn-primary-action">Save Passenger Booking</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <script src="admin.js"></script>
+</body>
+</html>
