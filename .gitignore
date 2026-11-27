@@ -1,7 +1,12 @@
-﻿node_modules/
+node_modules/
 dist/
 .vite/
 *.local
 .DS_Store
 Thumbs.db
 .vercel
+
+.impeccable/review/
+.impeccable/direction-options.json
+.impeccable/direction-contract.md
+.impeccable/questions/

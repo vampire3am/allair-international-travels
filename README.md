@@ -1,34 +1,39 @@
-﻿# Allair International Travels & Tours
+# All Air International Travels & Tours
 
-> Nepal's leading travel agency at Star Mall, 3rd Floor, Putalisadak, Kathmandu.
+A minimal, responsive travel agency website for All Air’s Putalisadak, Kathmandu desk. Built with Vite, semantic HTML, CSS and vanilla JavaScript.
 
-Official website featuring worldwide air ticketing, student airfares with 40–46 kg baggage allowance, live flight schedules with multi-currency converter (NPR / USD / AUD / GBP / EUR), Everest helicopter tours, and an interactive Dribbble-inspired aviation preloader.
+## Run locally
 
-## 🚀 Features
+Install dependencies with `npm install`, then run `npm run dev` (port 5174). Run `npm test` for journey validation and `npm run build` for the production build. Vercel serves `dist/`.
 
-- **Dribbble-Inspired Line-Art Aviation Loader**: Sleek SVG cruising jetliner with animated wind stream speed dashes, brand logo badge, and progress counter.
-- **Dynamic Flight Search & Live Fares**: Autocomplete airport suggestions (KTM, DFW, SYD, NRT, LHR, YYZ, DXB, etc.) with real-time multi-currency live conversions.
-- **Student Desk Hub**: Dedicated 40–46kg student baggage deals with 1-click WhatsApp booking reservations.
-- **Smooth Momentum Scrolling & Interactions**: Powered by Lenis, GSAP, and ScrollTrigger with interactive custom cursor and barrel-roll magnetic CTAs.
-- **Dark & Light Mode Engine**: Seamless theme toggler with micro-physics and persistent localStorage preference.
+## What works
 
-## 🛠️ Tech Stack
+- Responsive navigation and layouts for phones, tablets and desktop.
+- Flight, holiday, stay and transfer journey planner with date validation.
+- Destination and student actions that prefill the planner.
+- Inline review and explicitly user-controlled WhatsApp handoff.
+- Native expandable trip ideas, FAQs, booking guidance and privacy information.
+- Self-hosted fonts, credited destination photos, canonical/social metadata, sitemap and robots configuration.
+- Existing browser-local visual editor, settings and optional published journal support retained.
 
-- HTML5 / Modern CSS (Custom Design System tokens)
-- Vanilla ES6+ JavaScript Modules
-- Vite Build Tool
-- GSAP 3.12.5 + ScrollTrigger
-- Lenis Smooth Scroll
+## Booking and payment status
 
-## 💻 Local Development
+**Live online booking, ticket issuance and payment are not implemented.** The owner confirmed there is no inventory provider or merchant account. The planner does not fabricate inventory, prices, successful payments, staff receipt or issued tickets. It prepares a request; the visitor chooses whether to send it on WhatsApp. See `docs/online-booking-setup.md` for the recommended provider/onboarding approach and transaction requirements.
 
-`ash
-npm install
-npm run dev
-`
+## Local editor
 
----
-**Allair International Travels & Tours Pvt. Ltd.**  
-📍 Star Mall, 3rd Floor, Putalisadak, Kathmandu, Nepal  
-📞 Tel: 01-4516908 | WhatsApp: +977 9762117199  
-Govt. Regd: 284910/078/079
+`/admin.html` retains the existing local editing utility. Its development access check and records exist only in the browser. It is not secure server authentication, a shared CMS, a deployed publishing system or an operational booking inbox. Do not use it to store passenger documents or payment data. Preview edits do not deploy to Vercel. The homepage does not create customer records in this local store.
+
+The visual editor and business settings remain available. Section controls match the redesigned sections. Optional journal content appears only when published local posts exist; no empty journal is rendered. Legacy merchandise and catalogue tooling remain in the local utility, while the customer homepage prioritizes travel services.
+
+## Content and assets
+
+Contact defaults follow the original production code: +977 9851425123, info@allairtravel.com, Star Mall, 3rd Floor, Putalisadak, Kathmandu. Agency staff should verify these and office hours before release. No unverified statistics, testimonials, registration claims, fare amounts or baggage guarantees are displayed.
+
+Destination photo origins: `assets/CREDITS.md`, `assets/destinations/manifest.json`, and `/credits.html`. Original agency imagery is preserved. Asset provenance is stored in image metadata or adjacent JSON sidecars. Font licenses are under `assets/fonts/`.
+
+`PRODUCT.md`, `DESIGN.md` and `.impeccable/surfaces/index-html.md` record the product and design decisions for future work.
+
+## Minimal revision
+
+The owner rejected the earlier condensed headings, dark bands and oversized booking panel. The revised homepage uses one Manrope type family, white and charcoal surfaces and panoramic photography. The content expansion makes student guidance, holiday ideas, Everest experiences, stays, transfers and visa itinerary information visible, with six additional flight presets, booking steps and six FAQs. The planner remains expandable and all presets use the existing validated journey flow.

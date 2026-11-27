@@ -1,0 +1,128 @@
+[
+  {
+    "file": "nepal-himalayas-hero.jpg",
+    "dimensions": [
+      1600,
+      1067
+    ],
+    "bytes": 261359,
+    "url": "https://images.unsplash.com/photo-1697012511698-f3e99c2cdb0d?w=1600&fit=max&fm=jpg&q=85",
+    "status": 200,
+    "source": "https://unsplash.com/photos/the-top-of-a-mountain-with-snow-on-it-OSnGmbS0I-c",
+    "author": "Embla Voss",
+    "license": "https://unsplash.com/license",
+    "location": "Annapurna I, Khangsar, Nepal",
+    "alt": "Golden morning light on the snowy face of Annapurna I beneath a deep blue sky in Nepal.",
+    "usage": "Hero; preserve the mountain ridge in the lower half and use the open upper sky for copy.",
+    "verifiedOn": "2026-11-27",
+    "visuallyInspected": true
+  },
+  {
+    "file": "sydney.jpg",
+    "dimensions": [
+      900,
+      583
+    ],
+    "bytes": 55712,
+    "url": "https://images.unsplash.com/photo-1524820197278-540916411e20?w=900&fit=max&fm=jpg&q=85",
+    "status": 200,
+    "source": "https://unsplash.com/photos/sydney-opera-house-DLbCETd599Y",
+    "author": "Johnny Bhalla",
+    "license": "https://unsplash.com/license",
+    "location": "Sydney Opera House, Sydney, Australia",
+    "alt": "Sydney Opera House beside the harbour beneath a pink and blue evening sky.",
+    "usage": "Keep the Opera House on the right visible when cropping.",
+    "verifiedOn": "2026-11-27",
+    "visuallyInspected": true
+  },
+  {
+    "file": "tokyo.jpg",
+    "dimensions": [
+      900,
+      600
+    ],
+    "bytes": 122159,
+    "url": "https://images.unsplash.com/photo-1705486937291-1a0409573cc3?w=900&fit=max&fm=jpg&q=85",
+    "status": 200,
+    "source": "https://unsplash.com/photos/a-view-of-a-city-with-tall-buildings-8tb1snckwNg",
+    "author": "Rebecca Clarke",
+    "license": "https://unsplash.com/license",
+    "location": "Tokyo, Japan",
+    "alt": "Tokyo Tower rising above the city skyline beneath a clear blue sky.",
+    "usage": "Keep the red and white Tokyo Tower visible; do not label this as a close-up of Mount Fuji.",
+    "verifiedOn": "2026-11-27",
+    "visuallyInspected": true
+  },
+  {
+    "file": "dubai.jpg",
+    "dimensions": [
+      900,
+      541
+    ],
+    "bytes": 72647,
+    "url": "https://images.unsplash.com/photo-1741974416208-4abbb2fdb1a5?w=900&fit=max&fm=jpg&q=85",
+    "status": 200,
+    "source": "https://unsplash.com/photos/dubais-skyline-features-the-iconic-burj-khalifa-vQY6LPimFks",
+    "author": "Gabriel Chen",
+    "license": "https://unsplash.com/license",
+    "location": "Dubai, United Arab Emirates",
+    "alt": "Traditional wooden boats on Dubai waterfront with Burj Khalifa catching warm light in the distance.",
+    "usage": "A waterfront view with distant skyline, rather than a close-up of Downtown Dubai.",
+    "verifiedOn": "2026-11-27",
+    "visuallyInspected": true
+  },
+  {
+    "file": "bali.jpg",
+    "dimensions": [
+      900,
+      600
+    ],
+    "bytes": 163995,
+    "url": "https://images.unsplash.com/photo-1592364395653-83e648b20cc2?w=900&fit=max&fm=jpg&q=85",
+    "status": 200,
+    "source": "https://unsplash.com/photos/brown-and-green-temple-near-lake-and-green-mountain-under-blue-sky-during-daytime-QqPcxfFKqfU",
+    "author": "Mahmud Ahsan",
+    "license": "https://unsplash.com/license",
+    "location": "Ulun Danu Beratan temple, Bali, Indonesia",
+    "alt": "Tiered lakeside temple roofs framed by flowers and forested hills in Bali.",
+    "usage": "The source location is Bali; the visible landmark is consistent with Ulun Danu Beratan. Use Bali for the broad destination label.",
+    "verifiedOn": "2026-11-27",
+    "visuallyInspected": true
+  },
+  {
+    "file": "thailand.jpg",
+    "dimensions": [
+      900,
+      675
+    ],
+    "bytes": 107354,
+    "url": "https://images.unsplash.com/photo-1590648854828-4892c1bd8618?w=900&fit=max&fm=jpg&q=85",
+    "status": 200,
+    "source": "https://unsplash.com/photos/people-on-beach-during-daytime-6ikcFQLwICM",
+    "author": "Chris A. Tweten",
+    "license": "https://unsplash.com/license",
+    "location": "Railay Beach, Krabi, Thailand",
+    "alt": "Aerial view of Railay coastline with limestone cliffs, sandy beach and turquoise water in Krabi, Thailand.",
+    "usage": "The photographer labels the area Railay Beach; do not relabel as Phuket or Phi Phi.",
+    "verifiedOn": "2026-11-27",
+    "visuallyInspected": true
+  },
+  {
+    "file": "everest.jpg",
+    "dimensions": [
+      900,
+      497
+    ],
+    "bytes": 95427,
+    "url": "https://images.unsplash.com/photo-1456389573961-0ae56d45961e?w=900&fit=max&fm=jpg&q=85",
+    "status": 200,
+    "source": "https://unsplash.com/photos/snow-coated-mountains-during-daytime-ku79qGpxWXQ",
+    "author": "Rohit Tandon",
+    "license": "https://unsplash.com/license",
+    "location": "Everest region near Namche Bazaar, Sagarmatha National Park, Nepal",
+    "alt": "Snowy Himalayan peaks and a rugged foreground ridge in the Everest region of Nepal.",
+    "usage": "The photographer identifies this as an Everest view from Everest Hotel near Namche Bazaar. This is a regional panorama, not an isolated summit portrait; keep the broad Everest-region alt text.",
+    "verifiedOn": "2026-11-27",
+    "visuallyInspected": true
+  }
+]
