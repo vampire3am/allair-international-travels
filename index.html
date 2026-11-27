@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#102f3a" />
+    <meta name="theme-color" content="#ffffff" />
     <title>All Air International Travels & Tours | Kathmandu Travel Desk</title>
     <meta
       name="description"
@@ -17,7 +17,7 @@
     <meta property="og:title" content="All Air International Travels & Tours" />
     <meta
       property="og:description"
-      content="Your next chapter starts in Kathmandu. Flights, student travel and holidays, with a local travel desk."
+      content="Thoughtful journeys from Kathmandu. Flights, student travel and holidays with All Air."
     />
     <meta
       property="og:url"
@@ -29,16 +29,17 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" href="/logo.png" />
+
     <link
       rel="preload"
-      href="/assets/fonts/barlow-condensed.woff2"
+      href="/assets/fonts/manrope-regular.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="/assets/fonts/source-sans.woff2"
+      href="/assets/fonts/manrope-medium.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -63,178 +64,194 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="utility">
-      <div class="wrap utility-inner">
-        <span>Star Mall, Putalisadak, Kathmandu</span
-        ><a href="tel:+9779851425123"
-          >Talk to our travel desk
-          <span data-business-phone>+977 9851425123</span></a
-        >
-      </div>
-    </div>
     <header class="site-header" id="site-nav">
       <div class="wrap header-inner">
         <a class="brand" href="#" aria-label="All Air International home"
-          ><img src="/logo.png" width="64" height="54" alt="All Air" /><span
-            >All Air International<small>Travels & Tours</small></span
+          ><img src="/logo.png" width="58" height="48" alt="All Air" /><span
+            >All Air<small>Travels & Tours</small></span
           ></a
-        ><button
+        >
+        <button
           class="menu-button"
           type="button"
           aria-expanded="false"
           aria-controls="primary-nav"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 6h16M4 12h16M4 18h16" /></svg
+            <path d="M4 8h16M4 16h16" /></svg
           ><span>Menu</span>
         </button>
         <nav id="primary-nav" aria-label="Main navigation">
-          <a href="#routes">Flights</a><a href="#student">Student travel</a
-          ><a href="#tours">Holidays</a><a href="#services">More services</a
-          ><a href="#contact">Our office</a
-          ><a class="button button-small" href="#booking">Plan your journey</a>
+          <a href="#routes">Destinations</a><a href="#services">Our services</a
+          ><a href="#contact">Contact</a
+          ><a class="button button-small" href="#booking">Plan a trip</a>
         </nav>
       </div>
     </header>
     <main id="main">
-      <section class="hero wrap" id="hero" aria-labelledby="hero-heading">
-        <div class="hero-story">
-          <img
-            class="hero-photo"
-            src="/assets/destinations/nepal-himalayas-hero.jpg"
-            width="1600"
-            height="1067"
-            fetchpriority="high"
-            alt="Golden light on the snowy face of Annapurna I in Nepal."
-          />
-          <div class="hero-copy">
-            <h1 id="hero-heading">Your next chapter.<br />A world away.</h1>
+      <section id="hero" class="hero wrap" aria-labelledby="hero-heading">
+        <div class="hero-head">
+          <h1 id="hero-heading">From Kathmandu.<br />To somewhere new.</h1>
+          <div>
             <p>
-              From your first flight abroad to a long-awaited holiday. Start
-              with a travel desk right here in Kathmandu.
+              Flights, holidays and a little local know-how. Your next journey
+              starts here.
             </p>
-            <a class="hero-link" href="#routes">Find your next destination</a>
-          </div>
-          <div class="photo-caption">
-            <span>Annapurna I, Nepal</span
-            ><span>Home is where every journey begins.</span>
+            <a class="text-link" href="#booking">Let’s plan it</a>
           </div>
         </div>
-        <section class="planner" id="booking" aria-labelledby="planner-heading">
-          <h2 id="planner-heading">Where are you headed?</h2>
-          <p class="planner-intro">
-            Tell us your plans. We’ll help with the details.
-          </p>
-          <div class="service-picker" role="group" aria-label="Journey service">
-            <button type="button" data-service="flight" aria-pressed="true">
-              Flights</button
-            ><button type="button" data-service="holiday" aria-pressed="false">
-              Holidays</button
-            ><button type="button" data-service="hotel" aria-pressed="false">
-              Stays</button
-            ><button
-              type="button"
-              data-service="transport"
-              aria-pressed="false"
-            >
-              Transfers
-            </button>
-          </div>
-          <form id="journey-form">
-            <div class="field-grid">
-              <label class="field full flight-only"
-                >Journey type<select name="tripType" id="trip-type">
-                  <option value="oneway">One way</option>
-                  <option value="return">Return</option>
-                </select></label
-              ><label class="field flight-only transport-only"
-                >From<input
-                  id="origin"
-                  name="origin"
-                  value="Kathmandu (KTM)"
-                  maxlength="100"
-                  autocomplete="off"
-                  required /></label
-              ><label class="field" id="destination-label"
-                ><span id="destination-caption">To</span
-                ><input
-                  name="destination"
-                  id="destination"
-                  placeholder="City or airport"
-                  list="destinations"
-                  maxlength="100"
-                  autocomplete="off"
-                  required /></label
-              ><label class="field"
-                ><span id="depart-caption">Departure</span
-                ><input
-                  name="departure"
-                  id="departure"
-                  type="date"
-                  required /></label
-              ><label class="field" id="return-field" hidden
-                ><span id="return-caption">Return</span
-                ><input name="returnDate" id="return-date" type="date" /></label
-              ><label class="field"
-                >Travellers<select name="travellers" id="travellers">
-                  <option value="1">1 traveller</option>
-                  <option value="2">2 travellers</option>
-                  <option value="3">3 travellers</option>
-                  <option value="4">4 travellers</option>
-                  <option value="5">5 travellers</option>
-                  <option value="6">6 travellers</option>
-                  <option value="7">7 travellers</option>
-                  <option value="8">8 travellers</option>
-                  <option value="group">Group of 9+</option>
-                </select></label
-              ><label class="field flight-only full student-choice"
-                ><input type="checkbox" name="student" id="student-fare" /><span
-                  >I’m travelling as a student</span
-                ></label
-              >
-            </div>
-            <details class="preferences">
-              <summary>Add trip preferences</summary>
-              <div class="preference-fields">
-                <label class="field flight-only"
-                  >Cabin<select name="cabin">
-                    <option>Economy</option>
-                    <option>Premium economy</option>
-                    <option>Business</option>
-                  </select></label
-                ><label class="field"
-                  >Anything we should know?<textarea
-                    name="notes"
-                    rows="2"
-                    maxlength="1200"
-                    placeholder="Children’s ages, flexible dates, room or luggage needs"
-                  ></textarea>
-                </label>
-              </div>
-            </details>
-            <p id="form-error" class="form-error" role="alert" hidden></p>
-            <button type="submit" class="button planner-submit">
-              Review my journey
-            </button>
-            <p class="form-caption">
-              Availability and fares are confirmed by our desk. Online checkout
-              is not available yet.
-            </p>
-          </form>
-          <datalist id="destinations">
-            <option value="Sydney (SYD)"></option>
-            <option value="Melbourne (MEL)"></option>
-            <option value="Tokyo (NRT)"></option>
-            <option value="London (LHR)"></option>
-            <option value="Toronto (YYZ)"></option>
-            <option value="Dallas (DFW)"></option>
-            <option value="Dubai (DXB)"></option>
-            <option value="Bangkok (BKK)"></option>
-            <option value="Bali (DPS)"></option>
-            <option value="Kathmandu (KTM)"></option>
-          </datalist>
-        </section>
+        <img
+          class="hero-photo"
+          src="/assets/destinations/nepal-himalayas-hero.jpg"
+          width="1600"
+          height="1067"
+          fetchpriority="high"
+          alt="Golden light on the snowy face of Annapurna I in Nepal."
+        />
+        <div class="photo-caption">
+          <span>Annapurna I, Nepal</span
+          ><span>All Air International Travels & Tours</span>
+        </div>
       </section>
+      <div class="wrap booking-wrap">
+        <details id="booking" class="planner-disclosure">
+          <summary>
+            <span>Plan your journey</span
+            ><small>Flights · Holidays · Stays · Transfers</small>
+          </summary>
+          <section
+            class="planner"
+            id="planner"
+            aria-labelledby="planner-heading"
+          >
+            <h2 id="planner-heading">Your travel details</h2>
+            <p class="planner-intro">
+              Choose a service and add the essentials.
+            </p>
+            <div
+              class="service-picker"
+              role="group"
+              aria-label="Journey service"
+            >
+              <button type="button" data-service="flight" aria-pressed="true">
+                Flights</button
+              ><button
+                type="button"
+                data-service="holiday"
+                aria-pressed="false"
+              >
+                Holidays</button
+              ><button type="button" data-service="hotel" aria-pressed="false">
+                Stays</button
+              ><button
+                type="button"
+                data-service="transport"
+                aria-pressed="false"
+              >
+                Transfers
+              </button>
+            </div>
+            <form id="journey-form">
+              <div class="field-grid">
+                <label class="field full flight-only"
+                  >Journey type<select name="tripType" id="trip-type">
+                    <option value="oneway">One way</option>
+                    <option value="return">Return</option>
+                  </select></label
+                ><label class="field flight-only transport-only"
+                  >From<input
+                    id="origin"
+                    name="origin"
+                    value="Kathmandu (KTM)"
+                    maxlength="100"
+                    autocomplete="off"
+                    required /></label
+                ><label class="field" id="destination-label"
+                  ><span id="destination-caption">To</span
+                  ><input
+                    name="destination"
+                    id="destination"
+                    placeholder="City or airport"
+                    list="destinations"
+                    maxlength="100"
+                    autocomplete="off"
+                    required /></label
+                ><label class="field"
+                  ><span id="depart-caption">Departure</span
+                  ><input
+                    name="departure"
+                    id="departure"
+                    type="date"
+                    required /></label
+                ><label class="field" id="return-field" hidden
+                  ><span id="return-caption">Return</span
+                  ><input
+                    name="returnDate"
+                    id="return-date"
+                    type="date" /></label
+                ><label class="field"
+                  >Travellers<select name="travellers" id="travellers">
+                    <option value="1">1 traveller</option>
+                    <option value="2">2 travellers</option>
+                    <option value="3">3 travellers</option>
+                    <option value="4">4 travellers</option>
+                    <option value="5">5 travellers</option>
+                    <option value="6">6 travellers</option>
+                    <option value="7">7 travellers</option>
+                    <option value="8">8 travellers</option>
+                    <option value="group">Group of 9+</option>
+                  </select></label
+                ><label class="field flight-only full student-choice"
+                  ><input
+                    type="checkbox"
+                    name="student"
+                    id="student-fare"
+                  /><span>I’m travelling as a student</span></label
+                >
+              </div>
+              <details class="preferences">
+                <summary>Add trip preferences</summary>
+                <div class="preference-fields">
+                  <label class="field flight-only"
+                    >Cabin<select name="cabin">
+                      <option>Economy</option>
+                      <option>Premium economy</option>
+                      <option>Business</option>
+                    </select></label
+                  ><label class="field"
+                    >Anything we should know?<textarea
+                      name="notes"
+                      rows="2"
+                      maxlength="1200"
+                      placeholder="Children’s ages, flexible dates, room or luggage needs"
+                    ></textarea>
+                  </label>
+                </div>
+              </details>
+              <p id="form-error" class="form-error" role="alert" hidden></p>
+              <button type="submit" class="button planner-submit">
+                Review my journey
+              </button>
+              <p class="form-caption">
+                Availability and fares are confirmed by our desk. Online
+                checkout is not available yet.
+              </p>
+            </form>
+            <datalist id="destinations">
+              <option value="Sydney (SYD)"></option>
+              <option value="Melbourne (MEL)"></option>
+              <option value="Tokyo (NRT)"></option>
+              <option value="London (LHR)"></option>
+              <option value="Toronto (YYZ)"></option>
+              <option value="Dallas (DFW)"></option>
+              <option value="Dubai (DXB)"></option>
+              <option value="Bangkok (BKK)"></option>
+              <option value="Bali (DPS)"></option>
+              <option value="Kathmandu (KTM)"></option>
+            </datalist>
+          </section>
+        </details>
+      </div>
       <section
         class="journey-review wrap"
         id="journey-review"
@@ -269,35 +286,14 @@
           message. A prepared message is not a confirmed reservation.
         </p>
       </section>
-      <div class="service-band">
-        <div class="wrap service-band-inner">
-          <p>Every journey.<br /><strong>One local travel desk.</strong></p>
-          <a href="#routes"
-            >International flights<span
-              >For work, family & new beginnings</span
-            ></a
-          ><a href="#student"
-            >Student travel<span>Fares, baggage & a little guidance</span></a
-          ><a href="#tours"
-            >Holidays & experiences<span
-              >Time away, thoughtfully planned</span
-            ></a
-          >
-        </div>
-      </div>
       <section
-        class="section wrap"
         id="routes"
+        class="section wrap"
         aria-labelledby="routes-heading"
       >
         <div class="section-heading">
-          <div>
-            <h2 id="routes-heading">Where will your story go?</h2>
-            <p>
-              Some journeys start with a destination. Others start with an idea.
-            </p>
-          </div>
-          <a class="text-link" href="#booking">Plan a different route</a>
+          <h2 id="routes-heading">Somewhere worth going.</h2>
+          <p>A new beginning or a few days away.</p>
         </div>
         <div class="destination-grid">
           <article class="destination">
@@ -308,13 +304,14 @@
               loading="lazy"
               alt="Sydney Opera House beside the harbour at dusk."
             />
-            <div class="destination-body">
-              <h3>Sydney</h3>
-              <span class="destination-location">Australia</span>
-              <p>A new campus, a harbour city, a fresh start.</p>
+            <div class="destination-meta">
+              <div>
+                <h3>Sydney</h3>
+                <p>Australia</p>
+              </div>
               <button
-                type="button"
                 class="text-link"
+                type="button"
                 data-destination="Sydney (SYD)"
               >
                 Plan a Sydney flight
@@ -329,13 +326,14 @@
               loading="lazy"
               alt="Tokyo Tower above the city skyline."
             />
-            <div class="destination-body">
-              <h3>Tokyo</h3>
-              <span class="destination-location">Japan</span>
-              <p>Neighbourhood discoveries and a city in motion.</p>
+            <div class="destination-meta">
+              <div>
+                <h3>Tokyo</h3>
+                <p>Japan</p>
+              </div>
               <button
-                type="button"
                 class="text-link"
+                type="button"
                 data-destination="Tokyo (NRT)"
               >
                 Plan a Tokyo flight
@@ -344,397 +342,157 @@
           </article>
           <article class="destination">
             <img
-              src="/assets/destinations/dubai.jpg"
-              width="900"
-              height="541"
-              loading="lazy"
-              alt="Wooden boats on Dubai waterfront with the skyline in the distance."
-            />
-            <div class="destination-body">
-              <h3>Dubai</h3>
-              <span class="destination-location">United Arab Emirates</span>
-              <p>Family visits, city breaks and onward journeys.</p>
-              <button
-                type="button"
-                class="text-link"
-                data-destination="Dubai (DXB)"
-              >
-                Plan a Dubai flight
-              </button>
-            </div>
-          </article>
-        </div>
-        <div class="route-footer">
-          <p>
-            Also planning journeys to
-            <strong>Melbourne, London, the USA and Canada.</strong>
-          </p>
-          <p>
-            Routes, schedules and final fares depend on your travel dates and
-            airline availability.
-          </p>
-        </div>
-      </section>
-      <section
-        class="student-section"
-        id="student"
-        aria-labelledby="student-heading"
-      >
-        <div class="wrap student-layout">
-          <div class="student-copy">
-            <h2 id="student-heading">
-              A big move.<br />A little more support.
-            </h2>
-            <p>
-              Studying abroad comes with enough to organise. Let’s make the
-              journey one less thing to worry about.
-            </p>
-            <button type="button" class="button button-light" id="student-plan">
-              Plan my student journey
-            </button>
-          </div>
-          <div class="student-details">
-            <div>
-              <h3>Start with your intake date</h3>
-              <p>
-                We’ll discuss your destination, visa timing and preferred
-                arrival, then compare suitable flight options.
-              </p>
-            </div>
-            <div>
-              <h3>Know what you can carry</h3>
-              <p>
-                Ask about student fares with extra baggage. Allowances,
-                eligibility and documents depend on the airline, fare and every
-                flight segment.
-              </p>
-            </div>
-            <div>
-              <h3>Understand the fare before you pay</h3>
-              <p>
-                Check change fees, refund conditions and transit requirements
-                with our desk before your ticket is issued.
-              </p>
-            </div>
-            <a class="light-link" href="#baggage-guidance"
-              >Read the baggage guidance</a
-            >
-          </div>
-        </div>
-      </section>
-      <section class="section wrap" id="tours" aria-labelledby="tours-heading">
-        <div class="section-heading">
-          <div>
-            <h2 id="tours-heading">Make room for a holiday.</h2>
-            <p>
-              A few ideas for your next escape. We’ll shape the itinerary around
-              you.
-            </p>
-          </div>
-          <a class="text-link" href="#contact">Discuss a custom holiday</a>
-        </div>
-        <div class="holiday-grid">
-          <article class="holiday holiday-feature">
-            <img
               src="/assets/destinations/bali.jpg"
               width="900"
               height="600"
               loading="lazy"
               alt="Lakeside temple framed by flowers and forested hills in Bali."
             />
-            <div class="holiday-body">
-              <h3>A slower kind of Bali.</h3>
-              <span>Indonesia</span>
-              <p>
-                Temple visits, green landscapes and time to settle in. Build a
-                holiday around the places you want to experience.
-              </p>
-              <details>
-                <summary>Explore this trip idea</summary>
-                <p>
-                  Combine a stay in Ubud with time by the coast. Ask about
-                  accommodation, transfers, guided visits and flights for your
-                  dates. Inclusions and prices are quoted individually.
-                </p>
-              </details>
+            <div class="destination-meta">
+              <div>
+                <h3>Bali</h3>
+                <p>Indonesia</p>
+              </div>
               <button
-                type="button"
                 class="text-link"
+                type="button"
                 data-holiday="Bali, Indonesia"
               >
                 Plan a Bali holiday
               </button>
             </div>
           </article>
-          <article class="holiday">
-            <img
-              src="/assets/destinations/thailand.jpg"
-              width="900"
-              height="675"
-              loading="lazy"
-              alt="Turquoise water and limestone cliffs at Railay, Krabi, Thailand."
-            />
-            <div class="holiday-body">
-              <h3>City energy. Coastal calm.</h3>
-              <span>Thailand</span>
-              <p>Pair Bangkok discoveries with a beach escape.</p>
-              <details>
-                <summary>Explore this trip idea</summary>
-                <p>
-                  Tell us whether you prefer city sightseeing, island time or a
-                  mix of both. We’ll discuss suitable destinations and
-                  transfers; the photograph shows Railay, Krabi.
-                </p>
-              </details>
-              <button type="button" class="text-link" data-holiday="Thailand">
-                Plan a Thailand holiday
-              </button>
-            </div>
-          </article>
-          <article class="holiday">
-            <img
-              src="/assets/destinations/dubai.jpg"
-              width="900"
-              height="541"
-              loading="lazy"
-              alt="Dubai waterfront and city skyline in warm light."
-            />
-            <div class="holiday-body">
-              <h3>A different view of Dubai.</h3>
-              <span>United Arab Emirates</span>
-              <p>Old waterfronts, new skylines and desert evenings.</p>
-              <details>
-                <summary>Explore this trip idea</summary>
-                <p>
-                  Ask about city sightseeing, a desert experience and time for
-                  family or shopping. Visa support and every inclusion must be
-                  confirmed in your individual quotation.
-                </p>
-              </details>
-              <button type="button" class="text-link" data-holiday="Dubai, UAE">
-                Plan a Dubai holiday
-              </button>
-            </div>
-          </article>
         </div>
-      </section>
-      <section class="everest-section" aria-labelledby="everest-heading">
-        <div class="wrap everest-layout">
-          <img
-            src="/assets/destinations/everest.jpg"
-            width="900"
-            height="497"
-            loading="lazy"
-            alt="Snowy Himalayan peaks in the Everest region of Nepal."
-          />
-          <div>
-            <h2 id="everest-heading">Closer to the Himalayas.</h2>
-            <p>
-              Make space for a view you’ll remember. Talk to us about an
-              Everest-region helicopter experience, including the route,
-              operator and what to expect on the day.
-            </p>
-            <p class="secondary-copy">
-              Flights depend on weather, operational conditions and operator
-              approval. Confirm landing arrangements, altitude guidance and
-              cancellation terms before booking.
-            </p>
-            <button
-              class="button"
-              type="button"
-              data-holiday="Everest helicopter experience"
-            >
-              Discuss an Everest experience
-            </button>
-          </div>
-        </div>
+        <p class="destination-note">
+          Have somewhere else in mind? <a href="#booking">Tell us where.</a>
+        </p>
       </section>
       <section
-        class="section wrap"
         id="services"
+        class="section wrap services-layout"
         aria-labelledby="services-heading"
       >
-        <div class="section-heading">
-          <div>
-            <h2 id="services-heading">The details around your journey.</h2>
-            <p>
-              A place to stay. A comfortable transfer. Help putting it together.
-            </p>
-          </div>
+        <div>
+          <h2 id="services-heading">A little help.<br />All the way.</h2>
+          <p>
+            One travel desk in Putalisadak.<br />The details, taken care of
+            together.
+          </p>
         </div>
-        <div class="support-services">
-          <article>
-            <img
-              src="/assets/hotels/marriott.jpg"
-              loading="lazy"
-              width="600"
-              height="400"
-              alt="Kathmandu hotel accommodation from our existing hotel catalogue."
-            />
+        <div class="service-list">
+          <details id="student">
+            <summary>Flights & student travel</summary>
             <div>
-              <h3>Stays in Kathmandu</h3>
               <p>
-                Tell us your neighbourhood, dates, room needs and budget. We’ll
-                check suitable accommodation with the property.
+                International journeys for study, work and family. We’ll compare
+                suitable options and explain the fare, baggage and change
+                conditions before you decide.
               </p>
-              <button type="button" class="text-link" data-plan-service="hotel">
-                Plan a stay
+              <p>
+                Student baggage depends on your airline, fare, eligibility and
+                each flight segment. Ask for the exact allowance in your
+                quotation.
+              </p>
+              <button id="student-plan" type="button" class="text-link">
+                Plan my student journey
               </button>
             </div>
-          </article>
-          <article>
-            <img
-              src="/assets/vehicles/photos/toyota-hiace.jpg"
-              loading="lazy"
-              width="600"
-              height="400"
-              alt="Toyota HiAce passenger van from the existing transfer catalogue."
-            />
+          </details>
+          <details id="tours">
+            <summary>Holidays, your way</summary>
             <div>
-              <h3>Transfers & group transport</h3>
               <p>
-                Airport pickups, family travel and group journeys. Choose around
-                passengers, luggage and the route.
+                Bali, Thailand, Dubai, Japan—or a different place on your list.
+                Discuss your dates, budget and pace; we’ll put together an
+                individual itinerary.
               </p>
               <button
                 type="button"
                 class="text-link"
-                data-plan-service="transport"
+                data-holiday="Custom holiday"
               >
-                Arrange a transfer
+                Plan a holiday
               </button>
             </div>
-          </article>
-          <article class="visa-service">
+          </details>
+          <details>
+            <summary>Stays & ground transfers</summary>
             <div>
-              <h3>A clearer visa itinerary</h3>
               <p>
-                Ask our desk about an itinerary for your application. We’ll
-                explain its validity, cost and conditions before arranging it.
+                A Kathmandu stay, an airport pickup or transport for your group.
+                Share your dates, passengers, luggage and requirements so we can
+                check the options.
               </p>
-              <p>
-                A reservation or itinerary does not guarantee visa approval.
-                Requirements should be checked with the relevant embassy.
-              </p>
-              <a class="text-link" href="#contact">Talk about your itinerary</a>
+              <div class="inline-actions">
+                <button
+                  type="button"
+                  class="text-link"
+                  data-plan-service="hotel"
+                >
+                  Plan a stay</button
+                ><button
+                  type="button"
+                  class="text-link"
+                  data-plan-service="transport"
+                >
+                  Arrange a transfer
+                </button>
+              </div>
             </div>
-          </article>
-        </div>
-      </section>
-      <section class="guidance-section" id="faq" aria-labelledby="faq-heading">
-        <div class="wrap guidance-layout">
-          <div>
-            <h2 id="faq-heading">Good to know<br />before you go.</h2>
-            <p>
-              Clear answers for the parts of travel that deserve a second look.
-            </p>
-            <a class="text-link" href="#contact">Ask our travel desk</a>
-          </div>
-          <div class="faq-list">
-            <details id="baggage-guidance">
-              <summary>How much baggage is included in a student fare?</summary>
+          </details>
+          <details>
+            <summary>Himalayan experiences & visa itineraries</summary>
+            <div>
               <p>
-                There is no single allowance for every student ticket. It
-                depends on the airline, route, fare, eligibility and each flight
-                segment. Ask our desk to show the exact checked and cabin
-                allowances, number of bags and per-bag limits in your quotation.
-                Do not assume an extra allowance until confirmed.
+                Ask about an Everest-region helicopter experience or an
+                itinerary for a visa application. Flight operations depend on
+                weather and operator approval; an itinerary does not guarantee a
+                visa.
               </p>
-            </details>
-            <details>
-              <summary>Can I book and pay online?</summary>
-              <p>
-                Online checkout is not available on this website yet. You can
-                prepare a journey request and choose to send it on WhatsApp. Our
-                desk will confirm availability, the fare, booking conditions and
-                the available payment arrangements. A request is not a
-                reservation or an issued ticket.
-              </p>
-            </details>
-            <details>
-              <summary>What should I check before paying for a ticket?</summary>
-              <p>
-                Check passenger names against passports, travel dates, airports,
-                baggage on each segment, transit requirements, the total price
-                and the fare’s change and refund rules. Request a written
-                quotation and receipt. Payment confirmation and ticket issuance
-                are separate steps.
-              </p>
-            </details>
-            <details>
-              <summary>
-                What if weather affects a helicopter experience?
-              </summary>
-              <p>
-                Weather and operational conditions can change the departure,
-                route or landing arrangements. Ask for the operator’s
-                rescheduling and refund conditions before paying, and leave
-                flexibility in your itinerary.
-              </p>
-            </details>
-            <details>
-              <summary>
-                Can you help with a group or a different destination?
-              </summary>
-              <p>
-                Share your destination, approximate dates, group size and any
-                important requirements with our desk. We’ll discuss what can be
-                arranged and confirm the details before you decide.
-              </p>
-            </details>
-          </div>
+              <button
+                type="button"
+                class="text-link"
+                data-holiday="Everest helicopter experience"
+              >
+                Discuss an Everest experience
+              </button>
+            </div>
+          </details>
         </div>
       </section>
       <section
-        class="section wrap contact-layout"
         id="contact"
+        class="section wrap contact-layout"
         aria-labelledby="contact-heading"
       >
-        <div class="contact-intro">
-          <h2 id="contact-heading">Let’s put your<br />plans in motion.</h2>
-          <p>
-            A conversation is a good place to start. Visit our Putalisadak desk
-            or get in touch with your travel plans.
-          </p>
-          <div class="contact-actions">
-            <a
-              class="button"
-              href="https://wa.me/9779851425123"
-              target="_blank"
-              rel="noopener"
-              >Chat on WhatsApp</a
-            ><a class="button button-outline" href="tel:+9779851425123"
-              >Call the travel desk</a
-            >
-          </div>
+        <div>
+          <h2 id="contact-heading">Let’s make a plan.</h2>
+          <a
+            class="button"
+            href="https://wa.me/9779851425123"
+            target="_blank"
+            rel="noopener"
+            >Talk to All Air</a
+          >
         </div>
         <div class="office-details">
-          <div>
-            <h3>Visit All Air</h3>
-            <address data-business-address>
-              Star Mall, 3rd Floor, Putalisadak<br />Kathmandu, Nepal
-            </address>
-            <a
-              class="text-link"
-              href="https://www.google.com/maps/search/?api=1&query=Star+Mall+Putalisadak+Kathmandu"
-              target="_blank"
-              rel="noopener"
-              >Find the office on Maps</a
+          <address data-business-address>
+            Star Mall, 3rd Floor, Putalisadak<br />Kathmandu, Nepal
+          </address>
+          <a href="tel:+9779851425123" data-business-phone>+977 9851425123</a
+          ><a href="mailto:info@allairtravel.com">info@allairtravel.com</a>
+          <p>
+            Sunday–Friday, 9:30 am–6:30 pm<br /><span
+              >Nepal time. Response times may vary.</span
             >
-          </div>
-          <div>
-            <h3>Talk to us</h3>
-            <a href="tel:+9779851425123" data-business-phone>+977 9851425123</a
-            ><a href="mailto:info@allairtravel.com">info@allairtravel.com</a>
-          </div>
-          <div>
-            <h3>Office hours</h3>
-            <p>Sunday–Friday<br />9:30 am–6:30 pm, Nepal time</p>
-            <p class="secondary-copy">
-              Messages can be sent outside office hours. Response times may
-              vary.
-            </p>
-          </div>
+          </p>
+          <a
+            class="text-link"
+            href="https://www.google.com/maps/search/?api=1&query=Star+Mall+Putalisadak+Kathmandu"
+            target="_blank"
+            rel="noopener"
+            >Find our office</a
+          >
         </div>
       </section>
       <section
@@ -743,9 +501,7 @@
         aria-labelledby="journal-heading"
         hidden
       >
-        <div class="section-heading">
-          <h2 id="journal-heading">From the travel desk.</h2>
-        </div>
+        <h2 id="journal-heading">From the travel desk.</h2>
         <div class="blog-grid"></div>
       </section>
       <section
@@ -781,32 +537,19 @@
         </div>
       </section>
     </main>
-    <footer id="footer">
-      <div class="wrap footer-top">
-        <a class="brand footer-brand" href="#"
-          ><img src="/logo.png" width="64" height="54" alt="All Air" /><span
-            >All Air International<small>Travels & Tours</small></span
-          ></a
-        >
-        <p>From Kathmandu.<br />For wherever life takes you.</p>
-        <nav aria-label="Social and contact">
-          <a
+    <footer id="footer" class="wrap">
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> All Air International</p>
+        <nav aria-label="Information">
+          <a href="#ticketing-terms">Booking information</a
+          ><a href="#privacy">Privacy</a
+          ><a href="/credits.html">Photo credits</a
+          ><a
             href="https://www.facebook.com/AllairTravel"
             target="_blank"
             rel="noopener"
             >Facebook</a
-          ><a href="mailto:info@allairtravel.com">Email our desk</a>
-        </nav>
-      </div>
-      <div class="wrap footer-bottom">
-        <span
-          >© <span id="year">2026</span> All Air International Travels &
-          Tours</span
-        >
-        <nav aria-label="Information">
-          <a href="#ticketing-terms">Booking information</a
-          ><a href="#privacy">Privacy</a
-          ><a href="/credits.html">Photo credits</a>
+          >
         </nav>
       </div>
     </footer>

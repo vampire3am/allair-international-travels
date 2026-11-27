@@ -1,6 +1,6 @@
 # All Air International Travels & Tours
 
-A responsive travel agency website for All Air’s Putalisadak, Kathmandu desk. Built with Vite, semantic HTML, CSS and vanilla JavaScript.
+A minimal, responsive travel agency website for All Air’s Putalisadak, Kathmandu desk. Built with Vite, semantic HTML, CSS and vanilla JavaScript.
 
 ## Run locally
 
@@ -33,3 +33,7 @@ Contact defaults follow the original production code: +977 9851425123, info@alla
 Destination photo origins: `assets/CREDITS.md`, `assets/destinations/manifest.json`, and `/credits.html`. Original agency imagery is preserved. Asset provenance is stored in image metadata or adjacent JSON sidecars. Font licenses are under `assets/fonts/`.
 
 `PRODUCT.md`, `DESIGN.md` and `.impeccable/surfaces/index-html.md` record the product and design decisions for future work.
+
+## Minimal revision
+
+The owner rejected the earlier condensed headings, dark bands and oversized booking panel. The revised homepage uses one Manrope type family, white and charcoal surfaces, panoramic photography and native expandable planning/service rows. Core services and the validated journey flow remain accessible; decorative sections and duplicate destination imagery were removed.

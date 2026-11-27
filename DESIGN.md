@@ -1,104 +1,87 @@
 ---
 {
   "name": "All Air International Travels & Tours",
-  "description": "Crisp airport wayfinding from a Kathmandu travel desk; documented from the implemented homepage.",
+  "description": "Minimal travel planning from Kathmandu: white, charcoal, Manrope and native disclosure.",
   "colors": {
-    "ink": "#102f3a",
-    "muted": "#4d646c",
-    "accent": "#b84217",
-    "accent-hover": "#923411",
+    "ink": "#1b2422",
+    "muted": "#606966",
+    "surface": "#f5f6f5",
+    "line": "#dfe4e1",
     "white": "#fff",
-    "surface": "#edf3f3",
-    "line": "#cbd8db",
-    "light-text": "#d3e3e5",
-    "focus": "#156b91"
+    "accent": "#1b2422",
+    "accent-hover": "#35433d",
+    "focus": "#29725c"
   },
   "typography": {
     "display": {
-      "fontFamily": "\"Barlow Condensed\", sans-serif",
-      "fontSize": "clamp(3.4rem, 5.6vw, 5.4rem)",
-      "fontWeight": 600,
-      "lineHeight": 1.01,
-      "letterSpacing": "-0.02em"
+      "fontFamily": "Manrope, sans-serif",
+      "fontSize": "clamp(3rem, 5.5vw, 5rem)",
+      "fontWeight": 500,
+      "lineHeight": 1.15,
+      "letterSpacing": "-0.04em"
     },
     "headline": {
-      "fontFamily": "\"Barlow Condensed\", sans-serif",
-      "fontSize": "clamp(2.45rem, 4.2vw, 3.75rem)",
-      "fontWeight": 600,
-      "lineHeight": 1.06,
-      "letterSpacing": "-0.015em"
+      "fontFamily": "Manrope, sans-serif",
+      "fontSize": "clamp(1.9rem, 3vw, 2.5rem)",
+      "fontWeight": 500,
+      "lineHeight": 1.15,
+      "letterSpacing": "-0.035em"
     },
     "title": {
-      "fontFamily": "\"Barlow Condensed\", sans-serif",
-      "fontSize": "1.8rem",
-      "fontWeight": 600,
-      "lineHeight": 1.06
+      "fontFamily": "Manrope, sans-serif",
+      "fontSize": "1.25rem",
+      "fontWeight": 500,
+      "lineHeight": 1.15,
+      "letterSpacing": "-0.02em"
     },
     "body": {
-      "fontFamily": "\"Source Sans 3\", sans-serif",
-      "fontSize": "1.0625rem",
+      "fontFamily": "Manrope, sans-serif",
+      "fontSize": "1rem",
       "fontWeight": 400,
-      "lineHeight": 1.55
+      "lineHeight": 1.65
     },
     "label": {
-      "fontFamily": "\"Source Sans 3\", sans-serif",
-      "fontSize": "0.9375rem",
-      "fontWeight": 600
+      "fontFamily": "Manrope, sans-serif",
+      "fontSize": "0.875rem",
+      "fontWeight": 500,
+      "lineHeight": 1.65
     }
   },
   "rounded": {
-    "control": "4px",
-    "radius": "12px"
+    "button": "7px",
+    "pill": "100px",
+    "field": "6px",
+    "radius": "16px",
+    "mobile-photo": "12px"
   },
   "spacing": {
-    "button-block": "12px",
-    "button-inline": "24px",
-    "field-gap": "14px",
-    "card-gap": "28px",
-    "section-block": "88px"
+    "section-block": "70px",
+    "field-gap": "20px",
+    "card-gap": "28px"
   },
   "components": {
     "button-primary": {
-      "backgroundColor": "{colors.accent}",
+      "backgroundColor": "{colors.ink}",
       "textColor": "{colors.white}",
-      "rounded": "{rounded.control}",
-      "padding": "12px 24px"
-    },
-    "button-primary-hover": {
-      "backgroundColor": "{colors.accent-hover}"
+      "rounded": "{rounded.button}",
+      "padding": "12px 22px"
     },
     "button-outline": {
-      "backgroundColor": "transparent",
-      "textColor": "{colors.ink}",
-      "rounded": "{rounded.control}",
-      "padding": "12px 24px"
-    },
-    "button-outline-hover": {
-      "backgroundColor": "{colors.surface}"
-    },
-    "button-light": {
       "backgroundColor": "{colors.white}",
       "textColor": "{colors.ink}",
-      "rounded": "{rounded.control}",
-      "padding": "12px 24px"
-    },
-    "button-light-hover": {
-      "backgroundColor": "#dae9ea"
-    },
-    "text-link": {
-      "textColor": "{colors.ink}",
-      "padding": "7px 0"
+      "rounded": "{rounded.button}",
+      "padding": "12px 22px"
     },
     "field-input": {
       "backgroundColor": "{colors.white}",
       "textColor": "{colors.ink}",
-      "rounded": "{rounded.control}",
-      "padding": "10px 11px"
+      "rounded": "{rounded.field}",
+      "padding": "11px 12px"
     },
     "journey-review": {
       "backgroundColor": "{colors.surface}",
       "rounded": "{rounded.radius}",
-      "padding": "32px"
+      "padding": "28px"
     }
   }
 }
@@ -108,111 +91,74 @@
 
 ## Overview
 
-**Creative North Star: "Kathmandu departure hall"**
+**Creative North Star: "Room for the journey"**
 
-The approved Kathmandu departure hall world uses deep teal, white reading space and restrained orange actions. Barlow Condensed gives headings the directness of airport signage; Source Sans 3 keeps explanations and journey fields readable. Real destination photography carries the travel inspiration.
-
-This is a code-derived record of the public homepage in index.html, style.css and app.js, with journey.js read to confirm the request boundary. Existing staff admin is a separate retained utility and is outside this visual specification. The goal is a professional redesign that removes generic AI pattern clutter while making the next travel-planning step clear.
+The user-pinned minimal revision uses white space, charcoal text, one Manrope family, natural photographs and modest dark buttons. Native disclosures keep detailed planning and services available without filling the page. This replaces the rejected, dated airport-wayfinding direction.
 
 **Key Characteristics:**
 
-- Crisp hierarchy with generous section rhythm and dense, readable controls.
-- Real rectangular destination photography with restrained rounded corners.
-- Flat teal and pale surfaces, visible borders and focused orange actions.
-- Native controls, explicit request review and a user-controlled WhatsApp handoff.
+- Single-family typography and quiet neutral hierarchy.
+- Unobscured photography, thin rules and no decorative shadows.
+- Collapsed planning and service details; preserved travel actions.
 
-Evidence: PRODUCT.md, .impeccable/surfaces/index-html.md and the current source. This scan captures the completed reviewer fix batch; the independent final verdict remains pending. No browser or runtime accessibility review was performed in this documentation pass. The pale planner surface in the actual CSS takes precedence over the brief's earlier description of a white planner.
+Source: style.css, index.html, app.js, PRODUCT.md and the homepage surface brief. Latest build reviewer disposition supplied for this handoff: **ship with no material fixes**. This documentation pass is static only; no browser or runtime review. Staff admin remains a separate local utility.
 
 ## Colors
 
-The frontmatter is normative. Its color keys map directly to the same-named CSS custom properties in style.css.
+Frontmatter is normative; color keys map to same-named root CSS properties. Charcoal ink supplies text, primary buttons and selected-service underlines. Accent currently has the same literal value as ink. Dark green-gray supplies primary hover; white supplies the page/header/fields and reversed button text. Muted green-gray supplies secondary copy and placeholders, the pale surface supplies review/outline hover, and the neutral line supplies rules and outline borders. Focus green supplies keyboard outlines, carets, text-action hover and destination selection. Only a light color scheme is implemented.
 
-### Primary
-
-- **Deep teal ink** (ink): primary text, utility line, student section, service strip and footer.
-- **Restrained orange** (accent): action backgrounds, selected service underline, route outline and caret. accent-hover deepens action hover.
-
-### Neutral
-
-- **White** (white): page, inputs and reversed text.
-- **Blue-green surface** (surface): planner, review, guidance and secondary panels.
-- **Muted slate** (muted): explanations, metadata and secondary copy.
-- **Divider** (line): header, review and section boundaries.
-- **Light teal text** (light-text): supporting copy on dark surfaces.
-
-The focus token is a dedicated blue outline. Repeated literal colors, rather than root properties, include field borders (#91a9b1), placeholders (#5c7077), error text (#9a1c13), dark-surface dividers (#48626c) and FAQ borders (#aebfc4). These are implementation values, not an invented semantic palette or a complete tonal scale.
+Supporting literals: field border (#b7c1bb), error text (#a2261f), selection fill (#d9e8df), scrollbar thumb (#a4b1aa). These are not additional themes or invented tonal ramps.
 
 ## Typography
 
-Local WOFF2 files provide Barlow Condensed at weight 600 and Source Sans 3 at weights 400, 600 and 700, with font-display: swap and sans-serif fallbacks. The regular body and display files are preloaded. There is no fixed modular type ratio: sizes are role-specific.
-
-Frontmatter records the desktop base hierarchy. Headings balance wrapping; the base paragraph measure is 68ch. Hero supporting copy is 1.125rem/1.6 with a 35ch measure; the planner heading is 2.4rem. Destination titles are 2.5rem; holiday titles are 2.4rem; student headings use clamp(3rem, 5vw, 4.5rem). Service headings and office detail headings deliberately use body type. Responsive overrides are described below; they are not additional global type tokens.
+One self-hosted Manrope family serves headings and body with sans-serif fallback and font-display: swap. Regular (400) and medium (500) files are preloaded; the semibold face declares 600–700. Base headings use 500, balanced wrapping and tight tracking; body is 400. Frontmatter records base roles. Paragraph measure is 65ch. Navigation, field labels and service controls use 0.875rem; inputs use 0.9375rem. Planner heading is 1.5rem with -0.025em tracking. Captions commonly use 0.8125rem. Sizes are role-specific, not a fixed modular scale.
 
 ## Layout
 
-The main wrap is min(1280px, calc(100% - 80px)), centered. Base sections use 88px block padding. The sticky white header has a 90px minimum inner height; the teal utility strip is 36px. Root scroll padding is 112px and planner scroll margin is 104px.
+Centered wrapper: min(1248px, calc(100% - 96px)). Base sections: 70px block padding. Sticky white header: 96px minimum inner height; root scroll padding: 110px. Hero starts with a 1fr/300px heading/introduction grid, 60px gap, then a 360px-high panoramic photograph without text overlay. The open planner has a 950px maximum width and 12px 0 32px padding. Fields start at four equal columns with 20px gaps; full-width labels span the grid except the first field, explicitly reset to auto at base. Preferences use 1fr/2fr. Destinations use three columns, 28px gaps and 255px-high images. Services/contact/guidance use 1fr/1.25fr with 90px gaps. Review details start at four columns.
 
-The desktop hero uses minmax(0, 1.65fr) minmax(350px, 1fr), with a 650px minimum image surface and 32px planner padding. Fields use two equal columns and a 14px gap; full-width labels span both columns. Destinations use three equal columns with 28px gaps. Holidays use 1.25fr 1fr 1fr, with a larger lead photograph. Student and guidance layouts pair text columns; content is not uniformly boxed into cards. Review details start at four columns.
-
-| CSS query | Implemented response |
+| Maximum width | Current responsive behavior |
 | --- | --- |
-| min-width: 1450px | Hero minimum height becomes 675px; hero copy top padding becomes 65px. |
-| max-width: 1190px | Wrap subtracts 56px; hero uses 1.4fr plus a minimum-350px planner; heading becomes 4.3rem; planner padding becomes 25px; image heights and column gaps tighten. |
-| max-width: 1000px | Menu button replaces horizontal navigation; header minimum is 80px. Hero remains two columns (1fr and minimum-320px/0.95fr); hero heading becomes 3.65rem. Sections become 65px. Service strip, holidays and support services use two columns; lead holiday spans the row. Contact becomes one column; review details become three columns. |
-| max-width: 720px | Wrap subtracts 36px; header minimum is 76px; hero and planner stack. Image minimum height is 430px; hero heading uses clamp(3.7rem, 10vw, 4.7rem). Sections become 50px. Destinations become horizontal image/text rows in a one-column list; holidays, student, Everest, support and guidance layouts stack. Planner padding is 28px 24px; fields retain two columns, gap becomes 16px and input/select minimum height becomes 48px. Review details become two columns. Root scroll padding and planner scroll margin become 90px. |
-| max-width: 380px | Wrap subtracts 28px; branding and planner padding tighten; hero heading becomes 3.7rem. Destination rows remain split 0.9fr/1.1fr with a 15px gap. Contact actions stack; review details become one column. |
+| 1100px | Wrapper subtracts 64px; nav gap 24px. Hero uses 1fr/260px with 40px gap and heading clamp(3rem, 5.5vw, 4.6rem). Destination images 220px high. Service/contact/guidance gaps 60px; fields become three columns. |
+| 800px | Wrapper subtracts 48px; header minimum 82px. Menu replaces inline nav; expanded links stack beneath branding. Hero heading/introduction stack; heading 3.5rem, intro/action share a row. Photo 310px high. Sections 52px. Destinations retain three columns, 20px gaps, 190px images. Service/contact/guidance use 0.9fr/1.1fr with 40px gaps. Office details stack; review uses three columns. |
+| 560px | Wrapper subtracts 40px; header minimum 80px; scroll padding 90px. Hero heading clamp(2.35rem, 9.5vw, 3rem), line-height 1.12; intro/action stack. Photo 255px high with 12px corners; secondary caption and planner-summary hint hide. Fields become two columns with 16px gaps, first field full width; input/select type becomes 1rem. Preferences stack; submit fills width. Sections 43px; h2 1.8rem. Destinations become a single list with image/text rows. Services/contact/guidance/footer stack. Review padding 24px, two-column details and full-width actions. |
 
-JavaScript separately uses min-width:1001px to close the mobile menu when crossing back to desktop. This complements the CSS max-width:1000px query.
+JavaScript resets the mobile menu at min-width:801px. The journal section is initially hidden in HTML; styling does not imply populated journal content.
 
 ## Elevation & Depth
 
-No box-shadow vocabulary is implemented. Depth comes from flat alternating surfaces, borders, photography and contrast. The hero uses a functional dark photographic overlay: linear-gradient(180deg, rgba(5, 27, 39, 0.7), rgba(5, 27, 39, 0.48) 65%, rgba(5, 27, 39, 0.75)). It supports white headline legibility rather than decorating a blank panel.
+No box shadows or photographic gradient overlays are implemented. White space, rules, photography and the pale review surface provide separation. Buttons transition background-color over 0.2s ease; scrolling is smooth. Reduced-motion preference removes the transition and restores auto scrolling.
 
 ## Shapes
 
-Controls and action buttons use the control radius; photographs, review and selected supporting containers use the radius property. Hero geometry remains square. Buttons have a 1px border; fields use a 1px visible border. The selected destination photograph receives a 3px accent outline with 4px offset. Country metadata follows the destination h3 in the DOM and visual reading order.
+Frontmatter records observed corners: main photographs/review, modest buttons, small pill action, tighter fields and mobile hero override. Borders are 1px. Selected destination images have a 2px focus-colored outline with 4px offset. Global focus-visible uses a 2px outline with 5px offset; fields use 2px offset. No separate chip/tag primitive exists.
 
 ## Components
 
-### Buttons and navigation
+**Actions and navigation.** Primary/outline buttons have 48px minimum height; the small pill action has 44px minimum height and 10px 22px padding. Primary hover uses accent-hover; outline hover uses surface. Underlined text actions have 44px minimum height, 7px 0 padding, 0.875rem/1.5 medium type and focus-green hover. Disabled buttons use opacity 0.5. Nav links underline on hover. The native mobile-menu button exposes aria-controls/aria-expanded; links, Escape and desktop media changes close it. Escape restores button focus; the skip link targets main.
 
-Primary, outline and light actions share a minimum height of 50px and the frontmatter padding. Small actions use 44px minimum height and 10px 18px padding. Text links use a bottom border, 44px minimum height and orange hover. Native buttons perform planner actions; anchors navigate or open contact destinations. Disabled buttons use opacity 0.6 and a not-allowed cursor.
+**Planner.** Native details#booking is collapsed initially. Its ruled summary has a CSS chevron and 76px base minimum height (65px on mobile). Hash changes and same-anchor clicks open targeted disclosures. Destination/holiday/student/stay/transfer/heli shortcuts open and prefill the planner, scroll it into view and focus destination; student planning checks the student option, stays prefill Kathmandu. Flight-card selection reflects the clicked shortcut rather than live manual input matching.
 
-The four service controls are native type=button elements in a labelled role=group with aria-pressed. They are not ARIA tabs: the selected service uses orange text and a 3px bottom border. The mobile menu is a native button with aria-controls and aria-expanded. It closes after link activation, on Escape (returning focus to the button), and at the desktop media-query change. A keyboard-visible skip link targets main.
+Four native service buttons form a labelled aria-pressed group, not ARIA tabs. Selected state uses a 2px charcoal underline and weight 600. Service changes update labels, placeholders, date requirements and suggestions; hidden flight/transfer inputs/selects are disabled. Native labels, validation, date fields, datalist, selects, checkbox, resizable notes and preference disclosure remain. Fields have a 47px minimum height. Date minimums use local dates; returns are required for return flights and stays.
 
-### Journey fields and review
+**Request review.** Submission prevents network form submission, calls the journey builder and displays caught errors in role=alert. The review uses textContent in a definition list, then receives focus and scrolls into view. WhatsApp gets an encoded prepared message. Input/change, service changes and shortcuts hide stale review and remove its href; editing returns to the planner.
 
-The form retains native validation: wrapped labels, required fields, date controls, a destination datalist, selects, a student checkbox and a resizable textarea. Input/select minimum height is 46px at base. Fields have white fill and the control radius. Selects retain native select behavior with a CSS SVG arrow; appearance is customized. Hidden flight/transfer groups disable their contained input/select controls. Service selection updates field captions, layout, requirements and destination suggestions.
+**The Request Boundary Rule.** The planner prepares a request; the visitor chooses whether to send it in WhatsApp. Checkout is unimplemented, with no inventory provider or merchant account configured.
 
-Date minimums use the browser's local date. Return dates are required for return flights and stays; journey.js additionally validates service, route, date ordering, traveller values and cabin. Errors appear as text in role=alert. The generic focus-visible treatment is a 3px focus outline with 4px offset; focused inputs/selects/textareas use a 2px outline and 2px offset plus focus-colored border.
+Journey details remain in page state. The localStorage CMS is not a secure shared booking backend.
 
-Submitting prevents network form submission and builds a dl review using textContent. The review is focusable with tabindex=-1; success reveals, focuses and scrolls to it. A URL-encoded WhatsApp link contains the prepared message. Input/change, service changes and planner shortcuts hide stale review and remove its href; the visitor must submit again to generate a current review. Edit returns focus to the destination. No request is automatically sent and no booking or payment is made. Journey details stay in page state; the staff CMS remains a browser-local editing utility, not a secure booking backend.
-
-**The The Request Boundary Rule.** The planner prepares a request for review. Only the visitor decides whether to send the prepared message in WhatsApp; availability, price, booking conditions and payment arrangements require the travel desk.
-
-### Destination and service content
-
-Destination action buttons prefill flight destinations, outline the clicked card and scroll/focus the planner. Holiday and Everest buttons prefill a holiday request; hotel/transfer actions choose the appropriate service; student planning checks the student option. The route outline reflects the clicked shortcut; it is not implemented as a live match against subsequent manual typing. Cards use real image elements, explicit dimensions and meaningful alt text; the hero has high fetch priority and lower content images use lazy loading. Preserve existing photo credits and provenance rather than inventing source or licensing claims.
-
-### Progressive disclosure and motion
-
-Preferences, holiday details, FAQ and booking/privacy guidance use native details/summary. FAQ chevrons are CSS decoration; native open state controls disclosure. Anchor navigation opens a targeted details element both on hash changes and same-anchor clicks. No custom accordion keyboard model is required.
-
-The implemented motion vocabulary is smooth native scrolling and a background-color transition on buttons (0.18s ease). Under prefers-reduced-motion: reduce, root scrolling becomes auto and button transitions are removed. Planner focus uses preventScroll before an explicit scrollIntoView; it does not override the CSS motion preference.
+**Destinations and services.** Sydney/Tokyo flight and Bali holiday actions remain; country metadata follows titles. Images retain dimensions and meaningful alt text, hero fetch priority and lower-image lazy loading. Four independent native service disclosures preserve flights/student support, holidays, stays/ground transport, and Himalayan experiences/visa itineraries. Ruled service summaries use CSS chevrons and a 70px base minimum height (65px mobile). Booking/privacy guidance also uses native disclosures; targeted anchors open them. No custom accordion keyboard model is needed.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- Do keep country metadata below each destination title.
-- Do invalidate the prepared review and remove its WhatsApp href whenever journey input changes or a planner shortcut is used.
-- Do preserve native button, form, label, select, date input and details/summary semantics.
-- Do retain the existing name, logo and production contact defaults until agency confirmation.
-- Do use real destination photography and retain image provenance and photo-credit links.
+- Do preserve agency identity, contact defaults, photo credits and provenance.
+- Do preserve native controls, visible focus and progressive disclosure.
+- Do invalidate stale review and remove its WhatsApp href after journey changes or shortcuts.
 
 ### Don't:
 
-- Don't add theatrical loaders, unverified metrics, floating utility clutter or repeated generic icon-card sections.
-- Don't imply live inventory, ticket issuance, confirmed booking, payment processing or automatic request delivery.
-- Don't store personal journey requests in the browser-only staff CMS or request passport or card details in the planner.
-- Don't treat this documentation pass as an independent final review verdict.
+- Don't restore condensed headings, colored service bands or an oversized permanent form panel.
+- Don't imply live inventory, confirmed booking, ticket issuance, automatic delivery or payment processing.
+- Don't store personal journey requests in the browser-only staff CMS or collect passport/card details in the planner.

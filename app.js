@@ -76,6 +76,7 @@ form.addEventListener("input", invalidateReview);
 form.addEventListener("change", invalidateReview);
 function focusPlanner() {
   invalidateReview();
+  document.querySelector("#booking").open = true;
   document.querySelector("#booking").scrollIntoView({ block: "start" });
   destination.focus({ preventScroll: true });
 }
@@ -170,7 +171,7 @@ document.addEventListener("keydown", (event) => {
     menuButton.focus();
   }
 });
-matchMedia("(min-width:1001px)").addEventListener("change", closeMenu);
+matchMedia("(min-width:801px)").addEventListener("change", closeMenu);
 function revealAnchor() {
   const target = document.getElementById(location.hash.slice(1));
   if (target?.tagName === "DETAILS") target.open = true;

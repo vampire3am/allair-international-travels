@@ -1,152 +1,103 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-27T08:25:38.014Z",
+  "generatedAt": "2026-11-27T09:03:11.404Z",
   "title": "Design System: All Air International Travels & Tours",
   "extensions": {
     "colorMeta": {
       "ink": {
         "role": "primary",
-        "displayName": "Deep teal ink"
+        "displayName": "ink"
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Muted slate"
-      },
-      "accent": {
-        "role": "primary",
-        "displayName": "Restrained orange"
-      },
-      "accent-hover": {
-        "role": "primary",
-        "displayName": "Deep orange hover"
-      },
-      "white": {
-        "role": "neutral",
-        "displayName": "White"
+        "displayName": "muted"
       },
       "surface": {
         "role": "neutral",
-        "displayName": "Blue-green surface"
+        "displayName": "surface"
       },
       "line": {
         "role": "neutral",
-        "displayName": "Divider"
+        "displayName": "line"
       },
-      "light-text": {
+      "white": {
         "role": "neutral",
-        "displayName": "Light teal text"
+        "displayName": "white"
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "accent"
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "accent-hover"
       },
       "focus": {
         "role": "neutral",
-        "displayName": "Focus blue"
+        "displayName": "focus"
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "display",
-        "purpose": "Desktop base hero heading; responsive overrides apply."
+        "purpose": "Observed base role; responsive and component overrides apply."
       },
       "headline": {
-        "displayName": "headline",
-        "purpose": "Base section heading; component and responsive overrides apply."
+        "purpose": "Observed base role; responsive and component overrides apply."
       },
       "title": {
-        "displayName": "title",
-        "purpose": "Base h3; destination and service overrides apply."
+        "purpose": "Observed base role; responsive and component overrides apply."
       },
       "body": {
-        "displayName": "body",
-        "purpose": "Default page text."
+        "purpose": "Observed base role; responsive and component overrides apply."
       },
       "label": {
-        "displayName": "label",
-        "purpose": "Field labels; line height inherits the surrounding context."
+        "purpose": "Observed base role; responsive and component overrides apply."
       }
     },
     "shadows": [],
     "motion": [
       {
         "name": "button-background",
-        "value": "background-color 0.18s ease",
-        "purpose": "Button hover transition; removed under reduced motion."
+        "value": "background-color 0.2s ease",
+        "purpose": "Removed for reduced motion."
       },
       {
         "name": "page-scroll",
         "value": "smooth",
-        "purpose": "Root scroll behavior; auto under reduced motion."
+        "purpose": "Auto for reduced motion."
       }
     ],
     "breakpoints": [
       {
-        "name": "wide-hero",
-        "value": "1450px",
-        "query": "(min-width: 1450px)"
+        "name": "max-1100",
+        "value": "1100px",
+        "query": "(max-width: 1100px)"
       },
       {
-        "name": "compact-desktop",
-        "value": "1190px",
-        "query": "(max-width: 1190px)"
+        "name": "max-800",
+        "value": "800px",
+        "query": "(max-width: 800px)"
       },
       {
-        "name": "menu-and-tablet",
-        "value": "1000px",
-        "query": "(max-width: 1000px)"
-      },
-      {
-        "name": "stacked-mobile",
-        "value": "720px",
-        "query": "(max-width: 720px)"
-      },
-      {
-        "name": "narrow-mobile",
-        "value": "380px",
-        "query": "(max-width: 380px)"
+        "name": "max-560",
+        "value": "560px",
+        "query": "(max-width: 560px)"
       }
     ],
     "implementation": {
       "sources": [
-        "index.html",
         "style.css",
+        "index.html",
         "app.js",
         "PRODUCT.md",
-        ".impeccable/surfaces/index-html.md",
-        "journey.js"
+        ".impeccable/surfaces/index-html.md"
       ],
-      "cssTokenBindings": {
-        "--ink": "colors.ink",
-        "--muted": "colors.muted",
-        "--accent": "colors.accent",
-        "--accent-hover": "colors.accent-hover",
-        "--white": "colors.white",
-        "--surface": "colors.surface",
-        "--line": "colors.line",
-        "--light-text": "colors.light-text",
-        "--focus": "colors.focus",
-        "--radius": "rounded.radius",
-        "--body": "typography.body.fontFamily",
-        "--display": "typography.display.fontFamily"
-      },
-      "nativeSemantics": [
-        "button",
-        "form",
-        "label",
-        "input",
-        "select",
-        "textarea",
-        "datalist",
-        "details",
-        "summary",
-        "nav",
-        "dl"
-      ],
-      "reviewInvalidation": "input/change, service changes and planner shortcuts hide review and remove the prepared WhatsApp href.",
-      "destinationMetadata": "Country span follows each destination h3.",
-      "menuResetQuery": "(min-width:1001px)",
-      "reducedMotionQuery": "(prefers-reduced-motion: reduce)",
-      "bookingBoundary": "Client-side request preparation only; visitor chooses whether to send in WhatsApp. No inventory, payment or ticketing backend.",
-      "reviewStatus": "Reviewer fix batch captured; independent final verdict pending.",
-      "verificationScope": "Static source and document consistency only; no browser used.",
-      "previewScope": "Snippets reproduce presentational primitives; app.js behavior is documented, not embedded in panel previews. No separate chip/tag primitive exists in this build."
+      "menuResetQuery": "(min-width:801px)",
+      "planner": "Native details#booking, initially collapsed; anchors and shortcuts open it.",
+      "bookingBoundary": "The planner prepares a request; the visitor chooses whether to send it in WhatsApp. Checkout is unimplemented, with no inventory provider or merchant account configured.",
+      "reviewStatus": "Latest build reviewer disposition supplied: ship with no material fixes.",
+      "verificationScope": "Static source/document consistency only; no browser or agents.",
+      "previewScope": "Presentational snippets; application handlers omitted. No synthesized themes or tonal ramps."
     }
   },
   "components": [
@@ -154,92 +105,65 @@
       "name": "Primary action",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Implemented primary action treatment; native button semantics.",
-      "html": "<button class=\"ds-primary\" type=\"button\">Review my journey</button>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border:1px solid transparent;border-radius:4px;font:600 1.0625rem/1.3 var(--body);text-align:center;text-decoration:none;cursor:pointer;transition:background-color 0.18s ease;background:var(--accent);color:var(--white);}.ds-primary:hover{background:var(--accent-hover);}.ds-primary:focus-visible{outline:3px solid var(--focus);outline-offset:4px}.ds-primary:disabled{cursor:not-allowed;opacity:0.6}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+      "description": "Modest charcoal action.",
+      "html": "<button type=\"button\" class=\"ds-item\">Review my journey</button>",
+      "css": ".ds-item{font-family:var(--body);line-height:1.65;min-height:48px;padding:12px 22px;background:var(--ink);color:var(--white);border:1px solid var(--ink);border-radius:7px;font-size:.9375rem;font-weight:500;cursor:pointer;transition:background-color .2s ease}.ds-item:hover{background:var(--accent-hover)}.ds-item:focus-visible{outline:2px solid var(--focus);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-item{transition:none}}"
     },
     {
       "name": "Outline action",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Implemented outline action treatment; native button semantics.",
-      "html": "<button class=\"ds-outline\" type=\"button\">Edit journey</button>",
-      "css": ".ds-outline{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border:1px solid transparent;border-radius:4px;font:600 1.0625rem/1.3 var(--body);text-align:center;text-decoration:none;cursor:pointer;transition:background-color 0.18s ease;background:transparent;color:var(--ink);border-color:var(--ink);}.ds-outline:hover{background:var(--surface);}.ds-outline:focus-visible{outline:3px solid var(--focus);outline-offset:4px}.ds-outline:disabled{cursor:not-allowed;opacity:0.6}@media(prefers-reduced-motion:reduce){.ds-outline{transition:none}}"
-    },
-    {
-      "name": "Light action",
-      "kind": "button",
-      "refersTo": "button-light",
-      "description": "Implemented light action treatment; native button semantics.",
-      "html": "<button class=\"ds-light\" type=\"button\">Plan student travel</button>",
-      "css": ".ds-light{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border:1px solid transparent;border-radius:4px;font:600 1.0625rem/1.3 var(--body);text-align:center;text-decoration:none;cursor:pointer;transition:background-color 0.18s ease;background:var(--white);color:var(--ink);}.ds-light:hover{background:#dae9ea;}.ds-light:focus-visible{outline:3px solid var(--focus);outline-offset:4px}.ds-light:disabled{cursor:not-allowed;opacity:0.6}@media(prefers-reduced-motion:reduce){.ds-light{transition:none}}"
-    },
-    {
-      "name": "Text action",
-      "kind": "button",
-      "refersTo": "text-link",
-      "description": "Native shortcut button used below destination text.",
-      "html": "<button type=\"button\" class=\"ds-text\">Plan a Sydney flight</button>",
-      "css": ".ds-text{display:inline-flex;align-items:center;min-height:44px;border:0;border-bottom:1px solid currentColor;padding:7px 0;background:none;color:var(--ink);font:600 1rem/1.4 var(--body);cursor:pointer}.ds-text:hover{color:var(--accent)}.ds-text:focus-visible{outline:3px solid var(--focus);outline-offset:4px}"
+      "description": "Secondary edit action.",
+      "html": "<button type=\"button\" class=\"ds-item\">Edit journey</button>",
+      "css": ".ds-item{font-family:var(--body);line-height:1.65;min-height:48px;padding:12px 22px;background:var(--white);color:var(--ink);border:1px solid var(--line);border-radius:7px;font-size:.9375rem;font-weight:500;cursor:pointer;transition:background-color .2s ease}.ds-item:hover{background:var(--surface)}.ds-item:focus-visible{outline:2px solid var(--focus);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-item{transition:none}}"
     },
     {
       "name": "Journey field",
       "kind": "input",
       "refersTo": "field-input",
-      "description": "A wrapped native label and required text field.",
-      "html": "<label class=\"ds-field\">To<input required placeholder=\"City or airport\" maxlength=\"100\" autocomplete=\"off\"></label>",
-      "css": ".ds-field{display:flex;flex-direction:column;gap:5px;min-width:0;color:var(--ink);font:600 0.9375rem/1.55 var(--body)}.ds-field input{width:100%;min-width:0;min-height:46px;border:1px solid #91a9b1;border-radius:4px;padding:10px 11px;background:var(--white);color:var(--ink);font:400 1rem/1.55 var(--body);caret-color:var(--accent)}.ds-field input::placeholder{color:#5c7077;opacity:1}.ds-field input:focus{outline:2px solid var(--focus);outline-offset:2px;border-color:var(--focus)}@media(max-width:720px){.ds-field input{min-height:48px}}"
-    },
-    {
-      "name": "Service picker",
-      "kind": "custom",
-      "description": "Native pressed buttons; this snippet displays the selected state without the app event handlers.",
-      "html": "<div class=\"ds-picker\" role=\"group\" aria-label=\"Journey service\"><button type=\"button\" aria-pressed=\"true\">Flights</button><button type=\"button\" aria-pressed=\"false\">Holidays</button><button type=\"button\" aria-pressed=\"false\">Stays</button><button type=\"button\" aria-pressed=\"false\">Transfers</button></div>",
-      "css": ".ds-picker{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #9ab1b8;margin-block:20px}.ds-picker button{background:none;color:var(--ink);font:600 1rem/1.55 var(--body);padding:10px 4px 13px;min-height:44px;border:0;border-bottom:3px solid transparent;cursor:pointer}.ds-picker button[aria-pressed=\"true\"]{color:var(--accent);border-bottom-color:var(--accent)}.ds-picker button:hover{background:#dfe9e9;color:var(--accent-hover)}.ds-picker button:focus-visible{outline:3px solid var(--focus);outline-offset:4px}"
+      "description": "Native labelled field.",
+      "html": "<label class=\"ds-field\">To<input placeholder=\"City or airport\" required></label>",
+      "css": ".ds-field{font-family:var(--body);line-height:1.65;display:flex;flex-direction:column;gap:7px;color:var(--ink);font-size:.875rem;font-weight:500}.ds-field input{font:400 .9375rem/1.65 var(--body);min-width:0;min-height:47px;padding:11px 12px;border:1px solid #b7c1bb;border-radius:6px;background:var(--white);color:var(--ink);caret-color:var(--focus)}.ds-field input::placeholder{color:var(--muted);opacity:1}.ds-field input:focus{outline:2px solid var(--focus);outline-offset:2px}@media(max-width:560px){.ds-field input{font-size:1rem}}"
     },
     {
       "name": "Main navigation",
       "kind": "nav",
-      "description": "Desktop navigation links, extracted without the mobile menu event handlers.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#routes\">Flights</a><a href=\"#student\">Student travel</a><a href=\"#tours\">Holidays</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:26px;background:var(--white);color:var(--ink)}.ds-nav a{font:600 1rem/1.55 var(--body);text-decoration:none;white-space:nowrap}.ds-nav a:hover{color:var(--accent)}.ds-nav a:focus-visible{outline:3px solid var(--focus);outline-offset:4px}"
+      "description": "Desktop links; no application handlers in preview.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#routes\">Destinations</a><a href=\"#services\">Our services</a><a href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-nav{font-family:var(--body);line-height:1.65;display:flex;align-items:center;gap:32px;color:var(--ink);background:var(--white)}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;font-size:.875rem;color:inherit;text-decoration:none}.ds-nav a:hover{text-decoration:underline}.ds-nav a:focus-visible{outline:2px solid var(--focus);outline-offset:5px}"
     },
     {
-      "name": "FAQ disclosure",
+      "name": "Planner disclosure",
       "kind": "custom",
-      "description": "Native details/summary with the implemented divider and chevron treatment.",
-      "html": "<div class=\"ds-faq\"><details><summary>Can I book and pay online?</summary><p>Online checkout is not available on this website yet. You can prepare a journey request and choose to send it on WhatsApp.</p></details></div>",
-      "css": ".ds-faq{color:var(--ink);font:400 1rem/1.55 var(--body)}.ds-faq details{border-top:1px solid #aebfc4;border-bottom:1px solid #aebfc4}.ds-faq summary{position:relative;cursor:pointer;font-weight:600;list-style:none;padding:22px 30px 22px 0;min-height:60px;font-size:1.125rem;line-height:1.4}.ds-faq summary::-webkit-details-marker{display:none}.ds-faq summary:after{content:\"\";position:absolute;right:4px;top:26px;width:9px;height:9px;border-bottom:1.5px solid var(--ink);border-right:1.5px solid var(--ink);transform:rotate(45deg)}.ds-faq details[open] summary:after{transform:rotate(225deg);top:31px}.ds-faq p{margin:0;max-width:68ch;padding-bottom:24px;color:var(--muted)}.ds-faq summary:focus-visible{outline:3px solid var(--focus);outline-offset:4px}"
+      "description": "Native collapsed planner entry; form behavior documented separately.",
+      "html": "<details class=\"ds-details\"><summary class=\"ds-item\">Plan your journey</summary><p>Add your travel details to prepare a request.</p></details>",
+      "css": ".ds-details{font-family:var(--body);line-height:1.65;border-block:1px solid var(--line);color:var(--ink)}.ds-item{display:flex;align-items:center;position:relative;min-height:76px;padding:22px 35px 22px 0;font-size:1.125rem;font-weight:500;list-style:none;cursor:pointer}.ds-item::-webkit-details-marker{display:none}.ds-item:after{content:\"\";position:absolute;right:4px;top:50%;width:8px;height:8px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translateY(-70%) rotate(45deg)}.ds-details[open]>.ds-item:after{transform:translateY(-20%) rotate(225deg)}.ds-item:focus-visible{outline:2px solid var(--focus);outline-offset:5px}"
     }
   ],
   "narrative": {
-    "northStar": "Kathmandu departure hall",
-    "overview": "The approved Kathmandu departure hall world uses deep teal, white reading space and restrained orange actions. Barlow Condensed gives headings the directness of airport signage; Source Sans 3 keeps explanations and journey fields readable. Real destination photography carries the travel inspiration.\n\nThis is a code-derived record of the public homepage in index.html, style.css and app.js, with journey.js read to confirm the request boundary. Existing staff admin is a separate retained utility and is outside this visual specification. The goal is a professional redesign that removes generic AI pattern clutter while making the next travel-planning step clear.",
+    "northStar": "Room for the journey",
+    "overview": "The user-pinned minimal revision uses white space, charcoal text, one Manrope family, natural photographs and modest dark buttons. Native disclosures keep detailed planning and services available without filling the page. This replaces the rejected, dated airport-wayfinding direction.",
     "keyCharacteristics": [
-      "Crisp hierarchy with generous section rhythm and dense, readable controls.",
-      "Real rectangular destination photography with restrained rounded corners.",
-      "Flat teal and pale surfaces, visible borders and focused orange actions.",
-      "Native controls, explicit request review and a user-controlled WhatsApp handoff."
+      "Single-family typography and quiet neutral hierarchy.",
+      "Unobscured photography, thin rules and no decorative shadows.",
+      "Collapsed planning and service details; preserved travel actions."
     ],
     "rules": [
       {
-        "name": "The Request Boundary Rule",
-        "body": "The planner prepares a request for review. Only the visitor decides whether to send the prepared message in WhatsApp; availability, price, booking conditions and payment arrangements require the travel desk.",
+        "name": "Request Boundary",
+        "body": "The planner prepares a request; the visitor chooses whether to send it in WhatsApp. Checkout is unimplemented, with no inventory provider or merchant account configured.",
         "section": "components"
       }
     ],
     "dos": [
-      "Do keep country metadata below each destination title.",
-      "Do invalidate the prepared review and remove its WhatsApp href whenever journey input changes or a planner shortcut is used.",
-      "Do preserve native button, form, label, select, date input and details/summary semantics.",
-      "Do retain the existing name, logo and production contact defaults until agency confirmation.",
-      "Do use real destination photography and retain image provenance and photo-credit links."
+      "Do preserve agency identity, contact defaults, photo credits and provenance.",
+      "Do preserve native controls, visible focus and progressive disclosure.",
+      "Do invalidate stale review and remove its WhatsApp href after journey changes or shortcuts."
     ],
     "donts": [
-      "Don't add theatrical loaders, unverified metrics, floating utility clutter or repeated generic icon-card sections.",
-      "Don't imply live inventory, ticket issuance, confirmed booking, payment processing or automatic request delivery.",
-      "Don't store personal journey requests in the browser-only staff CMS or request passport or card details in the planner.",
-      "Don't treat this documentation pass as an independent final review verdict."
+      "Don't restore condensed headings, colored service bands or an oversized permanent form panel.",
+      "Don't imply live inventory, confirmed booking, ticket issuance, automatic delivery or payment processing.",
+      "Don't store personal journey requests in the browser-only staff CMS or collect passport/card details in the planner."
     ]
   }
 }

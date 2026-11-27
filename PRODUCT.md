@@ -18,7 +18,7 @@ Existing Vite/vanilla HTML, CSS and JavaScript site, deployed to Vercel. Public 
 Retain name/logo, office/contact details, core travel services and existing staff admin. User authorizes removal of decorative loaders, fake confirmations and unsupported claims. Preserve existing admin files and CMS compatibility where meaningful. Current CMS stores data in localStorage; it is not a secure shared backend. User confirms there is no inventory provider or merchant account and requests recommendations. Live booking/payment therefore remains an onboarding dependency; the delivered planner prepares a request and never simulates a transaction. No invented prices, reviews, registrations, benefit guarantees or service-level promises.
 
 ## Brand Commitments
-All Air International Travels & Tours name and existing logo. User requests a professional redesign with fewer generic AI-looking patterns, useful populated layouts and removal of unnecessary decoration.
+All Air International Travels & Tours name and existing logo. User requests a professional redesign with fewer generic AI-looking patterns, useful populated layouts and removal of unnecessary decoration. Latest explicit preference: minimalistic; the first condensed-type, colored-band implementation was rejected as looking dated. Use less copy, fewer visible sections and progressively disclosed planning/services while preserving function.
 
 ## Product Principles
 Make the next step clear. Ground claims in actual agency/provider information. Keep booking state and validation explicit. Keep customer data out of public/browser-only staff records. Preserve user control and accessible native interactions.
