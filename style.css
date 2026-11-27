@@ -525,6 +525,177 @@ summary::-webkit-details-marker {
   font-size: 0.8125rem;
   margin-top: 5px;
 }
+.destination-meta .destination-description {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-top: 14px;
+}
+.route-directory {
+  display: flex;
+  gap: 30px;
+  align-items: baseline;
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+  padding-top: 20px;
+  font-size: 0.875rem;
+}
+.route-directory > p {
+  color: var(--muted);
+}
+.route-directory > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+}
+.route-directory button {
+  border: 0;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  font-size: 0.875rem;
+}
+.route-directory button:hover {
+  color: var(--focus);
+}
+.student-layout,
+.practical-layout,
+.faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 90px;
+  border-top: 1px solid var(--line);
+}
+.section-intro {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-top: 22px;
+  max-width: 49ch;
+}
+.student-layout > div > .text-link {
+  margin-top: 22px;
+}
+.student-checklist article + article {
+  margin-top: 26px;
+}
+.student-checklist h3,
+.practical-services h3,
+.planning-steps h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.student-checklist article p,
+.practical-services p,
+.planning-steps p {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 10px;
+}
+.small-note {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.holiday-section {
+  border-top: 1px solid var(--line);
+}
+.holiday-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+.holiday-story img {
+  width: 100%;
+  height: 290px;
+  border-radius: var(--radius);
+}
+.holiday-story h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 22px;
+}
+.holiday-story p {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 12px;
+  max-width: 59ch;
+}
+.holiday-story .trip-outline {
+  font-size: 0.8125rem;
+}
+.holiday-story .text-link {
+  margin-top: 12px;
+}
+.holiday-tail {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.holiday-tail p {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.8;
+  max-width: 85ch;
+}
+.holiday-tail .text-link {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.experience-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 70px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+.experience-layout img {
+  width: 100%;
+  height: 385px;
+  border-radius: var(--radius);
+}
+.experience-layout p:not(.section-intro) {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 16px;
+}
+.experience-layout .text-link {
+  margin-top: 20px;
+}
+.practical-services article + article {
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+  margin-top: 28px;
+}
+.practical-services .text-link {
+  margin-top: 14px;
+}
+.planning-steps {
+  border-top: 1px solid var(--line);
+}
+.planning-steps ol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  list-style-position: inside;
+  padding: 0;
+  margin: 32px 0 0;
+}
+.planning-steps li::marker {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.planning-steps h3 {
+  margin-top: 15px;
+}
 .destination-meta .text-link {
   margin-top: 9px;
 }
@@ -740,6 +911,37 @@ summary::-webkit-details-marker {
   }
 }
 @media (max-width: 800px) {
+  .student-layout,
+  .practical-layout,
+  .faq-layout {
+    gap: 36px;
+    grid-template-columns: 1fr 1.2fr;
+  }
+  .route-directory {
+    display: block;
+  }
+  .route-directory > div {
+    margin-top: 10px;
+  }
+  .holiday-grid {
+    gap: 24px;
+  }
+  .holiday-story img {
+    height: 220px;
+  }
+  .holiday-tail {
+    gap: 28px;
+  }
+  .experience-layout {
+    gap: 32px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .experience-layout img {
+    height: 350px;
+  }
+  .planning-steps ol {
+    gap: 24px;
+  }
   .wrap {
     width: calc(100% - 48px);
   }
@@ -834,6 +1036,52 @@ summary::-webkit-details-marker {
   }
 }
 @media (max-width: 560px) {
+  .student-layout,
+  .practical-layout,
+  .faq-layout,
+  .experience-layout,
+  .holiday-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .section-intro {
+    font-size: 0.9375rem;
+    margin-top: 16px;
+  }
+  .destination-meta .destination-description {
+    font-size: 0.8125rem;
+    margin-top: 10px;
+  }
+  .holiday-story img {
+    height: 230px;
+    border-radius: 12px;
+  }
+  .holiday-story h3 {
+    margin-top: 17px;
+  }
+  .holiday-grid {
+    gap: 36px;
+  }
+  .holiday-tail {
+    display: block;
+    margin-top: 26px;
+  }
+  .holiday-tail .text-link {
+    margin-top: 16px;
+  }
+  .experience-layout img {
+    height: 245px;
+    border-radius: 12px;
+  }
+  .planning-steps ol {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 24px;
+  }
+  .planning-steps li {
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
   :root {
     scroll-padding-top: 90px;
   }

@@ -93,15 +93,15 @@
 
 **Creative North Star: "Room for the journey"**
 
-The user-pinned minimal revision uses white space, charcoal text, one Manrope family, natural photographs and modest dark buttons. Native disclosures keep detailed planning and services available without filling the page. This replaces the rejected, dated airport-wayfinding direction.
+The user-pinned minimal revision uses white space, charcoal text, one Manrope family, natural photographs and modest dark buttons. Visible content covers three photo destinations plus six flight presets, student guidance, Dubai/Thailand holiday stories, an Everest experience, stays/transfers/visa itineraries, three planning steps, six FAQs and contact. Native disclosures contain the planner, preferences, FAQs and booking/privacy guidance.
 
 **Key Characteristics:**
 
 - Single-family typography and quiet neutral hierarchy.
 - Unobscured photography, thin rules and no decorative shadows.
-- Collapsed planning and service details; preserved travel actions.
+- Visible travel guidance and actions; collapsed planner and FAQs.
 
-Source: style.css, index.html, app.js, PRODUCT.md and the homepage surface brief. Latest build reviewer disposition supplied for this handoff: **ship with no material fixes**. This documentation pass is static only; no browser or runtime review. Staff admin remains a separate local utility.
+Source: style.css, index.html, app.js, PRODUCT.md and the homepage surface brief. Latest build reviewer disposition supplied for this handoff: **ship with no material fixes**. Visual references: .impeccable/review/content/desktop.jpg and mobile.jpg. This documentation pass uses final code and existing screenshots; no runtime review. Staff admin remains a separate local utility.
 
 ## Colors
 
@@ -115,13 +115,13 @@ One self-hosted Manrope family serves headings and body with sans-serif fallback
 
 ## Layout
 
-Centered wrapper: min(1248px, calc(100% - 96px)). Base sections: 70px block padding. Sticky white header: 96px minimum inner height; root scroll padding: 110px. Hero starts with a 1fr/300px heading/introduction grid, 60px gap, then a 360px-high panoramic photograph without text overlay. The open planner has a 950px maximum width and 12px 0 32px padding. Fields start at four equal columns with 20px gaps; full-width labels span the grid except the first field, explicitly reset to auto at base. Preferences use 1fr/2fr. Destinations use three columns, 28px gaps and 255px-high images. Services/contact/guidance use 1fr/1.25fr with 90px gaps. Review details start at four columns.
+Centered wrapper: min(1248px, calc(100% - 96px)). Base sections: 70px block padding. Sticky white header: 96px minimum inner height; root scroll padding: 110px. Hero starts with a 1fr/300px heading/introduction grid, 60px gap, then a 360px-high panoramic photograph without text overlay. The open planner has a 950px maximum width and 12px 0 32px padding. Fields start at four equal columns with 20px gaps; full-width labels span the grid except the first field, explicitly reset to auto at base. Preferences use 1fr/2fr. Destinations use three columns, 28px gaps and 255px-high images. Student/practical-services/FAQ and contact/guidance use 1fr/1.25fr with 90px gaps. Holiday stories use two equal columns with 36px gaps; Everest uses a 1.15fr/1fr image/text split with a 70px gap. Three planning steps use equal columns with 45px gaps. Six flight presets wrap beneath a ruled route directory. Review details start at four columns.
 
 | Maximum width | Current responsive behavior |
 | --- | --- |
-| 1100px | Wrapper subtracts 64px; nav gap 24px. Hero uses 1fr/260px with 40px gap and heading clamp(3rem, 5.5vw, 4.6rem). Destination images 220px high. Service/contact/guidance gaps 60px; fields become three columns. |
-| 800px | Wrapper subtracts 48px; header minimum 82px. Menu replaces inline nav; expanded links stack beneath branding. Hero heading/introduction stack; heading 3.5rem, intro/action share a row. Photo 310px high. Sections 52px. Destinations retain three columns, 20px gaps, 190px images. Service/contact/guidance use 0.9fr/1.1fr with 40px gaps. Office details stack; review uses three columns. |
-| 560px | Wrapper subtracts 40px; header minimum 80px; scroll padding 90px. Hero heading clamp(2.35rem, 9.5vw, 3rem), line-height 1.12; intro/action stack. Photo 255px high with 12px corners; secondary caption and planner-summary hint hide. Fields become two columns with 16px gaps, first field full width; input/select type becomes 1rem. Preferences stack; submit fills width. Sections 43px; h2 1.8rem. Destinations become a single list with image/text rows. Services/contact/guidance/footer stack. Review padding 24px, two-column details and full-width actions. |
+| 1100px | Wrapper subtracts 64px; nav gap 24px. Hero uses 1fr/260px with 40px gap and heading clamp(3rem, 5.5vw, 4.6rem). Destination images 220px high. Contact/guidance gaps 60px; fields become three columns. |
+| 800px | Wrapper subtracts 48px; header minimum 82px. Menu replaces inline nav; expanded links stack beneath branding. Hero heading/introduction stack; heading 3.5rem, intro/action share a row. Photo 310px high. Sections 52px. Destinations retain three columns, 20px gaps, 190px images. Contact/guidance use 0.9fr/1.1fr with 40px gaps. Student/practical-services/FAQ use 1fr/1.2fr with 36px gaps. Holiday stories retain two columns with 24px gaps and 220px images; Everest uses equal columns with a 32px gap and 350px image. Step gaps become 24px; route actions wrap below their label. Office details stack; review uses three columns. |
+| 560px | Wrapper subtracts 40px; header minimum 80px; scroll padding 90px. Hero heading clamp(2.35rem, 9.5vw, 3rem), line-height 1.12; intro/action stack. Photo 255px high with 12px corners; secondary caption and planner-summary hint hide. Fields become two columns with 16px gaps, first field full width; input/select type becomes 1rem. Preferences stack; submit fills width. Sections 43px; h2 1.8rem. Destinations become a single list with image/text rows. Student/practical-services/FAQ, holidays, Everest, steps, contact/guidance/footer stack. Holiday stories have 36px gaps; Everest imagery is 245px high. Steps have 25px gaps and bottom rules. Review padding 24px, two-column details and full-width actions. |
 
 JavaScript resets the mobile menu at min-width:801px. The journal section is initially hidden in HTML; styling does not imply populated journal content.
 
@@ -147,7 +147,9 @@ Four native service buttons form a labelled aria-pressed group, not ARIA tabs. S
 
 Journey details remain in page state. The localStorage CMS is not a secure shared booking backend.
 
-**Destinations and services.** Sydney/Tokyo flight and Bali holiday actions remain; country metadata follows titles. Images retain dimensions and meaningful alt text, hero fetch priority and lower-image lazy loading. Four independent native service disclosures preserve flights/student support, holidays, stays/ground transport, and Himalayan experiences/visa itineraries. Ruled service summaries use CSS chevrons and a 70px base minimum height (65px mobile). Booking/privacy guidance also uses native disclosures; targeted anchors open them. No custom accordion keyboard model is needed.
+**Destinations and visible guidance.** Sydney/Tokyo flight and Bali holiday photo cards include country metadata, descriptions and planner actions. Six additional flight presets cover London, Melbourne, Toronto, Dallas, Dubai and Bangkok. Visible sections provide a student checklist, Dubai/Thailand holiday stories, an Everest image/text experience, stays/transfers/visa-itinerary articles and three numbered planning steps. Contact pairs a WhatsApp action with office details. Images retain dimensions and meaningful alt text, hero fetch priority and lower-image lazy loading.
+
+**FAQs and guidance disclosures.** Six independent native FAQ disclosures reuse the former service-list styling: thin rules, CSS chevrons and 70px base summary minimum height (65px mobile). The old four service disclosures are removed. Booking/privacy guidance also uses native disclosures; targeted anchors open them. No custom accordion keyboard model is needed.
 
 ## Do's and Don'ts
 

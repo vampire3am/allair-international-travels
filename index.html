@@ -308,6 +308,10 @@
               <div>
                 <h3>Sydney</h3>
                 <p>Australia</p>
+                <p class="destination-description">
+                  Study, a family visit or a fresh start. Compare connections,
+                  transit time and the baggage you need.
+                </p>
               </div>
               <button
                 class="text-link"
@@ -330,6 +334,10 @@
               <div>
                 <h3>Tokyo</h3>
                 <p>Japan</p>
+                <p class="destination-description">
+                  Plan around your arrival date, onward journey and preferred
+                  airport. Ask about available flight options.
+                </p>
               </div>
               <button
                 class="text-link"
@@ -352,6 +360,10 @@
               <div>
                 <h3>Bali</h3>
                 <p>Indonesia</p>
+                <p class="destination-description">
+                  Slow mornings in Ubud, temple visits and time by the coast.
+                  Build a holiday at your own pace.
+                </p>
               </div>
               <button
                 class="text-link"
@@ -366,96 +378,364 @@
         <p class="destination-note">
           Have somewhere else in mind? <a href="#booking">Tell us where.</a>
         </p>
+        <div class="route-directory" aria-label="More flight destinations">
+          <p>More journeys from Kathmandu</p>
+          <div>
+            <button type="button" data-destination="London (LHR)">
+              London
+            </button>
+            <button type="button" data-destination="Melbourne (MEL)">
+              Melbourne
+            </button>
+            <button type="button" data-destination="Toronto (YYZ)">
+              Toronto
+            </button>
+            <button type="button" data-destination="Dallas (DFW)">
+              Dallas
+            </button>
+            <button type="button" data-destination="Dubai (DXB)">Dubai</button>
+            <button type="button" data-destination="Bangkok (BKK)">
+              Bangkok
+            </button>
+          </div>
+        </div>
+      </section>
+      <section
+        id="student"
+        class="section wrap student-layout"
+        aria-labelledby="student-heading"
+      >
+        <div>
+          <h2 id="student-heading">
+            A new chapter.<br />A well-planned departure.
+          </h2>
+          <p class="section-intro">
+            Moving abroad for study comes with enough decisions. Bring us your
+            intake date, destination and travel preferences; we’ll help you work
+            through the flight details.
+          </p>
+          <button id="student-plan" type="button" class="text-link">
+            Plan my student journey
+          </button>
+        </div>
+        <div class="student-checklist">
+          <article>
+            <h3>The right arrival date</h3>
+            <p>
+              Allow time between landing, reaching your accommodation and
+              starting your course. Include any onward domestic travel in your
+              request.
+            </p>
+          </article>
+          <article>
+            <h3>Baggage, explained clearly</h3>
+            <p>
+              Ask us to check student eligibility, the allowance on every
+              flight, individual bag limits and cabin baggage. Extra baggage
+              depends on the airline and fare.
+            </p>
+          </article>
+          <article>
+            <h3>Connections & flexibility</h3>
+            <p>
+              Compare layovers and airport changes alongside the price. Ask for
+              date-change charges, fare differences and refund conditions before
+              confirming.
+            </p>
+          </article>
+          <p class="small-note">
+            To get started: destination, preferred dates, passenger count and
+            whether you need a one-way or return journey. Share identity
+            documents directly with the desk when requested.
+          </p>
+        </div>
+      </section>
+      <section
+        id="tours"
+        class="section wrap holiday-section"
+        aria-labelledby="tours-heading"
+      >
+        <div class="section-heading">
+          <h2 id="tours-heading">Make room for a holiday.</h2>
+          <p>A few starting points. Every itinerary is shaped around you.</p>
+        </div>
+        <div class="holiday-grid">
+          <article class="holiday-story">
+            <img
+              src="/assets/destinations/dubai.jpg"
+              width="900"
+              height="541"
+              loading="lazy"
+              alt="Dubai skyline with the Burj Khalifa above surrounding towers."
+            />
+            <div>
+              <h3>Dubai, city to desert</h3>
+              <p>
+                Pair a city stay with time for the Marina, old Dubai and a
+                desert excursion. Tell us whether you prefer a family break,
+                shopping or a stopover.
+              </p>
+              <p class="trip-outline">
+                Discuss: hotel area · sightseeing · airport transfers
+              </p>
+              <button
+                type="button"
+                class="text-link"
+                data-holiday="Dubai city and desert holiday"
+              >
+                Plan a Dubai holiday
+              </button>
+            </div>
+          </article>
+          <article class="holiday-story">
+            <img
+              src="/assets/destinations/thailand.jpg"
+              width="900"
+              height="675"
+              loading="lazy"
+              alt="Limestone cliffs beside the turquoise water at Railay, Thailand."
+            />
+            <div>
+              <h3>Thailand, with time to unwind</h3>
+              <p>
+                Combine Bangkok’s markets and food with a beach stay. We can
+                discuss Bangkok and Pattaya, or an island-focused itinerary to
+                suit your pace.
+              </p>
+              <p class="trip-outline">
+                Discuss: city nights · beach choice · local transport
+              </p>
+              <button
+                type="button"
+                class="text-link"
+                data-holiday="Thailand city and beach holiday"
+              >
+                Plan a Thailand holiday
+              </button>
+            </div>
+          </article>
+        </div>
+        <div class="holiday-tail">
+          <p>
+            Thinking of Bali, Japan or a trip with several stops? Share the
+            places you want to see, your dates and your budget. Request a
+            written quote showing flights, accommodation, activities, meals and
+            exclusions.
+          </p>
+          <button type="button" class="text-link" data-holiday="Custom holiday">
+            Build my own holiday
+          </button>
+        </div>
+      </section>
+      <section
+        class="section wrap experience-layout"
+        aria-labelledby="experience-heading"
+      >
+        <img
+          src="/assets/destinations/everest.jpg"
+          width="900"
+          height="497"
+          loading="lazy"
+          alt="Snow-covered mountains and ridgelines in Nepal’s Everest region."
+        />
+        <div>
+          <h2 id="experience-heading">Closer to the Himalayas.</h2>
+          <p class="section-intro">
+            Explore the possibility of an Everest-region helicopter experience.
+            Speak with the desk about your group, dates and preferred private or
+            shared arrangement.
+          </p>
+          <p>
+            Before deciding, request the operator’s route, any proposed stops,
+            altitude guidance, weight limits and weather-related cancellation
+            terms. Routing and landings depend on conditions and operating
+            permissions.
+          </p>
+          <button
+            type="button"
+            class="text-link"
+            data-holiday="Everest helicopter experience"
+          >
+            Discuss an Everest experience
+          </button>
+        </div>
       </section>
       <section
         id="services"
-        class="section wrap services-layout"
-        aria-labelledby="services-heading"
+        class="section wrap practical-layout"
+        aria-labelledby="practical-heading"
       >
         <div>
-          <h2 id="services-heading">A little help.<br />All the way.</h2>
-          <p>
-            One travel desk in Putalisadak.<br />The details, taken care of
-            together.
+          <h2 id="practical-heading">The rest of your journey, too.</h2>
+          <p class="section-intro">
+            A comfortable arrival matters. Bring your stay and transport plans
+            into the same conversation.
+          </p>
+        </div>
+        <div class="practical-services">
+          <article>
+            <h3>A stay that fits your plans</h3>
+            <p>
+              For Kathmandu, tell us your preferred neighbourhood, room setup
+              and check-in dates. Airport access, work commitments and early
+              arrivals can all shape the right choice.
+            </p>
+            <p>
+              Ask for the room category, meal plan, taxes and cancellation
+              deadline in your quote.
+            </p>
+            <button type="button" class="text-link" data-plan-service="hotel">
+              Plan a Kathmandu stay
+            </button>
+          </article>
+          <article>
+            <h3>From arrival to your next stop</h3>
+            <p>
+              Airport pickups, city travel and group journeys need room for
+              people and luggage. Share your pickup point, destination,
+              passenger count and number of bags.
+            </p>
+            <p>
+              Discuss a sedan, SUV or larger group vehicle; the desk will check
+              suitability and availability.
+            </p>
+            <button
+              type="button"
+              class="text-link"
+              data-plan-service="transport"
+            >
+              Plan ground transport
+            </button>
+          </article>
+          <article>
+            <h3>An itinerary for your application</h3>
+            <p>
+              Need flight travel details for a visa application? Tell us the
+              destination, proposed dates and the embassy’s stated requirements.
+              Ask about validity and any service fee before proceeding.
+            </p>
+            <p>
+              A reservation or itinerary is separate from a visa decision and
+              may have an expiry time.
+            </p>
+            <a href="#contact" class="text-link">Ask about a visa itinerary</a>
+          </article>
+        </div>
+      </section>
+      <section
+        class="section wrap planning-steps"
+        aria-labelledby="steps-heading"
+      >
+        <div class="section-heading">
+          <h2 id="steps-heading">From an idea to an itinerary.</h2>
+          <p>Know what happens next.</p>
+        </div>
+        <ol>
+          <li>
+            <h3>Share your plans</h3>
+            <p>
+              Choose a service in the planner, add your dates and preferences,
+              then review the details before sending them to All Air on
+              WhatsApp.
+            </p>
+          </li>
+          <li>
+            <h3>Compare the details</h3>
+            <p>
+              Discuss available options with the desk. Request the full price,
+              inclusions, baggage or room conditions, and cancellation terms in
+              writing.
+            </p>
+          </li>
+          <li>
+            <h3>Confirm with confidence</h3>
+            <p>
+              Check passenger names and dates carefully. Confirm payment
+              arrangements with the desk and obtain the applicable ticket,
+              voucher or booking confirmation.
+            </p>
+          </li>
+        </ol>
+      </section>
+      <section
+        id="faq"
+        class="section wrap faq-layout"
+        aria-labelledby="faq-heading"
+      >
+        <div>
+          <h2 id="faq-heading">Before you go.</h2>
+          <p class="section-intro">
+            A few answers to help you plan.<br />For the details of your trip,
+            talk to our desk.
           </p>
         </div>
         <div class="service-list">
-          <details id="student">
-            <summary>Flights & student travel</summary>
+          <details>
+            <summary>Can I book and pay online right now?</summary>
             <div>
               <p>
-                International journeys for study, work and family. We’ll compare
-                suitable options and explain the fare, baggage and change
-                conditions before you decide.
+                Online checkout and live ticketing are not available yet. The
+                planner prepares your request for WhatsApp. All Air must check
+                availability and provide a quote before you decide; submitting a
+                request does not reserve a flight, room or tour.
               </p>
-              <p>
-                Student baggage depends on your airline, fare, eligibility and
-                each flight segment. Ask for the exact allowance in your
-                quotation.
-              </p>
-              <button id="student-plan" type="button" class="text-link">
-                Plan my student journey
-              </button>
-            </div>
-          </details>
-          <details id="tours">
-            <summary>Holidays, your way</summary>
-            <div>
-              <p>
-                Bali, Thailand, Dubai, Japan—or a different place on your list.
-                Discuss your dates, budget and pace; we’ll put together an
-                individual itinerary.
-              </p>
-              <button
-                type="button"
-                class="text-link"
-                data-holiday="Custom holiday"
-              >
-                Plan a holiday
-              </button>
             </div>
           </details>
           <details>
-            <summary>Stays & ground transfers</summary>
+            <summary>What do you need for a flight quote?</summary>
             <div>
               <p>
-                A Kathmandu stay, an airport pickup or transport for your group.
-                Share your dates, passengers, luggage and requirements so we can
-                check the options.
+                Your departure and arrival cities, dates, one-way or return
+                preference and passenger count. Mention children’s ages, student
+                travel, baggage needs and flexible dates in the notes. Do not
+                enter passport or card details in the planner.
               </p>
-              <div class="inline-actions">
-                <button
-                  type="button"
-                  class="text-link"
-                  data-plan-service="hotel"
-                >
-                  Plan a stay</button
-                ><button
-                  type="button"
-                  class="text-link"
-                  data-plan-service="transport"
-                >
-                  Arrange a transfer
-                </button>
-              </div>
             </div>
           </details>
           <details>
-            <summary>Himalayan experiences & visa itineraries</summary>
+            <summary>Is extra student baggage guaranteed?</summary>
             <div>
               <p>
-                Ask about an Everest-region helicopter experience or an
-                itinerary for a visa application. Flight operations depend on
-                weather and operator approval; an itinerary does not guarantee a
-                visa.
+                No universal allowance applies. Eligibility, route, airline and
+                fare conditions vary, including across connecting flights. Ask
+                for the confirmed allowance and document requirements for your
+                specific ticket.
               </p>
-              <button
-                type="button"
-                class="text-link"
-                data-holiday="Everest helicopter experience"
+            </div>
+          </details>
+          <details>
+            <summary>What is included in a holiday quote?</summary>
+            <div>
+              <p>
+                It depends on the itinerary. Ask the desk to list flights, hotel
+                and room category, meals, transfers, activities, visa-related
+                services, taxes and exclusions separately. The destination ideas
+                on this page are starting points, not fixed packages.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I change or cancel my plans?</summary>
+            <div>
+              <p>
+                Rules depend on the airline, hotel or tour operator and the
+                option you choose. Check deadlines, penalties, fare differences,
+                refund conditions and agency service fees before paying. Ask the
+                desk about your specific booking.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I visit the All Air office?</summary>
+            <div>
+              <p>
+                Yes. Find us at Star Mall, 3rd Floor, Putalisadak, Kathmandu,
+                Sunday–Friday, 9:30 am–6:30 pm Nepal time. Call or message ahead
+                if you want to discuss documents or a detailed itinerary.
+              </p>
+              <a class="text-link" href="#contact"
+                >Office and contact details</a
               >
-                Discuss an Everest experience
-              </button>
             </div>
           </details>
         </div>

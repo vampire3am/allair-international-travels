@@ -36,4 +36,4 @@ Destination photo origins: `assets/CREDITS.md`, `assets/destinations/manifest.js
 
 ## Minimal revision
 
-The owner rejected the earlier condensed headings, dark bands and oversized booking panel. The revised homepage uses one Manrope type family, white and charcoal surfaces, panoramic photography and native expandable planning/service rows. Core services and the validated journey flow remain accessible; decorative sections and duplicate destination imagery were removed.
+The owner rejected the earlier condensed headings, dark bands and oversized booking panel. The revised homepage uses one Manrope type family, white and charcoal surfaces and panoramic photography. The content expansion makes student guidance, holiday ideas, Everest experiences, stays, transfers and visa itinerary information visible, with six additional flight presets, booking steps and six FAQs. The planner remains expandable and all presets use the existing validated journey flow.

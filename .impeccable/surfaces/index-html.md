@@ -18,7 +18,7 @@ STORY: Visitors understand flights, student support and holidays, explore actual
 
 FIRST VIEWPORT: A clean logo/navigation row; large regular-weight Kathmandu headline on the left and a short introduction/action on the right; one panoramic Himalayan photograph below. The planner is a single expandable row rather than a permanent side panel. Signature interaction: choosing a destination opens and prefills the planner, then focuses the destination; reduced motion is respected.
 
-FORM: User-pinned minimal revision supersedes the visual output of seed 54956b34. No new concept choice is required: the user explicitly directed simplification of the existing implementation. Three destinations and four native service disclosures replace the long sequence of promotional panels. Agency contact and booking/privacy guidance remain present.
+FORM: User-pinned minimal revision supersedes the visual output of seed 54956b34. The follow-up asks for more content after inspecting both live sites. Preserve minimal styling while making student guidance, holiday ideas, Everest experiences, stays, transfers, booking steps and FAQ visible. Three photographic destinations plus six route presets lead into the planner. Avoid repeated service summaries, invented fares and unsupported claims. Agency contact and booking/privacy guidance remain present.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
