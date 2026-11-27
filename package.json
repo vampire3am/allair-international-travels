@@ -1,11 +1,12 @@
 {
   "name": "all-air-minimal",
   "version": "1.0.0",
-  "description": "Allair International Travels & Tours — Minimal Aesthetic Edition",
+  "description": "All Air International Travels & Tours — Kathmandu travel desk",
   "type": "module",
   "scripts": {
     "dev": "vite --port 5174",
     "build": "vite build",
+    "test": "node --test tests/*.test.js",
     "preview": "vite preview --port 5174"
   },
   "devDependencies": {
